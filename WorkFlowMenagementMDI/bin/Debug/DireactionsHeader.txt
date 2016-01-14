@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        body
+        {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+    </style>
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="3">
+         <tr>
+            <td colspan="2">
+                <div id="dvDistance"> </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="dvMap" style="width: 600px; height: 600px"> </div>
+            </td>
+            <td>
+                <div id="dvPanel" style="width: 500px; height: 500px"> </div>
+            </td>
+        </tr>
+    </table>
+    <br />
+
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+    <script type="text/javascript">
+		var sourceLat,sourceLon,destiLat,destiLong;
+        var directionsDisplay;
+        var directionsService = new google.maps.DirectionsService();
+        google.maps.event.addDomListener(window, 'load', function () {
+            directionsDisplay = new google.maps.DirectionsRenderer({ 'draggable': false });
+        });
+
+       window.onload =function (){
+            var gampaha = new google.maps.LatLng(7.061137, 79.979695);
+            var mapOptions = {
+                zoom: 7,
+                center: gampaha
+            };
+            map = new google.maps.Map(document.getElementById('dvMap'), mapOptions);
+            directionsDisplay.setMap(map);
+            directionsDisplay.setPanel(document.getElementById('dvPanel'));
+
+            //*********DIRECTIONS AND ROUTE**********************//
+
+			sourceLat  = 7.708265;
+			sourceLon = 80.136058;
+			destiLat = 7.550035;
+			destiLong = 79.886602;
+
+            var request = {                                                          
+                origin: new google.maps.LatLng(sourceLat, sourceLon),                 
+                destination: new google.maps.LatLng(destiLat, destiLong),
+                travelMode: google.maps.TravelMode.DRIVING
+            };
+            directionsService.route(request, function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                }
+            });
+
+            //*********DISTANCE AND DURATION**********************//
+            var service = new google.maps.DistanceMatrixService();
+            service.getDistanceMatrix({
+                origins: google.maps.LatLng(sourceLat, sourceLon),
+                destinations: google.maps.LatLng(destiLat, destiLong),
+                travelMode: google.maps.TravelMode.DRIVING,
+                unitSystem: google.maps.UnitSystem.METRIC,
+                avoidHighways: false,
+                avoidTolls: false
+            }, function (response, status) {
+                if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+                    var distance = response.rows[0].elements[0].distance.text;
+                    var duration = response.rows[0].elements[0].duration.text;
+                    var dvDistance = document.getElementById("dvDistance");
+                    dvDistance.innerHTML = "";
+                    dvDistance.innerHTML += "Distance: " + distance + "<br />";
+                    dvDistance.innerHTML += "Duration:" + duration;
+
+                } else {
+                    alert("Unable to find the distance via road.");
+                }
+            });
+        }
+    </script>
+    
+</body>
+</html>

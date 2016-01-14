@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FOVisitsDataSet" targetNamespace="http://tempuri.org/FOVisitsDataSet.xsd" xmlns:mstns="http://tempuri.org/FOVisitsDataSet.xsd" xmlns="http://tempuri.org/FOVisitsDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FOVisitsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="FOVisitsDataSet" msprop:Generator_UserDSName="FOVisitsDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="VisitsDT" msprop:Generator_TableClassName="VisitsDTDataTable" msprop:Generator_TableVarName="tableVisitsDT" msprop:Generator_TablePropName="VisitsDT" msprop:Generator_RowDeletingName="VisitsDTRowDeleting" msprop:Generator_RowChangingName="VisitsDTRowChanging" msprop:Generator_RowEvHandlerName="VisitsDTRowChangeEventHandler" msprop:Generator_RowDeletedName="VisitsDTRowDeleted" msprop:Generator_UserTableName="VisitsDT" msprop:Generator_RowChangedName="VisitsDTRowChanged" msprop:Generator_RowEvArgName="VisitsDTRowChangeEvent" msprop:Generator_RowClassName="VisitsDTRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Farmer_ID" msprop:Generator_ColumnVarNameInTable="columnFarmer_ID" msprop:Generator_ColumnPropNameInRow="Farmer_ID" msprop:Generator_ColumnPropNameInTable="Farmer_IDColumn" msprop:Generator_UserColumnName="Farmer_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:string" minOccurs="0" />
+              <xs:element name="FAR_HDR_MST_CODE" msprop:Generator_ColumnVarNameInTable="columnFAR_HDR_MST_CODE" msprop:Generator_ColumnPropNameInRow="FAR_HDR_MST_CODE" msprop:Generator_ColumnPropNameInTable="FAR_HDR_MST_CODEColumn" msprop:Generator_UserColumnName="FAR_HDR_MST_CODE" type="xs:string" minOccurs="0" />
+              <xs:element name="FAR_HDR_MST_NAME" msprop:Generator_ColumnVarNameInTable="columnFAR_HDR_MST_NAME" msprop:Generator_ColumnPropNameInRow="FAR_HDR_MST_NAME" msprop:Generator_ColumnPropNameInTable="FAR_HDR_MST_NAMEColumn" msprop:Generator_UserColumnName="FAR_HDR_MST_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="AREA_MST_NAME" msprop:Generator_ColumnVarNameInTable="columnAREA_MST_NAME" msprop:Generator_ColumnPropNameInRow="AREA_MST_NAME" msprop:Generator_ColumnPropNameInTable="AREA_MST_NAMEColumn" msprop:Generator_UserColumnName="AREA_MST_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="Start_Time" msprop:Generator_ColumnVarNameInTable="columnStart_Time" msprop:Generator_ColumnPropNameInRow="Start_Time" msprop:Generator_ColumnPropNameInTable="Start_TimeColumn" msprop:Generator_UserColumnName="Start_Time" type="xs:string" minOccurs="0" />
+              <xs:element name="End_Time" msprop:Generator_ColumnVarNameInTable="columnEnd_Time" msprop:Generator_ColumnPropNameInRow="End_Time" msprop:Generator_ColumnPropNameInTable="End_TimeColumn" msprop:Generator_UserColumnName="End_Time" type="xs:string" minOccurs="0" />
+              <xs:element name="Duration" msprop:Generator_ColumnVarNameInTable="columnDuration" msprop:Generator_ColumnPropNameInRow="Duration" msprop:Generator_ColumnPropNameInTable="DurationColumn" msprop:Generator_UserColumnName="Duration" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

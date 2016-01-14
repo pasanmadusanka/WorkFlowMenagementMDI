@@ -1,0 +1,738 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CA55EB19-A562-47A0-8BB0-B3D86A00C138}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WorkFlowMenagementMDI</RootNamespace>
+    <AssemblyName>WorkFlowMenagementMDI</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DelmoEncriptDLL">
+      <HintPath>..\..\..\..\Feed Supply Schadule App\V3\FeedIssueScaduleAPP\FeedIssueScaduleAPP\Infrastructure\DelmoEncriptDLL.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="GongShell">
+      <HintPath>..\..\..\..\..\Tracking Details\Project\GongShell.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\Tracking Details\Project\V10\GetGeoLocation\packages\Excel-DNA.Interop.14.0.1\lib\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Vbe.Interop, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\Tracking Details\Project\V10\GetGeoLocation\packages\Excel-DNA.Interop.14.0.1\lib\Microsoft.Vbe.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\Tracking Details\Project\V10\GetGeoLocation\packages\Excel-DNA.Interop.14.0.1\lib\Office.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Database\ConnectionManager.cs" />
+    <Compile Include="Database\DBAccess.cs" />
+    <Compile Include="Database\FarmersMethods.cs" />
+    <Compile Include="FeedIssue\DBMethods\FeedIssueScheduleListMethods.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FeedIssue\DBMethods\FeedIssueScheduleMethods.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FeedIssue\DBMethods\GetFarmerDetails.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FeedIssue\DBMethods\ReportAccessMethods.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FeedIssue\DBMethods\ReportToTMPTblMethod.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FeedIssue\ReportView\DSFeedIssueWeekPlan.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSFeedIssueWeekPlan.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FeedIssue\ReportView\DSReportFeedIssue.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSReportFeedIssue.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FeedIssue\ReportView\FeedIssueDateRangeCR1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FeedIssueDateRangeCR.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FeedIssue\ReportView\FeedIssueScheduleCR1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FeedIssueScheduleCR.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FeedIssue\ReportView\ReportSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeedIssue\ReportView\ReportSelector.Designer.cs">
+      <DependentUpon>ReportSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FeedIssue\ReportView\ReportSelectorDateRange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeedIssue\ReportView\ReportSelectorDateRange.Designer.cs">
+      <DependentUpon>ReportSelectorDateRange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FeedIssue\ReportView\ReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeedIssue\ReportView\ReportViewer.Designer.cs">
+      <DependentUpon>ReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FeedIssue\ReportView\ScheduleDateToItemCR1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScheduleDateToItemCR.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FeedIssue\Views\FeedIssueSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeedIssue\Views\FeedIssueSchedule.Designer.cs">
+      <DependentUpon>FeedIssueSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FeedIssue\Views\FeedIssueScheduleList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeedIssue\Views\FeedIssueScheduleList.Designer.cs">
+      <DependentUpon>FeedIssueScheduleList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuelApp\Methods\AdminToControllerDataMethod.cs" />
+    <Compile Include="FuelApp\Methods\ControllerMethods.cs" />
+    <Compile Include="FuelApp\Methods\FuelWeeklyStockMethods.cs" />
+    <Compile Include="FuelApp\Methods\GetAvalableStockClass.cs" />
+    <Compile Include="FuelApp\Methods\NewReportMethods.cs" />
+    <Compile Include="FuelApp\Methods\ReportAccess.cs" />
+    <Compile Include="FuelApp\Methods\ReportMethods.cs" />
+    <Compile Include="FuelApp\Methods\ScreenCapture.cs" />
+    <Compile Include="FuelApp\Methods\SMS_DbAccess.cs" />
+    <Compile Include="FuelApp\Methods\TreeViweMethods.cs" />
+    <Compile Include="FuelApp\Views\Admin_Controller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FuelApp\Views\Admin_Controller.Designer.cs">
+      <DependentUpon>Admin_Controller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuelApp\Views\Controller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FuelApp\Views\Controller.Designer.cs">
+      <DependentUpon>Controller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuelApp\Views\ReportGen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FuelApp\Views\ReportGen.Designer.cs">
+      <DependentUpon>ReportGen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuelApp\Views\Reports\DataSet2.cs">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FuelApp\Views\Reports\DataSet2.Designer.cs">
+      <DependentUpon>DataSet2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuelApp\Views\Reports\DataSet21.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FuelApp\Views\Reports\DateSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FuelApp\Views\Reports\DateSelection.Designer.cs">
+      <DependentUpon>DateSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuelApp\Views\Reports\FormReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FuelApp\Views\Reports\FormReportView.Designer.cs">
+      <DependentUpon>FormReportView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuelApp\Views\Reports\FuelReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FuelReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FuelApp\Views\Reports\FuelreportCR1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FuelreportCR.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FuelApp\Views\Reports\ReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FuelApp\Views\Reports\ReportView.Designer.cs">
+      <DependentUpon>ReportView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuelApp\Views\Settings\PhysicalStockAddOnOff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FuelApp\Views\Settings\PhysicalStockAddOnOff.Designer.cs">
+      <DependentUpon>PhysicalStockAddOnOff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuelApp\Views\Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FuelApp\Views\Splash.Designer.cs">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuelApp\Views\StockMovement\FuelStkReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FuelStkReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FuelApp\Views\StockMovement\FuelStockDataSet.cs">
+      <DependentUpon>FuelStockDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FuelApp\Views\StockMovement\FuelStockDataSet.Designer.cs">
+      <DependentUpon>FuelStockDataSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuelApp\Views\StockMovement\FuelStockDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FuelStockDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FuelApp\Views\StockMovement\FuelStockMovementMethods.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FuelApp\Views\StockMovement\PhysicalStockDS.cs">
+      <DependentUpon>PhysicalStockDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FuelApp\Views\StockMovement\PhysicalStockDS.Designer.cs">
+      <DependentUpon>PhysicalStockDS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuelApp\Views\StockMovement\PhysicalStockDS1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PhysicalStockDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FuelApp\Views\StockMovement\PhysicalStockReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PhysicalStockReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FuelApp\Views\StockMovement\SaveWeeklyPhysicalStk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FuelApp\Views\StockMovement\SaveWeeklyPhysicalStk.Designer.cs">
+      <DependentUpon>SaveWeeklyPhysicalStk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuelApp\Views\StockMovement\StockMovementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FuelApp\Views\StockMovement\StockMovementForm.Designer.cs">
+      <DependentUpon>StockMovementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuelApp\Views\StockMovement\StockMovementReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FuelApp\Views\StockMovement\StockMovementReportView.Designer.cs">
+      <DependentUpon>StockMovementReportView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\UserInfo.cs" />
+    <Compile Include="Login\LoginWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\LoginWindow.Designer.cs">
+      <DependentUpon>LoginWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\LoginMethods.cs" />
+    <Compile Include="Login\ProvideConstrForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\ProvideConstrForm.Designer.cs">
+      <DependentUpon>ProvideConstrForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Methods\Customers\CustomerLocationCreationMethods.cs" />
+    <Compile Include="Tracking\Methods\Customers\FindLocationsOfCustomersMethods.cs" />
+    <Compile Include="Tracking\Methods\Customers\GetResFromTMP.cs" />
+    <Compile Include="Tracking\Methods\Farmers\FarmersCreationMethods.cs" />
+    <Compile Include="Tracking\Methods\Farmers\FarmersViewMethods.cs" />
+    <Compile Include="Tracking\Methods\FieldOfficers\FieldOfficerCreationMethods.cs" />
+    <Compile Include="Tracking\Methods\GetAllFarmers.cs" />
+    <Compile Include="Tracking\Methods\GetFarmerVisitation.cs" />
+    <Compile Include="Tracking\Methods\GetUser.cs" />
+    <Compile Include="Tracking\Methods\ReportFilterMethods.cs" />
+    <Compile Include="Tracking\Methods\SalesCustomers\DeviseDetailsOfVehicleMethod.cs" />
+    <Compile Include="Tracking\Methods\ShellNetworkComputers.cs" />
+    <Compile Include="Tracking\Methods\UploadDetailsDB.cs" />
+    <Compile Include="Tracking\Reports\Customers\CustomerDropingbuysCR1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerDropingbuysCR.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tracking\Reports\Customers\CustVisitDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustVisitDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Reports\Customers\GetREportCusAMT1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetREportCusAMT.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tracking\Reports\FOVisitsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FOVisitsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Reports\OfficerVisitsCR1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OfficerVisitsCR.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tracking\Reports\ReportViewerFarmer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\Reports\ReportViewerFarmer.Designer.cs">
+      <DependentUpon>ReportViewerFarmer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Views\Customers\CustomerCreations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\Views\Customers\CustomerCreations.Designer.cs">
+      <DependentUpon>CustomerCreations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Views\Customers\CustomerTMPView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\Views\Customers\CustomerTMPView.Designer.cs">
+      <DependentUpon>CustomerTMPView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Views\Customers\DeviceDetailsOfCust.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\Views\Customers\DeviceDetailsOfCust.Designer.cs">
+      <DependentUpon>DeviceDetailsOfCust.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Views\Customers\FindLocationsOfCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\Views\Customers\FindLocationsOfCustomers.Designer.cs">
+      <DependentUpon>FindLocationsOfCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Views\FarmersLocationFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\Views\FarmersLocationFilter.Designer.cs">
+      <DependentUpon>FarmersLocationFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Views\Farmers\FarmerCreationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\Views\Farmers\FarmerCreationForm.Designer.cs">
+      <DependentUpon>FarmerCreationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Views\Farmers\FarmersLocationsDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\Views\Farmers\FarmersLocationsDetails.Designer.cs">
+      <DependentUpon>FarmersLocationsDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Views\FieldOfficers\FieldOfficerCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\Views\FieldOfficers\FieldOfficerCreation.Designer.cs">
+      <DependentUpon>FieldOfficerCreation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Views\FindLocationFromMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\Views\FindLocationFromMap.Designer.cs">
+      <DependentUpon>FindLocationFromMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Views\MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\Views\MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Views\ReportView\CustomerReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\Views\ReportView\CustomerReports.Designer.cs">
+      <DependentUpon>CustomerReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Views\ReportView\FarmerReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\Views\ReportView\FarmerReport.Designer.cs">
+      <DependentUpon>FarmerReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Views\Upload\UploadExcelParkingDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\Views\Upload\UploadExcelParkingDetails.Designer.cs">
+      <DependentUpon>UploadExcelParkingDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlowMenagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkFlowMenagement.Designer.cs">
+      <DependentUpon>WorkFlowMenagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FeedIssue\ReportView\FeedIssueDateRangeCR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FeedIssueDateRangeCR1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeedIssue\ReportView\FeedIssueScheduleCR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FeedIssueScheduleCR1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeedIssue\ReportView\ReportSelector.resx">
+      <DependentUpon>ReportSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeedIssue\ReportView\ReportSelectorDateRange.resx">
+      <DependentUpon>ReportSelectorDateRange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeedIssue\ReportView\ReportViewer.resx">
+      <DependentUpon>ReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeedIssue\ReportView\ScheduleDateToItemCR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ScheduleDateToItemCR1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeedIssue\Views\FeedIssueSchedule.resx">
+      <DependentUpon>FeedIssueSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeedIssue\Views\FeedIssueScheduleList.resx">
+      <DependentUpon>FeedIssueScheduleList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuelApp\Views\Admin_Controller.resx">
+      <DependentUpon>Admin_Controller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuelApp\Views\Controller.resx">
+      <DependentUpon>Controller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuelApp\Views\ReportGen.resx">
+      <DependentUpon>ReportGen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuelApp\Views\Reports\DateSelection.resx">
+      <DependentUpon>DateSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuelApp\Views\Reports\FormReportView.resx">
+      <DependentUpon>FormReportView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuelApp\Views\Reports\FuelReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FuelReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuelApp\Views\Reports\FuelreportCR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FuelreportCR1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuelApp\Views\Reports\ReportView.resx">
+      <DependentUpon>ReportView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuelApp\Views\Settings\PhysicalStockAddOnOff.resx">
+      <DependentUpon>PhysicalStockAddOnOff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuelApp\Views\Splash.resx">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuelApp\Views\StockMovement\FuelStkReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FuelStkReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuelApp\Views\StockMovement\PhysicalStockReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PhysicalStockReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuelApp\Views\StockMovement\SaveWeeklyPhysicalStk.resx">
+      <DependentUpon>SaveWeeklyPhysicalStk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuelApp\Views\StockMovement\StockMovementForm.resx">
+      <DependentUpon>StockMovementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuelApp\Views\StockMovement\StockMovementReportView.resx">
+      <DependentUpon>StockMovementReportView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\LoginWindow.resx">
+      <DependentUpon>LoginWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\ProvideConstrForm.resx">
+      <DependentUpon>ProvideConstrForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Reports\Customers\CustomerDropingbuysCR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CustomerDropingbuysCR1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Reports\Customers\GetREportCusAMT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GetREportCusAMT1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Reports\OfficerVisitsCR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>OfficerVisitsCR1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Reports\ReportViewerFarmer.resx">
+      <DependentUpon>ReportViewerFarmer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Views\Customers\CustomerCreations.resx">
+      <DependentUpon>CustomerCreations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Views\Customers\CustomerTMPView.resx">
+      <DependentUpon>CustomerTMPView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Views\Customers\DeviceDetailsOfCust.resx">
+      <DependentUpon>DeviceDetailsOfCust.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Views\Customers\FindLocationsOfCustomers.resx">
+      <DependentUpon>FindLocationsOfCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Views\FarmersLocationFilter.resx">
+      <DependentUpon>FarmersLocationFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Views\Farmers\FarmerCreationForm.resx">
+      <DependentUpon>FarmerCreationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Views\Farmers\FarmersLocationsDetails.resx">
+      <DependentUpon>FarmersLocationsDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Views\FieldOfficers\FieldOfficerCreation.resx">
+      <DependentUpon>FieldOfficerCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Views\FindLocationFromMap.resx">
+      <DependentUpon>FindLocationFromMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Views\MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Views\ReportView\CustomerReports.resx">
+      <DependentUpon>CustomerReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Views\ReportView\FarmerReport.resx">
+      <DependentUpon>FarmerReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Views\Upload\UploadExcelParkingDetails.resx">
+      <DependentUpon>UploadExcelParkingDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkFlowMenagement.resx">
+      <DependentUpon>WorkFlowMenagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="FeedIssue\ReportView\DSFeedIssueWeekPlan.xsc">
+      <DependentUpon>DSFeedIssueWeekPlan.xsd</DependentUpon>
+    </None>
+    <None Include="FeedIssue\ReportView\DSFeedIssueWeekPlan.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSFeedIssueWeekPlan.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="FeedIssue\ReportView\DSFeedIssueWeekPlan.xss">
+      <DependentUpon>DSFeedIssueWeekPlan.xsd</DependentUpon>
+    </None>
+    <None Include="FeedIssue\ReportView\DSReportFeedIssue.xsc">
+      <DependentUpon>DSReportFeedIssue.xsd</DependentUpon>
+    </None>
+    <None Include="FeedIssue\ReportView\DSReportFeedIssue.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSReportFeedIssue.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="FeedIssue\ReportView\DSReportFeedIssue.xss">
+      <DependentUpon>DSReportFeedIssue.xsd</DependentUpon>
+    </None>
+    <None Include="FuelApp\Views\Reports\DataSet2.xsc">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="FuelApp\Views\Reports\DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet21.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FuelApp\Views\Reports\DataSet2.xss">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="FuelApp\Views\StockMovement\FuelStockDataSet.xsc">
+      <DependentUpon>FuelStockDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FuelApp\Views\StockMovement\FuelStockDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FuelStockDataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="FuelApp\Views\StockMovement\FuelStockDataSet.xss">
+      <DependentUpon>FuelStockDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FuelApp\Views\StockMovement\PhysicalStockDS.xsc">
+      <DependentUpon>PhysicalStockDS.xsd</DependentUpon>
+    </None>
+    <None Include="FuelApp\Views\StockMovement\PhysicalStockDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PhysicalStockDS1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="FuelApp\Views\StockMovement\PhysicalStockDS.xss">
+      <DependentUpon>PhysicalStockDS.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Tracking\Reports\Customers\CustVisitDS.xsc">
+      <DependentUpon>CustVisitDS.xsd</DependentUpon>
+    </None>
+    <None Include="Tracking\Reports\Customers\CustVisitDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CustVisitDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Tracking\Reports\Customers\CustVisitDS.xss">
+      <DependentUpon>CustVisitDS.xsd</DependentUpon>
+    </None>
+    <None Include="Tracking\Reports\FOVisitsDataSet.xsc">
+      <DependentUpon>FOVisitsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Tracking\Reports\FOVisitsDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FOVisitsDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Tracking\Reports\FOVisitsDataSet.xss">
+      <DependentUpon>FOVisitsDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CustomerLocs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DELMO_LOGO21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\locations.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mesh_background___1280x720_by_teamsjk-d3irbsx.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus-sign-icon-gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus-sign-icon-gray1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveIMG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Half Page.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1393431532_Excel_D.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

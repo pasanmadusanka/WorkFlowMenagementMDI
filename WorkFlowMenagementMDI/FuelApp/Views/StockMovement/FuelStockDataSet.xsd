@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FuelStockDataSet" targetNamespace="http://tempuri.org/FuelStockDataSet.xsd" xmlns:mstns="http://tempuri.org/FuelStockDataSet.xsd" xmlns="http://tempuri.org/FuelStockDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FuelStockDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="FuelStockDataSet" msprop:Generator_UserDSName="FuelStockDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="StockDataTable" msprop:Generator_TableClassName="StockDataTableDataTable" msprop:Generator_TableVarName="tableStockDataTable" msprop:Generator_TablePropName="StockDataTable" msprop:Generator_RowDeletingName="StockDataTableRowDeleting" msprop:Generator_RowChangingName="StockDataTableRowChanging" msprop:Generator_RowEvHandlerName="StockDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="StockDataTableRowDeleted" msprop:Generator_UserTableName="StockDataTable" msprop:Generator_RowChangedName="StockDataTableRowChanged" msprop:Generator_RowEvArgName="StockDataTableRowChangeEvent" msprop:Generator_RowClassName="StockDataTableRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FIN_DOC_INDEX" msprop:Generator_ColumnVarNameInTable="columnFIN_DOC_INDEX" msprop:Generator_ColumnPropNameInRow="FIN_DOC_INDEX" msprop:Generator_ColumnPropNameInTable="FIN_DOC_INDEXColumn" msprop:Generator_UserColumnName="FIN_DOC_INDEX" type="xs:int" minOccurs="0" />
+              <xs:element name="FIN_DOC_DATE" msprop:Generator_ColumnVarNameInTable="columnFIN_DOC_DATE" msprop:Generator_ColumnPropNameInRow="FIN_DOC_DATE" msprop:Generator_ColumnPropNameInTable="FIN_DOC_DATEColumn" msprop:Generator_UserColumnName="FIN_DOC_DATE" type="xs:string" minOccurs="0" />
+              <xs:element name="FIN_DOC_TIME" msprop:Generator_ColumnVarNameInTable="columnFIN_DOC_TIME" msprop:Generator_ColumnPropNameInRow="FIN_DOC_TIME" msprop:Generator_ColumnPropNameInTable="FIN_DOC_TIMEColumn" msprop:Generator_UserColumnName="FIN_DOC_TIME" type="xs:string" minOccurs="0" />
+              <xs:element name="REFARANCE" msprop:Generator_ColumnVarNameInTable="columnREFARANCE" msprop:Generator_ColumnPropNameInRow="REFARANCE" msprop:Generator_ColumnPropNameInTable="REFARANCEColumn" msprop:Generator_UserColumnName="REFARANCE" type="xs:string" minOccurs="0" />
+              <xs:element name="FIN_OPEN_BAL" msprop:Generator_ColumnVarNameInTable="columnFIN_OPEN_BAL" msprop:Generator_ColumnPropNameInRow="FIN_OPEN_BAL" msprop:Generator_ColumnPropNameInTable="FIN_OPEN_BALColumn" msprop:Generator_UserColumnName="FIN_OPEN_BAL" type="xs:double" minOccurs="0" />
+              <xs:element name="FIN_RECIVED" msprop:Generator_ColumnVarNameInTable="columnFIN_RECIVED" msprop:Generator_ColumnPropNameInRow="FIN_RECIVED" msprop:Generator_ColumnPropNameInTable="FIN_RECIVEDColumn" msprop:Generator_UserColumnName="FIN_RECIVED" type="xs:double" minOccurs="0" />
+              <xs:element name="FIN_OUT" msprop:Generator_ColumnVarNameInTable="columnFIN_OUT" msprop:Generator_ColumnPropNameInRow="FIN_OUT" msprop:Generator_ColumnPropNameInTable="FIN_OUTColumn" msprop:Generator_UserColumnName="FIN_OUT" type="xs:double" minOccurs="0" />
+              <xs:element name="FIN_CLOSED_BALANCE" msprop:Generator_ColumnVarNameInTable="columnFIN_CLOSED_BALANCE" msprop:Generator_ColumnPropNameInRow="FIN_CLOSED_BALANCE" msprop:Generator_ColumnPropNameInTable="FIN_CLOSED_BALANCEColumn" msprop:Generator_UserColumnName="FIN_CLOSED_BALANCE" type="xs:double" minOccurs="0" />
+              <xs:element name="user" msprop:Generator_ColumnVarNameInTable="columnuser" msprop:Generator_ColumnPropNameInRow="user" msprop:Generator_ColumnPropNameInTable="userColumn" msprop:Generator_UserColumnName="user" type="xs:string" minOccurs="0" />
+              <xs:element name="TERMINAL_NAME" msprop:Generator_ColumnVarNameInTable="columnTERMINAL_NAME" msprop:Generator_ColumnPropNameInRow="TERMINAL_NAME" msprop:Generator_ColumnPropNameInTable="TERMINAL_NAMEColumn" msprop:Generator_UserColumnName="TERMINAL_NAME" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

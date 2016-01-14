@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSReportFeedIssue" targetNamespace="http://tempuri.org/DSReportFeedIssue.xsd" xmlns:mstns="http://tempuri.org/DSReportFeedIssue.xsd" xmlns="http://tempuri.org/DSReportFeedIssue.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSReportFeedIssue" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSReportFeedIssue" msprop:Generator_UserDSName="DSReportFeedIssue">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DTFeed" msprop:Generator_TableClassName="DTFeedDataTable" msprop:Generator_TableVarName="tableDTFeed" msprop:Generator_TablePropName="DTFeed" msprop:Generator_RowDeletingName="DTFeedRowDeleting" msprop:Generator_RowChangingName="DTFeedRowChanging" msprop:Generator_RowEvHandlerName="DTFeedRowChangeEventHandler" msprop:Generator_RowDeletedName="DTFeedRowDeleted" msprop:Generator_UserTableName="DTFeed" msprop:Generator_RowChangedName="DTFeedRowChanged" msprop:Generator_RowEvArgName="DTFeedRowChangeEvent" msprop:Generator_RowClassName="DTFeedRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FED_ISS_SCH_BATCH_ID" msprop:Generator_ColumnVarNameInTable="columnFED_ISS_SCH_BATCH_ID" msprop:Generator_ColumnPropNameInRow="FED_ISS_SCH_BATCH_ID" msprop:Generator_ColumnPropNameInTable="FED_ISS_SCH_BATCH_IDColumn" msprop:Generator_UserColumnName="FED_ISS_SCH_BATCH_ID" type="xs:string" minOccurs="0" />
+              <xs:element name="FAR_HDR_MST_CODE" msprop:Generator_ColumnVarNameInTable="columnFAR_HDR_MST_CODE" msprop:Generator_ColumnPropNameInRow="FAR_HDR_MST_CODE" msprop:Generator_ColumnPropNameInTable="FAR_HDR_MST_CODEColumn" msprop:Generator_UserColumnName="FAR_HDR_MST_CODE" type="xs:string" minOccurs="0" />
+              <xs:element name="Week" msprop:Generator_ColumnVarNameInTable="columnWeek" msprop:Generator_ColumnPropNameInRow="Week" msprop:Generator_ColumnPropNameInTable="WeekColumn" msprop:Generator_UserColumnName="Week" type="xs:string" minOccurs="0" />
+              <xs:element name="FAR_HDR_MST_NAME" msprop:Generator_ColumnVarNameInTable="columnFAR_HDR_MST_NAME" msprop:Generator_ColumnPropNameInRow="FAR_HDR_MST_NAME" msprop:Generator_ColumnPropNameInTable="FAR_HDR_MST_NAMEColumn" msprop:Generator_UserColumnName="FAR_HDR_MST_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="BAT_CRT_NO_CHICKS" msprop:Generator_ColumnVarNameInTable="columnBAT_CRT_NO_CHICKS" msprop:Generator_ColumnPropNameInRow="BAT_CRT_NO_CHICKS" msprop:Generator_ColumnPropNameInTable="BAT_CRT_NO_CHICKSColumn" msprop:Generator_UserColumnName="BAT_CRT_NO_CHICKS" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

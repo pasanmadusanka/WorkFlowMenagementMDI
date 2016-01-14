@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CustVisitDS" targetNamespace="http://tempuri.org/CustVisitDS.xsd" xmlns:mstns="http://tempuri.org/CustVisitDS.xsd" xmlns="http://tempuri.org/CustVisitDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CustVisitDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CustVisitDS" msprop:Generator_UserDSName="CustVisitDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CustVisitDT" msprop:Generator_TableClassName="CustVisitDTDataTable" msprop:Generator_TableVarName="tableCustVisitDT" msprop:Generator_TablePropName="CustVisitDT" msprop:Generator_RowDeletingName="CustVisitDTRowDeleting" msprop:Generator_RowChangingName="CustVisitDTRowChanging" msprop:Generator_RowEvHandlerName="CustVisitDTRowChangeEventHandler" msprop:Generator_RowDeletedName="CustVisitDTRowDeleted" msprop:Generator_UserTableName="CustVisitDT" msprop:Generator_RowChangedName="CustVisitDTRowChanged" msprop:Generator_RowEvArgName="CustVisitDTRowChangeEvent" msprop:Generator_RowClassName="CustVisitDTRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GPS_CUST_ID" msprop:Generator_ColumnVarNameInTable="columnGPS_CUST_ID" msprop:Generator_ColumnPropNameInRow="GPS_CUST_ID" msprop:Generator_ColumnPropNameInTable="GPS_CUST_IDColumn" msprop:Generator_UserColumnName="GPS_CUST_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="Vhi_Park_Date" msprop:Generator_ColumnVarNameInTable="columnVhi_Park_Date" msprop:Generator_ColumnPropNameInRow="Vhi_Park_Date" msprop:Generator_ColumnPropNameInTable="Vhi_Park_DateColumn" msprop:Generator_UserColumnName="Vhi_Park_Date" type="xs:string" minOccurs="0" />
+              <xs:element name="CHT_ACC_ALIAS" msprop:Generator_ColumnVarNameInTable="columnCHT_ACC_ALIAS" msprop:Generator_ColumnPropNameInRow="CHT_ACC_ALIAS" msprop:Generator_ColumnPropNameInTable="CHT_ACC_ALIASColumn" msprop:Generator_UserColumnName="CHT_ACC_ALIAS" type="xs:string" minOccurs="0" />
+              <xs:element name="CHT_ACC_NAME" msprop:Generator_ColumnVarNameInTable="columnCHT_ACC_NAME" msprop:Generator_ColumnPropNameInRow="CHT_ACC_NAME" msprop:Generator_ColumnPropNameInTable="CHT_ACC_NAMEColumn" msprop:Generator_UserColumnName="CHT_ACC_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="GPS_CUST_AREA" msprop:Generator_ColumnVarNameInTable="columnGPS_CUST_AREA" msprop:Generator_ColumnPropNameInRow="GPS_CUST_AREA" msprop:Generator_ColumnPropNameInTable="GPS_CUST_AREAColumn" msprop:Generator_UserColumnName="GPS_CUST_AREA" type="xs:string" minOccurs="0" />
+              <xs:element name="Start_Time" msprop:Generator_ColumnVarNameInTable="columnStart_Time" msprop:Generator_ColumnPropNameInRow="Start_Time" msprop:Generator_ColumnPropNameInTable="Start_TimeColumn" msprop:Generator_UserColumnName="Start_Time" type="xs:string" minOccurs="0" />
+              <xs:element name="End_Time" msprop:Generator_ColumnVarNameInTable="columnEnd_Time" msprop:Generator_ColumnPropNameInRow="End_Time" msprop:Generator_ColumnPropNameInTable="End_TimeColumn" msprop:Generator_UserColumnName="End_Time" type="xs:string" minOccurs="0" />
+              <xs:element name="Vhi_Parking_Duration" msprop:Generator_ColumnVarNameInTable="columnVhi_Parking_Duration" msprop:Generator_ColumnPropNameInRow="Vhi_Parking_Duration" msprop:Generator_ColumnPropNameInTable="Vhi_Parking_DurationColumn" msprop:Generator_UserColumnName="Vhi_Parking_Duration" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

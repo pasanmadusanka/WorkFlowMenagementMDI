@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PhysicalStockDS" targetNamespace="http://tempuri.org/PhysicalStockDS.xsd" xmlns:mstns="http://tempuri.org/PhysicalStockDS.xsd" xmlns="http://tempuri.org/PhysicalStockDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="PhysicalStockDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="PhysicalStockDS" msprop:Generator_UserDSName="PhysicalStockDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PhysicalStockDT" msprop:Generator_TableClassName="PhysicalStockDTDataTable" msprop:Generator_TableVarName="tablePhysicalStockDT" msprop:Generator_TablePropName="PhysicalStockDT" msprop:Generator_RowDeletingName="PhysicalStockDTRowDeleting" msprop:Generator_RowChangingName="PhysicalStockDTRowChanging" msprop:Generator_RowEvHandlerName="PhysicalStockDTRowChangeEventHandler" msprop:Generator_RowDeletedName="PhysicalStockDTRowDeleted" msprop:Generator_UserTableName="PhysicalStockDT" msprop:Generator_RowChangedName="PhysicalStockDTRowChanged" msprop:Generator_RowEvArgName="PhysicalStockDTRowChangeEvent" msprop:Generator_RowClassName="PhysicalStockDTRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FWS_ID" msprop:Generator_ColumnVarNameInTable="columnFWS_ID" msprop:Generator_ColumnPropNameInRow="FWS_ID" msprop:Generator_ColumnPropNameInTable="FWS_IDColumn" msprop:Generator_UserColumnName="FWS_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="FWS_DATE" msprop:Generator_ColumnVarNameInTable="columnFWS_DATE" msprop:Generator_ColumnPropNameInRow="FWS_DATE" msprop:Generator_ColumnPropNameInTable="FWS_DATEColumn" msprop:Generator_UserColumnName="FWS_DATE" type="xs:string" minOccurs="0" />
+              <xs:element name="FWS_TIME" msprop:Generator_ColumnVarNameInTable="columnFWS_TIME" msprop:Generator_ColumnPropNameInRow="FWS_TIME" msprop:Generator_ColumnPropNameInTable="FWS_TIMEColumn" msprop:Generator_UserColumnName="FWS_TIME" type="xs:string" minOccurs="0" />
+              <xs:element name="FWS_BALANCE" msprop:Generator_ColumnVarNameInTable="columnFWS_BALANCE" msprop:Generator_ColumnPropNameInRow="FWS_BALANCE" msprop:Generator_ColumnPropNameInTable="FWS_BALANCEColumn" msprop:Generator_UserColumnName="FWS_BALANCE" type="xs:double" minOccurs="0" />
+              <xs:element name="FWS_USER" msprop:Generator_ColumnVarNameInTable="columnFWS_USER" msprop:Generator_ColumnPropNameInRow="FWS_USER" msprop:Generator_ColumnPropNameInTable="FWS_USERColumn" msprop:Generator_UserColumnName="FWS_USER" type="xs:string" minOccurs="0" />
+              <xs:element name="FWS_TERMINAL_NAME" msprop:Generator_ColumnVarNameInTable="columnFWS_TERMINAL_NAME" msprop:Generator_ColumnPropNameInRow="FWS_TERMINAL_NAME" msprop:Generator_ColumnPropNameInTable="FWS_TERMINAL_NAMEColumn" msprop:Generator_UserColumnName="FWS_TERMINAL_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="FWS_SYS_BALANCE" msprop:Generator_ColumnVarNameInTable="columnFWS_SYS_BALANCE" msprop:Generator_ColumnPropNameInRow="FWS_SYS_BALANCE" msprop:Generator_ColumnPropNameInTable="FWS_SYS_BALANCEColumn" msprop:Generator_UserColumnName="FWS_SYS_BALANCE" type="xs:double" minOccurs="0" />
+              <xs:element name="Stock_Gap" msprop:Generator_ColumnVarNameInTable="columnStock_Gap" msprop:Generator_ColumnPropNameInRow="Stock_Gap" msprop:Generator_ColumnPropNameInTable="Stock_GapColumn" msprop:Generator_UserColumnName="Stock_Gap" type="xs:double" minOccurs="0" />
+              <xs:element name="FWS_METER_READ" msprop:Generator_ColumnVarNameInTable="columnFWS_METER_READ" msprop:Generator_ColumnPropNameInRow="FWS_METER_READ" msprop:Generator_ColumnPropNameInTable="FWS_METER_READColumn" msprop:Generator_UserColumnName="FWS_METER_READ" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,37 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WorkFlowMenagementMDI.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="NewConStr" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=HO51;Initial Catalog=NelnaDB;Integrated Security=True</Value>
+    </Setting>
+    <Setting Name="LastUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Admin</Value>
+    </Setting>
+    <Setting Name="UploadExeStat" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="OpenUpload" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ChkLogin" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="UserID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="CompanyName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Delmo Chicken &amp;&amp; Agro (pvt) Limited</Value>
+    </Setting>
+    <Setting Name="HeaderTextCR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Delmo Chicken &amp; Agro (pvt) Limited
+#21 Pahurumankadawatta, Waradala, Mellawagedara.
+Tel : 033-2240800 / Fax : 033224080801
+E-Mail : Info@delmo.lk / Web Address : www.delmo.lk
+Hot Line : 077 4410500 / 033 2240800</Value>
+    </Setting>
+    <Setting Name="AddPhyStkOnOff" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ON</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
