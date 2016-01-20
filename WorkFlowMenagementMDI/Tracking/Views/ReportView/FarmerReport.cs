@@ -102,6 +102,8 @@ namespace WorkFlowMenagementMDI.Tracking.Views.ReportView
             GetFarmersDetails();//Calling the combobox load
             DTPFromDate.Format = DateTimePickerFormat.Custom;
             DTPFromDate.CustomFormat = "dd/MM/yyyy";
+            DTPToDate.Format = DateTimePickerFormat.Custom;
+            DTPToDate.CustomFormat = "dd/MM/yyyy";
         }
     }
 }

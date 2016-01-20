@@ -34,6 +34,7 @@
             this.BtnParking = new System.Windows.Forms.Button();
             this.BtnCustomers = new System.Windows.Forms.Button();
             this.BtnFarmers = new System.Windows.Forms.Button();
+            this.btnFoParking = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCustomers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +74,7 @@
             // 
             // BtnParking
             // 
-            this.BtnParking.Location = new System.Drawing.Point(449, 29);
+            this.BtnParking.Location = new System.Drawing.Point(422, 29);
             this.BtnParking.Name = "BtnParking";
             this.BtnParking.Size = new System.Drawing.Size(75, 23);
             this.BtnParking.TabIndex = 4;
@@ -83,7 +84,7 @@
             // 
             // BtnCustomers
             // 
-            this.BtnCustomers.Location = new System.Drawing.Point(313, 29);
+            this.BtnCustomers.Location = new System.Drawing.Point(144, 29);
             this.BtnCustomers.Name = "BtnCustomers";
             this.BtnCustomers.Size = new System.Drawing.Size(115, 23);
             this.BtnCustomers.TabIndex = 5;
@@ -93,7 +94,7 @@
             // 
             // BtnFarmers
             // 
-            this.BtnFarmers.Location = new System.Drawing.Point(192, 29);
+            this.BtnFarmers.Location = new System.Drawing.Point(23, 29);
             this.BtnFarmers.Name = "BtnFarmers";
             this.BtnFarmers.Size = new System.Drawing.Size(115, 23);
             this.BtnFarmers.TabIndex = 6;
@@ -101,11 +102,22 @@
             this.BtnFarmers.UseVisualStyleBackColor = true;
             this.BtnFarmers.Click += new System.EventHandler(this.BtnFarmers_Click);
             // 
+            // btnFoParking
+            // 
+            this.btnFoParking.Location = new System.Drawing.Point(301, 29);
+            this.btnFoParking.Name = "btnFoParking";
+            this.btnFoParking.Size = new System.Drawing.Size(115, 23);
+            this.btnFoParking.TabIndex = 7;
+            this.btnFoParking.Text = "Customers";
+            this.btnFoParking.UseVisualStyleBackColor = true;
+            this.btnFoParking.Click += new System.EventHandler(this.btnFoParking_Click);
+            // 
             // CustomerTMPView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(727, 314);
+            this.Controls.Add(this.btnFoParking);
             this.Controls.Add(this.BtnFarmers);
             this.Controls.Add(this.BtnCustomers);
             this.Controls.Add(this.BtnParking);
@@ -128,5 +140,6 @@
         private System.Windows.Forms.Button BtnParking;
         private System.Windows.Forms.Button BtnCustomers;
         private System.Windows.Forms.Button BtnFarmers;
+        private System.Windows.Forms.Button btnFoParking;
     }
 }

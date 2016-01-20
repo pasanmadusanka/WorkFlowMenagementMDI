@@ -46,9 +46,9 @@
             // 
             // DTPToDate
             // 
-            this.DTPToDate.Location = new System.Drawing.Point(280, 43);
+            this.DTPToDate.Location = new System.Drawing.Point(244, 41);
             this.DTPToDate.Name = "DTPToDate";
-            this.DTPToDate.Size = new System.Drawing.Size(156, 20);
+            this.DTPToDate.Size = new System.Drawing.Size(106, 20);
             this.DTPToDate.TabIndex = 15;
             this.DTPToDate.ValueChanged += new System.EventHandler(this.DTPToDate_ValueChanged);
             this.DTPToDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DTPToDate_KeyDown);
@@ -57,7 +57,7 @@
             // 
             this.DTPFromDate.Location = new System.Drawing.Point(70, 41);
             this.DTPFromDate.Name = "DTPFromDate";
-            this.DTPFromDate.Size = new System.Drawing.Size(146, 20);
+            this.DTPFromDate.Size = new System.Drawing.Size(102, 20);
             this.DTPFromDate.TabIndex = 13;
             this.DTPFromDate.ValueChanged += new System.EventHandler(this.DTPFromDate_ValueChanged);
             this.DTPFromDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DTPFromDate_KeyDown);
@@ -65,7 +65,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(222, 46);
+            this.label3.Location = new System.Drawing.Point(186, 44);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 16;
@@ -135,6 +135,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.BtnReportView);
             this.panel2.Controls.Add(this.DTPToDate);
             this.panel2.Controls.Add(this.DTPFromDate);
             this.panel2.Controls.Add(this.label3);
@@ -150,9 +151,9 @@
             // 
             this.BtnReportView.Image = global::WorkFlowMenagementMDI.Properties.Resources.print;
             this.BtnReportView.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnReportView.Location = new System.Drawing.Point(411, 130);
+            this.BtnReportView.Location = new System.Drawing.Point(376, 34);
             this.BtnReportView.Name = "BtnReportView";
-            this.BtnReportView.Size = new System.Drawing.Size(69, 32);
+            this.BtnReportView.Size = new System.Drawing.Size(74, 32);
             this.BtnReportView.TabIndex = 24;
             this.BtnReportView.Text = "Print";
             this.BtnReportView.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -163,14 +164,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(493, 174);
-            this.Controls.Add(this.BtnReportView);
+            this.ClientSize = new System.Drawing.Size(493, 133);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(509, 213);
+            this.MaximumSize = new System.Drawing.Size(509, 172);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(509, 213);
+            this.MinimumSize = new System.Drawing.Size(509, 172);
             this.Name = "FarmerReport";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

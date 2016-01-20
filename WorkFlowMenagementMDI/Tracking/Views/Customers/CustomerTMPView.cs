@@ -57,5 +57,11 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Customers
             DataSet ds = db.AllFarmersTable();
             DgvCustomers.DataSource = ds.Tables["frm"].DefaultView;
         }
+
+        private void btnFoParking_Click(object sender, EventArgs e)
+        {
+            DataSet ds = db.FarmerParkingDetails();
+            DgvCustomers.DataSource = ds.Tables["frmPak"].DefaultView;
+        }
     }
 }

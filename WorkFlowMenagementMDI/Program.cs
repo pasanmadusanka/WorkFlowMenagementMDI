@@ -25,7 +25,7 @@ namespace WorkFlowMenagementMDI
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
                     //Application.Run(new FeedIssueSchedule());
-                    //String Server = "HO51";
+                    //string serevr = "HO51";
                     string serevr = "SERVER";
                     string newserv = "Data Source=" + serevr + ";Initial Catalog=NelnaDB;Integrated Security=True";
                     if (Properties.Settings.Default.NewConStr == newserv)

@@ -42,7 +42,7 @@ var infoWindow = new google.maps.InfoWindow();
             if ((i + 1) < lat_lng.length) {
                 var src = lat_lng[i];
                 var des = lat_lng[i + 1];
-                //path.push(src);
+                
                 poly.setPath(path);
                 service.route({
                     origin: src,

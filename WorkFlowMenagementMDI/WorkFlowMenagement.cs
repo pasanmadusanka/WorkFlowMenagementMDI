@@ -1,4 +1,4 @@
-﻿using WorkFlowMenagementMDI.Properties; 
+﻿using WorkFlowMenagementMDI.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms; 
+using System.Windows.Forms;
 using WorkFlowMenagementMDI.FuelApp.Views;
 using WorkFlowMenagementMDI.FuelApp.Views.Reports;
 using WorkFlowMenagementMDI.FuelApp.Views.StockMovement;
@@ -19,7 +19,7 @@ using WorkFlowMenagementMDI.Tracking.Views.ReportView;
 using WorkFlowMenagementMDI.Tracking.Views.FieldOfficers;
 using WorkFlowMenagementMDI.Login;
 using WorkFlowMenagementMDI.Tracking.Views.Upload;
-using WorkFlowMenagementMDI.FeedIssue.Views; 
+using WorkFlowMenagementMDI.FeedIssue.Views;
 using WorkFlowMenagementMDI.FeedIssue.ReportView;
 
 namespace WorkFlowMenagementMDI
@@ -314,6 +314,21 @@ namespace WorkFlowMenagementMDI
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void tmpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(CustomerTMPView))
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+            CustomerTMPView tmp = new CustomerTMPView();
+            tmp.MdiParent = this;
+            tmp.Show();
         }
     }
 }

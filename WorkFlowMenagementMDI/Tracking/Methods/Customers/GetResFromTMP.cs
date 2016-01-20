@@ -79,6 +79,25 @@ FROM GPS_TRK_VEHICLE_PARKING", conn);
             return ds;
         }
 
+        public DataSet FarmerParkingDetails()
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                if (conn.State.ToString() == "Closed")
+                { conn.Open(); }
+                SqlCommand sqlcmd = new SqlCommand(@"SELECT ParkingID, Device_Name, Start_Time, End_Time, Latitude, Longitude, Period_Of_Time, Park_Date, Added_Date, AddedUser, TerminalName
+FROM GPS_FO_PARKING_DETAILS", conn);
+
+                SqlDataAdapter da = new SqlDataAdapter(sqlcmd);
+                da.Fill(ds, "frmPak");
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message.ToString()); }
+            finally
+            { conn.Close(); }
+            return ds;
+        }
+
         public DataSet AllCustomersTable()
         {
             DataSet ds = new DataSet();

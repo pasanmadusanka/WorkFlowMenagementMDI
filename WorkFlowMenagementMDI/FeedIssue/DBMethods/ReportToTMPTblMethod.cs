@@ -18,22 +18,20 @@ namespace WorkFlowMenagementMDI.FeedIssue.DBMethods
             DBAccess db = new DBAccess();
             conn = db.conn;
         }
-
-
         public void DeleteTempTableData()
         {
             try
             {
+                int user = Settings.Default.UserID;
                 if (conn.State.ToString() == "Closed") { conn.Open(); }
                 SqlCommand scmd = conn.CreateCommand();
                 scmd.CommandType = CommandType.Text;
-                scmd.CommandText = @"delete from FEED_ISSUE_SCHEDULE_TEMP_SUB where UserName = 1";
+                scmd.CommandText = @"delete from FEED_ISSUE_SCHEDULE_TEMP_SUB where UserName = "+user+"";
                 scmd.ExecuteNonQuery();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
             finally { conn.Close(); }
         }
-
         public bool WrightVisitsToTemp(int batch)
         {
             bool status = false;
@@ -64,8 +62,6 @@ namespace WorkFlowMenagementMDI.FeedIssue.DBMethods
             finally { conn.Close(); }
             return status;
         }
-
-
         public DataTable GetBatchCodeByArea(int area)
         {
             DataTable dt = new DataTable();

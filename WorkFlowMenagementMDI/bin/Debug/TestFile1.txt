@@ -20,7 +20,6 @@
             directionsDisplay.setMap(map);
             directionsDisplay.setPanel(document.getElementById('dvPanel'));
 
-            //*********DIRECTIONS AND ROUTE**********************//
             source = document.getElementById("txtSource").value;
             destination = document.getElementById("txtDestination").value;
 
@@ -40,7 +39,6 @@
                 }
             });
 
-            //*********DISTANCE AND DURATION**********************//
             var service = new google.maps.DistanceMatrixService();
             service.getDistanceMatrix({
                 origins: google.maps.LatLng(sourceLat, sourceLon),
