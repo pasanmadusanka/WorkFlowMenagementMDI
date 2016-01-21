@@ -32,9 +32,8 @@ namespace WorkFlowMenagementMDI.Login
         {
             ProvideConstrForm constr = new ProvideConstrForm();
             constr.Hide();
-            TxtUserName.Text = Properties.Settings.Default.LastUser;
-            //TxtPassword.Text = TestFuel_Issue_App.Properties.Settings.Default.LastPassword;
-            ToolTip();
+            TxtUserName.Text = Properties.Settings.Default.LastUser; 
+            ToolTip(); 
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)

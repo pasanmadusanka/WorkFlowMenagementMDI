@@ -473,7 +473,7 @@ namespace WorkFlowMenagementMDI.FeedIssue.Views
             {
                 double preDay = num / ReturnFormulaRes(week3);
                 LblPreDay3.Text = String.Format("{0:0.00}", (preDay)).ToString();
-                DtpReqWeek4.Value = DtpD3.Value.AddDays((int)preDay);
+                DtpReqWeek4.Value = DtpReqWeek3.Value.AddDays((int)preDay);
 
                 if (ActTotBoosterCount() != TotalBoosterCount())
                 {
