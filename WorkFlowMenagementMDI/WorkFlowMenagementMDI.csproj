@@ -77,6 +77,7 @@
       <HintPath>..\..\..\..\..\Tracking Details\Project\V10\GetGeoLocation\packages\Excel-DNA.Interop.14.0.1\lib\Office.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Web" />

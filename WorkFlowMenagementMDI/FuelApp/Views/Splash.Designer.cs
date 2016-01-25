@@ -37,6 +37,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "Splash";
             this.ShowInTaskbar = false;
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Splash_MouseDown);
             this.ResumeLayout(false);
 
         }

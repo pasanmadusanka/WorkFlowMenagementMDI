@@ -25,7 +25,8 @@ namespace WorkFlowMenagementMDI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=HO51;Initial Catalog=NelnaDB;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=HO51; Initial Catalog=NelnaDB; User id=HO51\\Administrator; Password=;" +
+            "")]
         public string NewConStr {
             get {
                 return ((string)(this["NewConStr"]));
@@ -130,6 +131,19 @@ namespace WorkFlowMenagementMDI.Properties {
             }
             set {
                 this["AddPhyStkOnOff"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=HO51; Initial Catalog=NelnaDB; User id=HO51\\Administrator; Password=;" +
+            "\r\nData Source=HO51;Initial Catalog=NelnaDB;Integrated Security=True")]
+        public string Setting {
+            get {
+                return ((string)(this["Setting"]));
+            }
+            set {
+                this["Setting"] = value;
             }
         }
     }

@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="NewConStr" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Data Source=HO51;Initial Catalog=NelnaDB;Integrated Security=True</Value>
+      <Value Profile="(Default)">Data Source=HO51; Initial Catalog=NelnaDB; User id=HO51\Administrator; Password=;</Value>
     </Setting>
     <Setting Name="LastUser" Type="System.String" Scope="User">
       <Value Profile="(Default)">Admin</Value>
@@ -32,6 +32,10 @@ Hot Line : 077 4410500 / 033 2240800</Value>
     </Setting>
     <Setting Name="AddPhyStkOnOff" Type="System.String" Scope="User">
       <Value Profile="(Default)">ON</Value>
+    </Setting>
+    <Setting Name="Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=HO51; Initial Catalog=NelnaDB; User id=HO51\Administrator; Password=;
+Data Source=HO51;Initial Catalog=NelnaDB;Integrated Security=True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

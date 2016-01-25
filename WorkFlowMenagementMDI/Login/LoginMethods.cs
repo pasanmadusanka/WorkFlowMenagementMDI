@@ -43,7 +43,7 @@ namespace WorkFlowMenagementMDI.Methods.Login
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "\n" + WorkFlowMenagementMDI.Properties.Settings.Default.NewConStr, "Login Error...");
+                MessageBox.Show(ex.Message + "\n" + WorkFlowMenagementMDI.Properties.Settings.Default.NewConStr, "Login Error...",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             finally { conn.Close(); }
             return false;
