@@ -1896,6 +1896,7 @@
 		<col def="S255">Data</col>
 		<row><td>PROJECT_ASSISTANT_DEFAULT_FEATURE</td><td>AlwaysInstall</td></row>
 		<row><td>PROJECT_ASSISTANT_FEATURES</td><td>NonSelectable</td></row>
+		<row><td>RegistryPageEnabled</td><td>No</td></row>
 		<row><td>WorkFlowMenagementMDI.exe</td><td/></row>
 	</table>
 

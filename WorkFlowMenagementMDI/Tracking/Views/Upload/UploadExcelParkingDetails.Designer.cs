@@ -41,8 +41,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.CmbSalesRep = new System.Windows.Forms.ComboBox();
             this.lblFroRadioGroup = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.RBFarmer = new System.Windows.Forms.RadioButton();
@@ -72,7 +70,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.groupBox1.Controls.Add(this.rbHeaderYes);
             this.groupBox1.Controls.Add(this.rbHeaderNo);
-            this.groupBox1.Location = new System.Drawing.Point(383, 6);
+            this.groupBox1.Location = new System.Drawing.Point(187, 7);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(93, 33);
             this.groupBox1.TabIndex = 14;
@@ -103,7 +101,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(335, 20);
+            this.label1.Location = new System.Drawing.Point(139, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 13;
@@ -129,6 +127,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DgvUploads.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DgvUploads.BackgroundColor = System.Drawing.Color.White;
             this.DgvUploads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvUploads.Location = new System.Drawing.Point(12, 137);
             this.DgvUploads.Name = "DgvUploads";
@@ -180,8 +179,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.CmbSalesRep);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.lblFroRadioGroup);
             this.panel1.Controls.Add(this.label1);
@@ -192,30 +189,11 @@
             this.panel1.Size = new System.Drawing.Size(852, 52);
             this.panel1.TabIndex = 17;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(87, 17);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 13);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Sales Rep  :";
-            // 
-            // CmbSalesRep
-            // 
-            this.CmbSalesRep.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.CmbSalesRep.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.CmbSalesRep.FormattingEnabled = true;
-            this.CmbSalesRep.Location = new System.Drawing.Point(157, 14);
-            this.CmbSalesRep.Name = "CmbSalesRep";
-            this.CmbSalesRep.Size = new System.Drawing.Size(159, 21);
-            this.CmbSalesRep.TabIndex = 17;
-            // 
             // lblFroRadioGroup
             // 
             this.lblFroRadioGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblFroRadioGroup.AutoSize = true;
-            this.lblFroRadioGroup.Location = new System.Drawing.Point(491, 19);
+            this.lblFroRadioGroup.Location = new System.Drawing.Point(495, 18);
             this.lblFroRadioGroup.Name = "lblFroRadioGroup";
             this.lblFroRadioGroup.Size = new System.Drawing.Size(184, 13);
             this.lblFroRadioGroup.TabIndex = 16;
@@ -226,7 +204,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.groupBox2.Controls.Add(this.RBFarmer);
             this.groupBox2.Controls.Add(this.RBCustomer);
-            this.groupBox2.Location = new System.Drawing.Point(681, 8);
+            this.groupBox2.Location = new System.Drawing.Point(685, 7);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(149, 33);
             this.groupBox2.TabIndex = 15;
@@ -259,9 +237,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(52, 345);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(10, 13);
             this.label2.TabIndex = 18;
-            this.label2.Text = "label2";
+            this.label2.Text = ".";
             // 
             // UploadExcelParkingDetails
             // 
@@ -313,8 +291,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton RBFarmer;
         private System.Windows.Forms.RadioButton RBCustomer;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox CmbSalesRep;
     }
 }
 

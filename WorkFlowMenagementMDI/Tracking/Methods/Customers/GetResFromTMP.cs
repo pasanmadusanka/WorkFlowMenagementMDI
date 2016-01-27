@@ -136,5 +136,24 @@ FROM GPS_FO_PARKING_DETAILS", conn);
             { conn.Close(); }
             return ds;
         }
+
+        internal DataSet GetTrackVehicleDetails()
+        {//
+            DataSet ds = new DataSet();
+            try
+            {
+                if (conn.State.ToString() == "Closed")
+                { conn.Open(); }
+                SqlCommand sqlcmd = new SqlCommand(@"SELECT VhiTrackerID, VhiDeviceName, VehicleID, VhiLatitude, VhiLongitude
+FROM GPS_TRACKING_VEHICLE_DEVICE", conn);
+
+                SqlDataAdapter da = new SqlDataAdapter(sqlcmd);
+                da.Fill(ds, "trkvhi");
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message.ToString()); }
+            finally
+            { conn.Close(); }
+            return ds;
+        }
     }
 }

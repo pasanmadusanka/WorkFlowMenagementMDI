@@ -77,14 +77,15 @@
             // 
             // panel4
             // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel4.Controls.Add(this.DgvCust);
             this.panel4.Location = new System.Drawing.Point(3, 93);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(518, 221);
+            this.panel4.Size = new System.Drawing.Size(511, 221);
             this.panel4.TabIndex = 19;
             // 
             // DgvCust
@@ -99,7 +100,7 @@
             this.DgvCust.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvCust.Location = new System.Drawing.Point(2, 3);
             this.DgvCust.Name = "DgvCust";
-            this.DgvCust.Size = new System.Drawing.Size(509, 211);
+            this.DgvCust.Size = new System.Drawing.Size(502, 211);
             this.DgvCust.TabIndex = 2;
             // 
             // panel3
@@ -113,9 +114,8 @@
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.MaximumSize = new System.Drawing.Size(521, 84);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(521, 84);
+            this.panel3.Size = new System.Drawing.Size(511, 84);
             this.panel3.TabIndex = 16;
             // 
             // label1
@@ -138,6 +138,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.DTPToDate);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label6);
@@ -146,14 +149,16 @@
             this.groupBox1.Controls.Add(this.DTPFromDate);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(503, 73);
+            this.groupBox1.Size = new System.Drawing.Size(501, 73);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter Field Visits Details";
             // 
             // DTPToDate
             // 
+            this.DTPToDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.DTPToDate.Location = new System.Drawing.Point(337, 46);
+            this.DTPToDate.MinimumSize = new System.Drawing.Size(160, 20);
             this.DTPToDate.Name = "DTPToDate";
             this.DTPToDate.Size = new System.Drawing.Size(160, 20);
             this.DTPToDate.TabIndex = 9;
@@ -162,6 +167,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(279, 50);
             this.label3.Name = "label3";
@@ -171,6 +177,7 @@
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(243, 22);
             this.label6.Name = "label6";
@@ -180,10 +187,13 @@
             // 
             // CmbDeliveryVehi
             // 
+            this.CmbDeliveryVehi.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.CmbDeliveryVehi.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.CmbDeliveryVehi.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CmbDeliveryVehi.FormattingEnabled = true;
             this.CmbDeliveryVehi.Location = new System.Drawing.Point(337, 19);
+            this.CmbDeliveryVehi.MaximumSize = new System.Drawing.Size(210, 0);
+            this.CmbDeliveryVehi.MinimumSize = new System.Drawing.Size(160, 0);
             this.CmbDeliveryVehi.Name = "CmbDeliveryVehi";
             this.CmbDeliveryVehi.Size = new System.Drawing.Size(160, 21);
             this.CmbDeliveryVehi.TabIndex = 4;
@@ -192,10 +202,14 @@
             // 
             // CMBRep
             // 
+            this.CMBRep.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CMBRep.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.CMBRep.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CMBRep.FormattingEnabled = true;
             this.CMBRep.Location = new System.Drawing.Point(77, 18);
+            this.CMBRep.MaximumSize = new System.Drawing.Size(210, 0);
+            this.CMBRep.MinimumSize = new System.Drawing.Size(160, 0);
             this.CMBRep.Name = "CMBRep";
             this.CMBRep.Size = new System.Drawing.Size(160, 21);
             this.CMBRep.TabIndex = 1;
@@ -204,7 +218,10 @@
             // 
             // DTPFromDate
             // 
+            this.DTPFromDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DTPFromDate.Location = new System.Drawing.Point(77, 46);
+            this.DTPFromDate.MaximumSize = new System.Drawing.Size(160, 20);
             this.DTPFromDate.Name = "DTPFromDate";
             this.DTPFromDate.Size = new System.Drawing.Size(160, 20);
             this.DTPFromDate.TabIndex = 3;
@@ -221,7 +238,7 @@
             this.panel2.Controls.Add(this.BrowserLocation);
             this.panel2.Location = new System.Drawing.Point(18, 30);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(456, 321);
+            this.panel2.Size = new System.Drawing.Size(463, 321);
             this.panel2.TabIndex = 18;
             // 
             // BrowserLocation
@@ -230,7 +247,7 @@
             this.BrowserLocation.Location = new System.Drawing.Point(0, 0);
             this.BrowserLocation.MinimumSize = new System.Drawing.Size(20, 20);
             this.BrowserLocation.Name = "BrowserLocation";
-            this.BrowserLocation.Size = new System.Drawing.Size(452, 317);
+            this.BrowserLocation.Size = new System.Drawing.Size(459, 317);
             this.BrowserLocation.TabIndex = 5;
             // 
             // label4
@@ -268,7 +285,7 @@
             // 
             // panel5
             // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.AutoScroll = true;
             this.panel5.AutoSize = true;
@@ -339,7 +356,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.panel2);
             this.splitContainer1.Panel2.Controls.Add(this.label5);
             this.splitContainer1.Size = new System.Drawing.Size(1021, 362);
-            this.splitContainer1.SplitterDistance = 527;
+            this.splitContainer1.SplitterDistance = 520;
             this.splitContainer1.TabIndex = 22;
             // 
             // FindLocationsOfCustomers

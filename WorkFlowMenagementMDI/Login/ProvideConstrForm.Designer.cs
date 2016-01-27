@@ -92,7 +92,8 @@
             this.CmbAvalablePc.FormattingEnabled = true;
             this.CmbAvalablePc.Items.AddRange(new object[] {
             "HO51",
-            "SERVER"});
+            "SERVER",
+            "(LocalDb)\\v11.0"});
             this.CmbAvalablePc.Location = new System.Drawing.Point(101, 31);
             this.CmbAvalablePc.Name = "CmbAvalablePc";
             this.CmbAvalablePc.Size = new System.Drawing.Size(87, 21);

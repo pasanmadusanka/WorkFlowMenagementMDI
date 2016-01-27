@@ -199,21 +199,13 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Upload
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }//Insert Details of the Customer visits
 
-        public void LoadSalesRepCombo()
-        {
-            DataTable dtRep = db.GetSalesRep();
-            CmbSalesRep.ValueMember = "id";
-            CmbSalesRep.DisplayMember = "repName";
-            CmbSalesRep.DataSource = dtRep;
-            CmbSalesRep.SelectedItem = null;
-        }
 
         private void UploadExcelParkingDetails_Load(object sender, EventArgs e)
         {
             DataTable dateDT = db.GetDateTime();
             DataRow dateDR = dateDT.Rows[0]; 
-            label2.Text = Convert.ToDateTime(dateDR[0]).ToString("dd/MM/yyyy");
-            LoadSalesRepCombo(); ToolTipDetails();
+            label2.Text = Convert.ToDateTime(dateDR[0]).ToString("dd/MM/yyyy"); 
+            ToolTipDetails();
         }
     }
 }

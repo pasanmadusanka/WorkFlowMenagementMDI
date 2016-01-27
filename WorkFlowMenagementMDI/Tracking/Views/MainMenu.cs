@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using WorkFlowMenagementMDI.Tracking.Views.Customers;
 using WorkFlowMenagementMDI.Tracking.Views.Farmers;
+using WorkFlowMenagementMDI.Tracking.Views.Upload;
 
 namespace WorkFlowMenagementMDI.Tracking.Views
 {
@@ -38,10 +39,10 @@ namespace WorkFlowMenagementMDI.Tracking.Views
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.UploadExeStat == "1")
-            { OpenUpload(); }
-            else if (Properties.Settings.Default.UploadExeStat == "0")
-            { CloseUpload(); }
+            UploadExcelParkingDetails upload = new UploadExcelParkingDetails();
+            upload.MdiParent = this.ParentForm;
+            upload.Show();
+            this.Hide();
         }
         public void OpenUpload()
         {

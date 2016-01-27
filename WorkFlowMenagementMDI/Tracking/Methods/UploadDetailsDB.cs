@@ -160,28 +160,7 @@ namespace WorkFlowMenagementMDI.Tracking.Methods
             return status;
         }
 
-        public DataTable GetSalesRep()
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("id", typeof(int));
-            dt.Columns.Add("repName", typeof(string));
-            try
-            {
-                if (conn.State.ToString() == "Closed") { conn.Open(); }
-                SqlCommand scmd = conn.CreateCommand();
-                scmd.Connection = conn;
-                scmd.CommandType = CommandType.Text;
-                scmd.CommandText = @"SELECT LOC_LOC_CODE, LOC_LOC_SH_CODE + ' - ' + LOC_LOC_NAME AS LOC_LOC_NAME
-                FROM LOCATION WHERE (LOC_LOC_GRP_CODE = 1) AND (LOC_LOC_SH_CODE + ' - ' + LOC_LOC_NAME IS NOT NULL)";
-                SqlDataReader sdr = scmd.ExecuteReader();
-                while (sdr.Read())
-                { dt.Rows.Add(sdr["LOC_LOC_CODE"], sdr["LOC_LOC_NAME"]); }
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-            finally { conn.Close(); }
-            return dt;
-        }//Get EMPLOYEE_MASTER Rep to combo
-
+       
         public string GetVehicleTrkIdByDevice(string device)
         {
             string trackID = String.Empty;

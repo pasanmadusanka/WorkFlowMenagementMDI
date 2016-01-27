@@ -117,6 +117,7 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Customers
         {
             BtnAdd.Enabled = true;
             BtnUpdate.Enabled = false;
+            TextBoxClearEvent();
             CmbCustID.Focus();
         }
 

@@ -64,7 +64,7 @@ namespace WorkFlowMenagementMDI.FuelApp.Views
         public Admin_Controller()
         {
             InitializeComponent();
-            LblWelcom.Text = "WELLCOM " + lastUser.ToUpper() + "...";
+            LblWelcom.Text = "WELCOM " + lastUser.ToUpper() + "...";
             LblUser.Text = lastUser.ToLower();
         }
 

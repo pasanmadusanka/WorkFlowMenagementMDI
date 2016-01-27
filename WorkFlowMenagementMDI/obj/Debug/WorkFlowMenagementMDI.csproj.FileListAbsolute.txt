@@ -138,13 +138,10 @@ D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V3\WorkFlowMenagementMDI\WorkFl
 D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V3\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.pdb
 D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V3\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.csprojResolveAssemblyReference.cache
 D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V4\WorkFlowMenagementMDI\WorkFlowMenagementMDI\bin\Debug\WorkFlowMenagementMDI.exe.config
-D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V4\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.exe
-D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V4\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.pdb
 D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V4\WorkFlowMenagementMDI\WorkFlowMenagementMDI\bin\Debug\WorkFlowMenagementMDI.exe
 D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V4\WorkFlowMenagementMDI\WorkFlowMenagementMDI\bin\Debug\WorkFlowMenagementMDI.pdb
 D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V4\WorkFlowMenagementMDI\WorkFlowMenagementMDI\bin\Debug\DelmoEncriptDLL.dll
 D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V4\WorkFlowMenagementMDI\WorkFlowMenagementMDI\bin\Debug\GongShell.dll
-D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V4\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.csprojResolveAssemblyReference.cache
 D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V4\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.FeedIssue.ReportView.ReportSelector.resources
 D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V4\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.FeedIssue.ReportView.ReportSelectorDateRange.resources
 D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V4\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.FeedIssue.ReportView.ReportViewer.resources
@@ -180,3 +177,6 @@ D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V4\WorkFlowMenagementMDI\WorkFl
 D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V4\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.WorkFlowMenagement.resources
 D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V4\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.Properties.Resources.resources
 D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V4\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.csproj.GenerateResource.Cache
+D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V4\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.exe
+D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V4\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.pdb
+D:\Projects\WorkFlowSystem\WorkFlowMenagementMDI V4\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.csprojResolveAssemblyReference.cache
