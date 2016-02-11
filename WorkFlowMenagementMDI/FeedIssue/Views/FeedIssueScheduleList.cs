@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using WorkFlowMenagementMDI.Admin.Methods;
 using WorkFlowMenagementMDI.FeedIssue.DBMethods;
 
 namespace WorkFlowMenagementMDI.FeedIssue.Views
@@ -13,6 +14,8 @@ namespace WorkFlowMenagementMDI.FeedIssue.Views
     public partial class FeedIssueScheduleList : Form
     {
         FeedIssueScheduleListMethods db = new FeedIssueScheduleListMethods();
+        WorkFlowManageMethods privilege = new WorkFlowManageMethods();
+
         public FeedIssueScheduleList()
         {
             InitializeComponent();
@@ -71,12 +74,9 @@ namespace WorkFlowMenagementMDI.FeedIssue.Views
 
         private void DGVFeedIssue_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-            //DataGridViewCellEventArgs e1=new DataGridViewCellEventArgs(e)
-            if (Properties.Settings.Default.LastUser.ToLower() != "admin")
-            {
-                MessageBox.Show("You are not allow to delete", "Customers tracking details", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            }
-            else if (Properties.Settings.Default.LastUser.ToLower() == "admin")
+           
+            int outVal = privilege.GetUserAccessable("UTRW_DELETE", 3);
+            if (outVal == 1)
             {
                 DialogResult usersChoice = MessageBox.Show(@"You are about to delete " + DGVFeedIssue.SelectedRows.Count
                     + " Row(s).\n\n \r Click Yes to permanently delete these rows. You won’t be able to undo these changes.",
@@ -96,6 +96,7 @@ namespace WorkFlowMenagementMDI.FeedIssue.Views
                     { GetTableFilledFeed(); }
                 }
             }
+            else { MessageBox.Show("You dont have the privelage to delete this....!", "Privelages", MessageBoxButtons.OK, MessageBoxIcon.Warning); e.Cancel = true; }
         }
     }
 }

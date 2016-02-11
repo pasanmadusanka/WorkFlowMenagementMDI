@@ -192,6 +192,7 @@
             this.Controls.Add(this.BtnReportView);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(522, 197);
             this.MinimizeBox = false;

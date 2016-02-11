@@ -167,6 +167,7 @@
             this.ClientSize = new System.Drawing.Size(493, 133);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(509, 172);
             this.MinimizeBox = false;

@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WorkFlowMenagement));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fuelManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fuelControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +67,9 @@
             this.fuelToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.changeWeeklyStockUpdateDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.managePermissionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,7 +81,8 @@
             this.trackingStstemToolStripMenuItem,
             this.fSUScheduleToolStripMenuItem,
             this.reportsToolStripMenuItem,
-            this.settingsToolStripMenuItem});
+            this.settingsToolStripMenuItem,
+            this.adminToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1004, 24);
@@ -86,15 +92,26 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logOutToolStripMenuItem,
             this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Enabled = false;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Enabled = false;
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.logOutToolStripMenuItem.Text = "Log Out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            // 
             // exitToolStripMenuItem
             // 
+            this.exitToolStripMenuItem.Enabled = false;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -106,12 +123,14 @@
             this.addFuelPhysicalStockToolStripMenuItem,
             this.fuelStockMovementToolStripMenuItem,
             this.sMSControllerToolStripMenuItem});
+            this.fuelManagementToolStripMenuItem.Enabled = false;
             this.fuelManagementToolStripMenuItem.Name = "fuelManagementToolStripMenuItem";
             this.fuelManagementToolStripMenuItem.Size = new System.Drawing.Size(115, 20);
             this.fuelManagementToolStripMenuItem.Text = "Fuel Management";
             // 
             // fuelControlToolStripMenuItem
             // 
+            this.fuelControlToolStripMenuItem.Enabled = false;
             this.fuelControlToolStripMenuItem.Name = "fuelControlToolStripMenuItem";
             this.fuelControlToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.fuelControlToolStripMenuItem.Text = "Fuel Control";
@@ -119,6 +138,7 @@
             // 
             // fuelReportToolStripMenuItem
             // 
+            this.fuelReportToolStripMenuItem.Enabled = false;
             this.fuelReportToolStripMenuItem.Name = "fuelReportToolStripMenuItem";
             this.fuelReportToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.fuelReportToolStripMenuItem.Text = "Fuel Report";
@@ -126,6 +146,7 @@
             // 
             // addFuelPhysicalStockToolStripMenuItem
             // 
+            this.addFuelPhysicalStockToolStripMenuItem.Enabled = false;
             this.addFuelPhysicalStockToolStripMenuItem.Name = "addFuelPhysicalStockToolStripMenuItem";
             this.addFuelPhysicalStockToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.addFuelPhysicalStockToolStripMenuItem.Text = "Add Fuel Physical Stock";
@@ -133,6 +154,7 @@
             // 
             // fuelStockMovementToolStripMenuItem
             // 
+            this.fuelStockMovementToolStripMenuItem.Enabled = false;
             this.fuelStockMovementToolStripMenuItem.Name = "fuelStockMovementToolStripMenuItem";
             this.fuelStockMovementToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.fuelStockMovementToolStripMenuItem.Text = "Fuel Stock Movement";
@@ -140,6 +162,7 @@
             // 
             // sMSControllerToolStripMenuItem
             // 
+            this.sMSControllerToolStripMenuItem.Enabled = false;
             this.sMSControllerToolStripMenuItem.Name = "sMSControllerToolStripMenuItem";
             this.sMSControllerToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.sMSControllerToolStripMenuItem.Text = "SMS Controller";
@@ -154,12 +177,14 @@
             this.farmersOnMapToolStripMenuItem,
             this.createEditToolStripMenuItem,
             this.uploadParkingToolStripMenuItem});
+            this.trackingStstemToolStripMenuItem.Enabled = false;
             this.trackingStstemToolStripMenuItem.Name = "trackingStstemToolStripMenuItem";
             this.trackingStstemToolStripMenuItem.Size = new System.Drawing.Size(106, 20);
             this.trackingStstemToolStripMenuItem.Text = "Tracking System";
             // 
             // menuToolStripMenuItem
             // 
+            this.menuToolStripMenuItem.Enabled = false;
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.menuToolStripMenuItem.Text = "Menu";
@@ -167,6 +192,7 @@
             // 
             // fieldVisitesToolStripMenuItem
             // 
+            this.fieldVisitesToolStripMenuItem.Enabled = false;
             this.fieldVisitesToolStripMenuItem.Name = "fieldVisitesToolStripMenuItem";
             this.fieldVisitesToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.fieldVisitesToolStripMenuItem.Text = "Field Visites";
@@ -174,6 +200,7 @@
             // 
             // customerVisitsToolStripMenuItem
             // 
+            this.customerVisitsToolStripMenuItem.Enabled = false;
             this.customerVisitsToolStripMenuItem.Name = "customerVisitsToolStripMenuItem";
             this.customerVisitsToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.customerVisitsToolStripMenuItem.Text = "Customer Visits";
@@ -181,6 +208,7 @@
             // 
             // farmersOnMapToolStripMenuItem
             // 
+            this.farmersOnMapToolStripMenuItem.Enabled = false;
             this.farmersOnMapToolStripMenuItem.Name = "farmersOnMapToolStripMenuItem";
             this.farmersOnMapToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.farmersOnMapToolStripMenuItem.Text = "Farmers On Map";
@@ -192,12 +220,14 @@
             this.customerLocationToolStripMenuItem,
             this.farmerLocationToolStripMenuItem,
             this.fieldOfficerToolStripMenuItem});
+            this.createEditToolStripMenuItem.Enabled = false;
             this.createEditToolStripMenuItem.Name = "createEditToolStripMenuItem";
             this.createEditToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.createEditToolStripMenuItem.Text = "Create/Edit";
             // 
             // customerLocationToolStripMenuItem
             // 
+            this.customerLocationToolStripMenuItem.Enabled = false;
             this.customerLocationToolStripMenuItem.Name = "customerLocationToolStripMenuItem";
             this.customerLocationToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.customerLocationToolStripMenuItem.Text = "Customer Location";
@@ -205,6 +235,7 @@
             // 
             // farmerLocationToolStripMenuItem
             // 
+            this.farmerLocationToolStripMenuItem.Enabled = false;
             this.farmerLocationToolStripMenuItem.Name = "farmerLocationToolStripMenuItem";
             this.farmerLocationToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.farmerLocationToolStripMenuItem.Text = "Farmer Location";
@@ -212,6 +243,7 @@
             // 
             // fieldOfficerToolStripMenuItem
             // 
+            this.fieldOfficerToolStripMenuItem.Enabled = false;
             this.fieldOfficerToolStripMenuItem.Name = "fieldOfficerToolStripMenuItem";
             this.fieldOfficerToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.fieldOfficerToolStripMenuItem.Text = "Field Officer";
@@ -219,6 +251,7 @@
             // 
             // uploadParkingToolStripMenuItem
             // 
+            this.uploadParkingToolStripMenuItem.Enabled = false;
             this.uploadParkingToolStripMenuItem.Name = "uploadParkingToolStripMenuItem";
             this.uploadParkingToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.uploadParkingToolStripMenuItem.Text = "Upload Parking";
@@ -229,12 +262,14 @@
             this.fSUScheduleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newSchaduleToolStripMenuItem,
             this.viewSchedulesToolStripMenuItem});
+            this.fSUScheduleToolStripMenuItem.Enabled = false;
             this.fSUScheduleToolStripMenuItem.Name = "fSUScheduleToolStripMenuItem";
             this.fSUScheduleToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.fSUScheduleToolStripMenuItem.Text = "FSU Issue";
             // 
             // newSchaduleToolStripMenuItem
             // 
+            this.newSchaduleToolStripMenuItem.Enabled = false;
             this.newSchaduleToolStripMenuItem.Name = "newSchaduleToolStripMenuItem";
             this.newSchaduleToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.newSchaduleToolStripMenuItem.Text = "New Schadule";
@@ -242,6 +277,7 @@
             // 
             // viewSchedulesToolStripMenuItem
             // 
+            this.viewSchedulesToolStripMenuItem.Enabled = false;
             this.viewSchedulesToolStripMenuItem.Name = "viewSchedulesToolStripMenuItem";
             this.viewSchedulesToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.viewSchedulesToolStripMenuItem.Text = "View Schedules";
@@ -253,6 +289,7 @@
             this.trackingToolStripMenuItem,
             this.fSUSchedulesToolStripMenuItem,
             this.fuelToolStripMenuItem});
+            this.reportsToolStripMenuItem.Enabled = false;
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.reportsToolStripMenuItem.Text = "Reports";
@@ -262,12 +299,14 @@
             this.trackingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.farmerVisitsToolStripMenuItem,
             this.customerVisitsToolStripMenuItem1});
+            this.trackingToolStripMenuItem.Enabled = false;
             this.trackingToolStripMenuItem.Name = "trackingToolStripMenuItem";
             this.trackingToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.trackingToolStripMenuItem.Text = "Tracking System";
             // 
             // farmerVisitsToolStripMenuItem
             // 
+            this.farmerVisitsToolStripMenuItem.Enabled = false;
             this.farmerVisitsToolStripMenuItem.Name = "farmerVisitsToolStripMenuItem";
             this.farmerVisitsToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.farmerVisitsToolStripMenuItem.Text = "Farmer Visits";
@@ -275,6 +314,7 @@
             // 
             // customerVisitsToolStripMenuItem1
             // 
+            this.customerVisitsToolStripMenuItem1.Enabled = false;
             this.customerVisitsToolStripMenuItem1.Name = "customerVisitsToolStripMenuItem1";
             this.customerVisitsToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
             this.customerVisitsToolStripMenuItem1.Text = "Customer Visits";
@@ -285,12 +325,14 @@
             this.fSUSchedulesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.areaWiseDateScheduleToolStripMenuItem,
             this.areaWiseToolStripMenuItem});
+            this.fSUSchedulesToolStripMenuItem.Enabled = false;
             this.fSUSchedulesToolStripMenuItem.Name = "fSUSchedulesToolStripMenuItem";
             this.fSUSchedulesToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.fSUSchedulesToolStripMenuItem.Text = "FSU Schedules";
             // 
             // areaWiseDateScheduleToolStripMenuItem
             // 
+            this.areaWiseDateScheduleToolStripMenuItem.Enabled = false;
             this.areaWiseDateScheduleToolStripMenuItem.Name = "areaWiseDateScheduleToolStripMenuItem";
             this.areaWiseDateScheduleToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.areaWiseDateScheduleToolStripMenuItem.Text = "Area wise date schedule";
@@ -298,6 +340,7 @@
             // 
             // areaWiseToolStripMenuItem
             // 
+            this.areaWiseToolStripMenuItem.Enabled = false;
             this.areaWiseToolStripMenuItem.Name = "areaWiseToolStripMenuItem";
             this.areaWiseToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.areaWiseToolStripMenuItem.Text = "Area wise";
@@ -309,12 +352,14 @@
             this.fuelGeneralReportToolStripMenuItem,
             this.fuelWeeklyPhysicalStockReportToolStripMenuItem,
             this.fuelStockMovementReportToolStripMenuItem});
+            this.fuelToolStripMenuItem.Enabled = false;
             this.fuelToolStripMenuItem.Name = "fuelToolStripMenuItem";
             this.fuelToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.fuelToolStripMenuItem.Text = "Fuel";
             // 
             // fuelGeneralReportToolStripMenuItem
             // 
+            this.fuelGeneralReportToolStripMenuItem.Enabled = false;
             this.fuelGeneralReportToolStripMenuItem.Name = "fuelGeneralReportToolStripMenuItem";
             this.fuelGeneralReportToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
             this.fuelGeneralReportToolStripMenuItem.Text = "Fuel General Report";
@@ -322,6 +367,7 @@
             // 
             // fuelWeeklyPhysicalStockReportToolStripMenuItem
             // 
+            this.fuelWeeklyPhysicalStockReportToolStripMenuItem.Enabled = false;
             this.fuelWeeklyPhysicalStockReportToolStripMenuItem.Name = "fuelWeeklyPhysicalStockReportToolStripMenuItem";
             this.fuelWeeklyPhysicalStockReportToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
             this.fuelWeeklyPhysicalStockReportToolStripMenuItem.Text = "Fuel Weekly Physical Stock Report";
@@ -329,6 +375,7 @@
             // 
             // fuelStockMovementReportToolStripMenuItem
             // 
+            this.fuelStockMovementReportToolStripMenuItem.Enabled = false;
             this.fuelStockMovementReportToolStripMenuItem.Name = "fuelStockMovementReportToolStripMenuItem";
             this.fuelStockMovementReportToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
             this.fuelStockMovementReportToolStripMenuItem.Text = "Fuel Stock Movement Report";
@@ -339,6 +386,7 @@
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fuelToolStripMenuItem1,
             this.tmpToolStripMenuItem});
+            this.settingsToolStripMenuItem.Enabled = false;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
@@ -347,12 +395,14 @@
             // 
             this.fuelToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.changeWeeklyStockUpdateDateToolStripMenuItem});
+            this.fuelToolStripMenuItem1.Enabled = false;
             this.fuelToolStripMenuItem1.Name = "fuelToolStripMenuItem1";
-            this.fuelToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.fuelToolStripMenuItem1.Size = new System.Drawing.Size(96, 22);
             this.fuelToolStripMenuItem1.Text = "Fuel";
             // 
             // changeWeeklyStockUpdateDateToolStripMenuItem
             // 
+            this.changeWeeklyStockUpdateDateToolStripMenuItem.Enabled = false;
             this.changeWeeklyStockUpdateDateToolStripMenuItem.Name = "changeWeeklyStockUpdateDateToolStripMenuItem";
             this.changeWeeklyStockUpdateDateToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
             this.changeWeeklyStockUpdateDateToolStripMenuItem.Text = "Change weekly stock update date";
@@ -360,10 +410,37 @@
             // 
             // tmpToolStripMenuItem
             // 
+            this.tmpToolStripMenuItem.Enabled = false;
             this.tmpToolStripMenuItem.Name = "tmpToolStripMenuItem";
-            this.tmpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tmpToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.tmpToolStripMenuItem.Text = "tmp";
             this.tmpToolStripMenuItem.Click += new System.EventHandler(this.tmpToolStripMenuItem_Click);
+            // 
+            // adminToolStripMenuItem
+            // 
+            this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.managePermissionsToolStripMenuItem,
+            this.manageRolesToolStripMenuItem});
+            this.adminToolStripMenuItem.Enabled = false;
+            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.adminToolStripMenuItem.Text = "Admin";
+            // 
+            // managePermissionsToolStripMenuItem
+            // 
+            this.managePermissionsToolStripMenuItem.Enabled = false;
+            this.managePermissionsToolStripMenuItem.Name = "managePermissionsToolStripMenuItem";
+            this.managePermissionsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.managePermissionsToolStripMenuItem.Text = "Manage Permissions";
+            this.managePermissionsToolStripMenuItem.Click += new System.EventHandler(this.managePermissionsToolStripMenuItem_Click);
+            // 
+            // manageRolesToolStripMenuItem
+            // 
+            this.manageRolesToolStripMenuItem.Enabled = false;
+            this.manageRolesToolStripMenuItem.Name = "manageRolesToolStripMenuItem";
+            this.manageRolesToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.manageRolesToolStripMenuItem.Text = "Manage Roles";
+            this.manageRolesToolStripMenuItem.Click += new System.EventHandler(this.manageRolesToolStripMenuItem_Click);
             // 
             // WorkFlowMenagement
             // 
@@ -371,6 +448,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1004, 460);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "WorkFlowMenagement";
@@ -378,6 +456,7 @@
             this.Text = "Work Flow Menagement MDI";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WorkFlowMenagement_FormClosing);
+            this.Load += new System.EventHandler(this.WorkFlowMenagement_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -399,13 +478,9 @@
         private System.Windows.Forms.ToolStripMenuItem customerVisitsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem farmersOnMapToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem trackingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem farmerVisitsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem customerVisitsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newSchaduleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewSchedulesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fSUSchedulesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem areaWiseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem areaWiseDateScheduleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fuelControlToolStripMenuItem;
@@ -413,7 +488,6 @@
         private System.Windows.Forms.ToolStripMenuItem addFuelPhysicalStockToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fuelStockMovementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sMSControllerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fuelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fuelGeneralReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fuelWeeklyPhysicalStockReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fuelStockMovementReportToolStripMenuItem;
@@ -424,6 +498,15 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tmpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem managePermissionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageRolesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem trackingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem farmerVisitsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customerVisitsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem fSUSchedulesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fuelToolStripMenuItem;
     }
 }
 

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using WorkFlowMenagementMDI.Admin.Methods;
 using WorkFlowMenagementMDI.FuelApp.Methods;
 
 namespace WorkFlowMenagementMDI.FuelApp.Views
@@ -17,12 +18,13 @@ namespace WorkFlowMenagementMDI.FuelApp.Views
         ControllerMethods db = new ControllerMethods();
         GetAvalableStockClass getStock = new GetAvalableStockClass();
         AdminToControllerDataMethod dataFrmMain = new AdminToControllerDataMethod();
-
+        WorkFlowManageMethods privilages = new WorkFlowManageMethods();
         private Admin_Controller _mainForm;
 
 
         System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
 
+        #region Method Overloading
         public Controller()
         {
             InitializeComponent();
@@ -82,6 +84,7 @@ namespace WorkFlowMenagementMDI.FuelApp.Views
             FillLastIndex();
 
         }//pass the credential
+        #endregion
 
         private void Controller_Load(object sender, EventArgs e)
         {
@@ -149,14 +152,8 @@ namespace WorkFlowMenagementMDI.FuelApp.Views
         }
 
         #endregion
-        public void CustomezeDateTimePicker()
-        {
-            DTPSetDate.Format = DateTimePickerFormat.Custom;
-            DTPSetDate.CustomFormat = "dd/MM/yyyy";
 
-            DTPTime.Format = DateTimePickerFormat.Custom;
-            DTPTime.CustomFormat = "hh:mm:ss tt";
-        }
+        #region Controlls customizing, load events, tooltips
         public void AllLoadEvents()
         {
             GetItem();
@@ -170,6 +167,14 @@ namespace WorkFlowMenagementMDI.FuelApp.Views
 
             LblNewIndex.Text = docindex.ToString();
         }
+        public void CustomezeDateTimePicker()
+        {
+            DTPSetDate.Format = DateTimePickerFormat.Custom;
+            DTPSetDate.CustomFormat = "dd/MM/yyyy";
+
+            DTPTime.Format = DateTimePickerFormat.Custom;
+            DTPTime.CustomFormat = "hh:mm:ss tt";
+        }
         public void ToolTip()
         {
             ToolTip1.SetToolTip(this.BtnSave, "Save Details");
@@ -178,6 +183,7 @@ namespace WorkFlowMenagementMDI.FuelApp.Views
             ToolTip1.SetToolTip(this.TxtStartFuelMeter, "Open fuel meter");
             ToolTip1.SetToolTip(this.TxtEndFuelMeter, "End fuel meter");
         }//Tool Tip Text
+        #endregion
 
         #region Populate all the combo boxes
         public void GetIssuePerson()
@@ -233,11 +239,11 @@ namespace WorkFlowMenagementMDI.FuelApp.Views
             TxtMillageNew.Clear();
             LoadVhiMeter(Convert.ToInt32(CmbVehicleNumber.SelectedValue));
         }
-
+        #region Vehicle Mileages and Meter count and Variances
         public void LoadVhiMeter(int vID)
         {
             TxtPriviousMillage.Text = db.FillLastMillageCount(vID);
-        }
+        }//Get Vehicle privious millage to textbox
         public void GetStartMeter()
         {
             try
@@ -293,67 +299,156 @@ namespace WorkFlowMenagementMDI.FuelApp.Views
             { /*Do Noithing*/ }
             //InsertToFuelByDateTB();
         }
+
+        #endregion
+
         #region All the button click evenet in Controller CRUD
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            try
+            int outVal = GetUserAccessable("UTRW_CREATE");
+            if (outVal == 1)
             {
-                DialogResult result = MessageBox.Show("Do you want to save the Record?", "Confirm item saving", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
+                try
                 {
-                    if (Convert.ToDouble(TxtPriviousMillage.Text) <= Convert.ToDouble(TxtMillageNew.Text))
+                    DialogResult result = MessageBox.Show("Do you want to save the Record?", "Confirm item saving", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
                     {
-                        if (db.AddNewFuelDetails(Convert.ToInt32(CmbItem.SelectedValue), DTPSetDate.Value.Date.ToString("MM/dd/yyyy"), DTPTime.Value.ToString("hh:mm:ss tt"),
-                            Convert.ToInt32(CmbLocation.SelectedValue), Convert.ToInt32(CmbVehicleNumber.SelectedValue), Convert.ToInt32(CmbIssuePerson.SelectedValue), TxtMillageNew.Text, Convert.ToDouble(TxtDieselQty.Text)
-                            , Convert.ToDouble(TxtEndFuelMeter.Text), Convert.ToInt32(CmbSecqurityPerson.SelectedValue), lastUserID, TxtBillNo.Text))
+                        if (Convert.ToDouble(TxtPriviousMillage.Text) <= Convert.ToDouble(TxtMillageNew.Text))
                         {
-                            MessageBox.Show("Record Sucessfully Added",
-                "Record " + LblId.Text + "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2);
-                            //ReportViewMethord();
+                            if (db.AddNewFuelDetails(Convert.ToInt32(CmbItem.SelectedValue), DTPSetDate.Value.Date.ToString("MM/dd/yyyy"), DTPTime.Value.ToString("hh:mm:ss tt"),
+                                Convert.ToInt32(CmbLocation.SelectedValue), Convert.ToInt32(CmbVehicleNumber.SelectedValue), Convert.ToInt32(CmbIssuePerson.SelectedValue), TxtMillageNew.Text, Convert.ToDouble(TxtDieselQty.Text)
+                                , Convert.ToDouble(TxtEndFuelMeter.Text), Convert.ToInt32(CmbSecqurityPerson.SelectedValue), lastUserID, TxtBillNo.Text))
+                            {
+                                MessageBox.Show("Record Sucessfully Added",
+                    "Record " + LblId.Text + "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2);
 
-                            //InsertToFuelByDateTB();//Stock Movement Method
+                                #region post insert method call
+                                //ReportViewMethord(); 
+                                //InsertToFuelByDateTB();//Stock Movement Method
+                                GetStartMeter();
+                                TxtEndFuelMeter.Clear();
+                                TxtDieselQty.Clear();
 
-                            GetStartMeter();
-                            TxtEndFuelMeter.Clear();
-                            TxtDieselQty.Clear();
+                                _mainForm.LoadGrid();
+                                _mainForm.GetParentToTree();
+                                GetFinalFuelStock();
 
-                            _mainForm.LoadGrid();
-                            _mainForm.GetParentToTree();
-                            GetFinalFuelStock();
-
-                            CmbIssuePerson.SelectedItem = null;
-
-                            CmbVehicleNumber.SelectedItem = null;
-
-                            CmbSecqurityPerson.SelectedItem = null;
-                            DTPSetDate.Focus();
+                                CmbIssuePerson.SelectedItem = null;
+                                CmbVehicleNumber.SelectedItem = null;
+                                CmbSecqurityPerson.SelectedItem = null;
+                                DTPSetDate.Focus();
+                                #endregion
+                            }
+                            else
+                            {
+                                MessageBox.Show("Sorry Somthing is Wrong!", "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Sorry Somthing is Wrong!", "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error,
-                                    MessageBoxDefaultButton.Button2);
+                            MessageBox.Show("Vehicle mileage is wrong.! \n\n Mileage should be grater than previous mileage result.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            TxtMillageNew.Focus();
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Vehicle mileage is wrong.! \n\n Mileage should be grater than previous mileage result.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                        TxtMillageNew.Focus();
+                        MessageBox.Show("Item Didnt save....!", "Saving details", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
                 }
-                else
+                catch { MessageBox.Show("Input strings was not in a correct format", "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2); }
+            }
+            else { MessageBox.Show("You dont have the privelages to Save this....!", "Privelages", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            int outVal = GetUserAccessable("UTRW_UPDATE");
+            if (outVal == 1)
+            {
+                try
                 {
-                    MessageBox.Show("Item Didnt save....!", "Saving details",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    if (db.UpdateFuelDetails(LblId.Text, DTPSetDate.Value.Date.ToString("MM/dd/yyyy"),
+                        DTPTime.Value.ToString("hh:mm:ss tt"), Convert.ToInt32(CmbLocation.SelectedValue),
+                        Convert.ToInt32(CmbVehicleNumber.SelectedValue), Convert.ToInt32(CmbIssuePerson.SelectedValue),
+                        TxtMillageNew.Text, Convert.ToDouble(TxtDieselQty.Text), Convert.ToDouble(TxtStartFuelMeter.Text),
+                        Convert.ToDouble(TxtEndFuelMeter.Text), Convert.ToInt32(CmbSecqurityPerson.SelectedValue), TxtBillNo.Text.ToString(), lastUserID))
+                    {
+                        MessageBox.Show("Record " + LblId.Text + " Sucessfully Updated!",
+            "Record " + LblId.Text + "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2);
+                        _mainForm.LoadGrid();
+                        _mainForm.GetParentToTree();
+                        this.Close();
+                    }
+                    else
+                        MessageBox.Show("Sorry Somthing is Wrong!", "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
+                }
+                catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+            }
+
+            else { MessageBox.Show("You dont have the privelages to Update this....!", "Privelages", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            //Admin_Controller admin = new Admin_Controller();
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            int outVal = GetUserAccessable("UTRW_DELETE");
+            if (outVal == 1)
+            {
+                try
+                {
+                    DialogResult result = MessageBox.Show("Do you really want to delete the Record \"" + LblId.Text + "\"?", "Confirm product deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        if (db.DeleteFuelDetails(LblId.Text))
+                        {
+                            MessageBox.Show("Record has been Deleted....!", "Record " + LblId.Text + "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                            _mainForm.LoadGrid();
+                            _mainForm.GetParentToTree();
+                            this.Close();
+                        }
+                        else
+                            MessageBox.Show("Sorry Somthing is Wrong.....!");
+                    }
+                    else
+                        MessageBox.Show("Record " + LblId.Text + " Not Deleted", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Record Not Deleted " + ex.ToString() + "....!", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
                 }
             }
-            catch
+            else { MessageBox.Show("you dont have the permissions to delete this", "Privelages", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+        }
+        #endregion
+
+        public int GetUserAccessable(string input)
+        {
+            int privlagID;
+            string queryStringDisable = @"SELECT FK_USER_ID, FK_ROLE_ID, UTRW_CREATE, UTRW_UPDATE, UTRW_DELETE
+            FROM USER_TO_ROLE_WFMS
+            where FK_USER_ID=" + lastUserID + " and FK_ROLE_ID=2";
+
+            DataTable dt = null;
+            DataSet ds = privilages.SelectUserRolesToControls(queryStringDisable);
+
+            if (lastUserID == 1)
             {
-                MessageBox.Show("Input strings was not in a correct format",
-                        "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error,
-                        MessageBoxDefaultButton.Button2);
+                privlagID = 1;
             }
+            else
+            {
+                dt = ds.Tables[0];
+                DataRow dr = dt.Rows[0];
+                privlagID = Convert.ToInt32(dr[input]);
+            }
+            return privlagID;
         }
 
         public void ButtonProperty()
@@ -365,11 +460,11 @@ namespace WorkFlowMenagementMDI.FuelApp.Views
             }
             else
             {
-                if (Properties.Settings.Default.LastUser.ToLower() != "admin")
-                {
-                    BtnUpdate.Enabled = false;
-                    BtnDelete.Enabled = false;
-                }
+                //if (Properties.Settings.Default.LastUser.ToLower() != "admin")
+                //{
+                //    BtnUpdate.Enabled = false;
+                //    BtnDelete.Enabled = false;
+                //}
                 ToolTip1.IsBalloon = true;
                 ToolTip1.SetToolTip(this.BtnUpdate, "Update Details");
                 ToolTip1.SetToolTip(this.BtnDelete, "Delete Selected Details");
@@ -377,69 +472,6 @@ namespace WorkFlowMenagementMDI.FuelApp.Views
                 TxtStartFuelMeter.Enabled = false;
             }
         }
-
-        private void BtnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void BtnUpdate_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (db.UpdateFuelDetails(LblId.Text, DTPSetDate.Value.Date.ToString("MM/dd/yyyy"),
-                    DTPTime.Value.ToString("hh:mm:ss tt"), Convert.ToInt32(CmbLocation.SelectedValue),
-                    Convert.ToInt32(CmbVehicleNumber.SelectedValue), Convert.ToInt32(CmbIssuePerson.SelectedValue),
-                    TxtMillageNew.Text, Convert.ToDouble(TxtDieselQty.Text), Convert.ToDouble(TxtStartFuelMeter.Text),
-                    Convert.ToDouble(TxtEndFuelMeter.Text), Convert.ToInt32(CmbSecqurityPerson.SelectedValue), TxtBillNo.Text.ToString(), lastUserID))
-                {
-                    MessageBox.Show("Record " + LblId.Text + " Sucessfully Updated!",
-        "Record " + LblId.Text + "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2);
-                    _mainForm.LoadGrid();
-                    _mainForm.GetParentToTree();
-                    this.Close();
-                }
-                else
-                    MessageBox.Show("Sorry Somthing is Wrong!", "Saving Error", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
-            //Admin_Controller admin = new Admin_Controller();
-        }
-
-        private void BtnDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DialogResult result = MessageBox.Show("Do you really want to delete the Record \"" + LblId.Text + "\"?", "Confirm product deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
-                {
-                    if (db.DeleteFuelDetails(LblId.Text))
-                    {
-                        MessageBox.Show("Record has been Deleted....!",
-        "Record " + LblId.Text + "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
-                        _mainForm.LoadGrid();
-                        _mainForm.GetParentToTree();
-                        this.Close();
-                    }
-                    else
-                        MessageBox.Show("Sorry Somthing is Wrong.....!");
-                }
-                else
-                    MessageBox.Show("Record " + LblId.Text + " Not Deleted",
-        "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Record Not Deleted " + ex.ToString() + "....!",
-        "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
-            }
-        }
-        #endregion
 
         #region Enter key press key down events
         private void DTPSetDate_KeyDown(object sender, KeyEventArgs e)
@@ -528,7 +560,6 @@ namespace WorkFlowMenagementMDI.FuelApp.Views
                 }
             }
         }
-        #endregion
         private void TxtEndFuelMeter_KeyDown(object sender, KeyEventArgs e)
         {
             string value = TxtEndFuelMeter.Text;
@@ -551,11 +582,12 @@ namespace WorkFlowMenagementMDI.FuelApp.Views
                     //}
                 }
                 else
-                { MessageBox.Show("You cannot modify....!","Access error",MessageBoxButtons.OK,MessageBoxIcon.Hand); }
+                { MessageBox.Show("You cannot modify....!", "Access error", MessageBoxButtons.OK, MessageBoxIcon.Hand); }
 
             }
         }
 
+        #endregion
         private void Controller_FormClosed(object sender, FormClosedEventArgs e)
         {
             _mainForm.Enabled = true;

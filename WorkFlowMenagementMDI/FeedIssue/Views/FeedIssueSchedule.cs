@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using WorkFlowMenagementMDI.Admin.Methods;
 using WorkFlowMenagementMDI.FeedIssue.DBMethods;
 
 namespace WorkFlowMenagementMDI.FeedIssue.Views
@@ -16,6 +17,7 @@ namespace WorkFlowMenagementMDI.FeedIssue.Views
         GetFarmerDetails db = new GetFarmerDetails();
         FeedIssueScheduleMethods scheduleDB = new FeedIssueScheduleMethods();
         ToolTip dTips = new ToolTip();
+        WorkFlowManageMethods privilege = new WorkFlowManageMethods();
         private string _farmer, _batch, _wk1In, _wk3In, _wk4In, _user;
 
         public FeedIssueSchedule()
@@ -240,7 +242,13 @@ namespace WorkFlowMenagementMDI.FeedIssue.Views
         #endregion
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            InsertScheduleAddToTable();
+            int outVal = privilege.GetUserAccessable("UTRW_CREATE", 3);
+            if (outVal == 1)
+            {
+                InsertScheduleAddToTable();
+            }
+            else { MessageBox.Show("You dont have the privelages to Save this....!", "Privelages", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+
         }
         public void ClearText()
         {

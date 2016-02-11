@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using WorkFlowMenagementMDI.Admin.Methods;
 using WorkFlowMenagementMDI.Tracking.Methods.Farmers;
 
 namespace WorkFlowMenagementMDI.Tracking.Views.Farmers
@@ -13,6 +14,8 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Farmers
     public partial class FarmerCreationForm : Form
     {
         FarmersCreationMethods db = new FarmersCreationMethods();
+        WorkFlowManageMethods privilege = new WorkFlowManageMethods();
+
         public FarmerCreationForm()
         {
             InitializeComponent();
@@ -97,7 +100,7 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Farmers
         {
             BtnAdd.Enabled = true;
             BtnUpdate.Enabled = false;
-            TextBoxClearEvent(); 
+            TextBoxClearEvent();
             CmbFarmer.Focus();
         }
 
@@ -115,74 +118,65 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Farmers
             BtnAdd.Enabled = false;
             BtnUpdate.Enabled = true;
         }
-        
+
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            try
+            int outVal = privilege.GetUserAccessable("UTRW_CREATE", 1);
+            if (outVal == 1)
             {
-                DialogResult result = MessageBox.Show("Do you want to save the Record?...", "Confirm item saving", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
+                try
                 {
-                    int fName = Convert.ToInt32(CmbFarmer.SelectedValue);
-                    double latitude = Convert.ToDouble(TxtFarmerLat.Text);
-                    double longitude = Convert.ToDouble(TxtFarmarLon.Text);
-                    int fieldOffID = Convert.ToInt32(CmbFOfficer.SelectedValue);
-                    int areaID = Convert.ToInt32(CmbFrmArea.SelectedValue);
+                    DialogResult result = MessageBox.Show("Do you want to save the Record?...", "Confirm item saving", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                    if (db.InsertNewFarmer(fName, latitude, longitude, fieldOffID, areaID))
+                    if (result == DialogResult.Yes)
                     {
-                        MessageBox.Show("Record Sucessfully Added", "Record Status", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2);
-                        GridRefresh();
-                        TextBoxClearEvent();
+                        int fName = Convert.ToInt32(CmbFarmer.SelectedValue);
+                        double latitude = Convert.ToDouble(TxtFarmerLat.Text);
+                        double longitude = Convert.ToDouble(TxtFarmarLon.Text);
+                        int fieldOffID = Convert.ToInt32(CmbFOfficer.SelectedValue);
+                        int areaID = Convert.ToInt32(CmbFrmArea.SelectedValue);
+
+                        if (db.InsertNewFarmer(fName, latitude, longitude, fieldOffID, areaID))
+                        {
+                            MessageBox.Show("Record Sucessfully Added", "Record Status", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2);
+                            GridRefresh();
+                            TextBoxClearEvent();
+                        }
+                        else
+                            MessageBox.Show("Sorry Somthing is Wrong!", "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
                     }
                     else
-                        MessageBox.Show("Sorry Somthing is Wrong!", "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
+                    { MessageBox.Show("Item Didnt save....!", "Saving details", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+
                 }
-                else
-                { MessageBox.Show("Item Didnt save....!", "Saving details", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+                catch (Exception ex) { MessageBox.Show(ex.Message, "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2); }
+                
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2); }
+            else{ MessageBox.Show("You dont have the privelages to Save this....!", "Privelages", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
         }
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            try
+            int outVal = privilege.GetUserAccessable("UTRW_UPDATE", 1);
+            if (outVal == 1)
             {
-                int id = Convert.ToInt32(LblId.Text); 
-                int name = Convert.ToInt32(CmbFarmer.SelectedValue); double latitude = Convert.ToDouble(TxtFarmerLat.Text);
-                double longitude = Convert.ToDouble(TxtFarmarLon.Text);
-                int fieldOffID = Convert.ToInt32(CmbFOfficer.SelectedValue); int areaName = Convert.ToInt32(CmbFrmArea.SelectedValue);
-                if (db.UpdateFarmer(id, name, latitude, longitude, fieldOffID, areaName))
+                try
                 {
-                    MessageBox.Show("Record " + LblId.Text + " Sucessfully Updated!", "Record " + LblId.Text + "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2);
-                    GridRefresh(); TextBoxClearEvent(); RBCreate.Checked = true; 
-                }
-                else
-                    MessageBox.Show("Sorry Somthing is Wrong!", "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-        }
-
-        private void BtnDelete_Click(object sender, EventArgs e)
-        {
-            /*try
-            {
-                DialogResult result = MessageBox.Show("Do you really want to delete the Record \"" + LblId.Text + "\"?", "Confirm product deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
-                {
-                    if (db.DeleteFarmer(Convert.ToInt32(LblId.Text)))
+                    int id = Convert.ToInt32(LblId.Text);
+                    int name = Convert.ToInt32(CmbFarmer.SelectedValue); double latitude = Convert.ToDouble(TxtFarmerLat.Text);
+                    double longitude = Convert.ToDouble(TxtFarmarLon.Text);
+                    int fieldOffID = Convert.ToInt32(CmbFOfficer.SelectedValue); int areaName = Convert.ToInt32(CmbFrmArea.SelectedValue);
+                    if (db.UpdateFarmer(id, name, latitude, longitude, fieldOffID, areaName))
                     {
-                        MessageBox.Show("Record has been Deleted....!", "Record " + LblId.Text + "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
-                        GridRefresh();
+                        MessageBox.Show("Record " + LblId.Text + " Sucessfully Updated!", "Record " + LblId.Text + "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2);
+                        GridRefresh(); TextBoxClearEvent(); RBCreate.Checked = true;
                     }
                     else
-                        MessageBox.Show("Sorry Somthing is Wrong.....!");
+                        MessageBox.Show("Sorry Somthing is Wrong!", "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
                 }
-                else
-                    MessageBox.Show("Record " + LblId.Text + " Not Deleted", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
-            catch (Exception ex) { MessageBox.Show("Record Not Deleted " + ex.ToString() + "....!", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2); } */
+            else { MessageBox.Show("You dont have the privelage to update this....!", "Privelages", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
         }
 
         #region Search bar
@@ -383,17 +377,12 @@ FARMER_HEADER_MASTER as mast on farm.GPS_FRM_HDR_MST_ID=mast.FAR_HDR_MST_FAR_NO 
 
         private void DgvFarmers_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-            //DataGridViewCellEventArgs e1=new DataGridViewCellEventArgs(e)
-            if (Properties.Settings.Default.LastUser.ToLower() != "admin")
-            {
-                MessageBox.Show("You are not allow to delete", "Farmers location details", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                GridRefresh();
-            }
-            else if (Properties.Settings.Default.LastUser.ToLower() == "admin")
+            int outVal = privilege.GetUserAccessable("UTRW_DELETE", 1);
+            if (outVal == 1)
             {
                 DialogResult usersChoice = MessageBox.Show(@"You are about to delete " + DgvFarmers.SelectedRows.Count
-                    + " Row(s).\n\n \r Click Yes to permanently delete these rows. You won’t be able to undo these changes.",
-                "Farmers location details", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                + " Row(s).\n\n \r Click Yes to permanently delete these rows. You won’t be able to undo these changes.",
+            "Farmers location details", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 // cancel the delete event
                 if (usersChoice == DialogResult.No)
@@ -412,6 +401,7 @@ FARMER_HEADER_MASTER as mast on farm.GPS_FRM_HDR_MST_ID=mast.FAR_HDR_MST_FAR_NO 
                     MessageBox.Show("Record has been deleted");
                 }
             }
+            else { MessageBox.Show("You dont have the privelage to delete this....!", "Privelages", MessageBoxButtons.OK, MessageBoxIcon.Warning); e.Cancel = true; }
         }
     }
 }

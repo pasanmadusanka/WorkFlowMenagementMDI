@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using WorkFlowMenagementMDI.Properties;
 
 namespace WorkFlowMenagementMDI.Methods.Login
 {
@@ -26,15 +27,20 @@ namespace WorkFlowMenagementMDI.Methods.Login
 
                 SqlCommand NewCmd = conn.CreateCommand();
                 NewCmd.CommandType = CommandType.Text;
-                NewCmd.CommandText = "SELECT SEC_HDR_CODE, SEC_HDR_USR_NAME, SEC_HDR_PWD FROM SECURITY_HEADER WHERE (SEC_HDR_USR_NAME = '" + userName + "') AND (SEC_HDR_PWD = '" + password + "')";
+                NewCmd.CommandText = @"SELECT UserID, SH.SEC_HDR_USR_NAME, SH.SEC_HDR_PWD 
+                FROM USERS_WFMS as UW inner join
+                SECURITY_HEADER as SH on UW.SecqHeaderID=SH.SEC_HDR_CODE  
+                WHERE (SH.SEC_HDR_USR_NAME = '" + userName + "') AND (SH.SEC_HDR_PWD = '" + password + "')";
 
                 SqlDataReader dr = NewCmd.ExecuteReader();
                 if (dr.HasRows)
                 {
                     while (dr.Read())
                     {
-                        UserInfo ui = new UserInfo(dr["SEC_HDR_CODE"].ToString(), dr["SEC_HDR_USR_NAME"].ToString(), dr["SEC_HDR_PWD"].ToString());
-                        int i = Convert.ToInt32(dr["SEC_HDR_CODE"]);
+                        UserInfo ui = new UserInfo(dr["UserID"].ToString(), dr["SEC_HDR_USR_NAME"].ToString(), dr["SEC_HDR_PWD"].ToString());
+                        int i = Convert.ToInt32(dr["UserID"]);
+                        Settings.Default.UserID = i ;
+                        Settings.Default.Save();
                         //ControllerMethods dba = new ControllerMethods(Convert.ToInt32(dr["SEC_HDR_CODE"]));
                     }
                     NewCmd.Dispose();

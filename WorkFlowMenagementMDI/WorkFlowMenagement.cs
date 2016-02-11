@@ -21,11 +21,24 @@ using WorkFlowMenagementMDI.Login;
 using WorkFlowMenagementMDI.Tracking.Views.Upload;
 using WorkFlowMenagementMDI.FeedIssue.Views;
 using WorkFlowMenagementMDI.FeedIssue.ReportView;
+using WorkFlowMenagementMDI.Admin;
+using WorkFlowMenagementMDI.Admin.Views;
+using WorkFlowMenagementMDI.Admin.Methods;
 
 namespace WorkFlowMenagementMDI
 {
     public partial class WorkFlowMenagement : Form
     {
+        protected override void OnLoad(EventArgs e)
+        {
+            this.BackgroundImage = Properties.Resources.Half_Page;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            base.OnLoad(e);
+        }
+
+        private Dictionary<string, string> oldMenuToolTips =
+            new Dictionary<string, string>();
+        WorkFlowManageMethods db = new WorkFlowManageMethods();
         public WorkFlowMenagement()
         {
             InitializeComponent();
@@ -292,8 +305,7 @@ namespace WorkFlowMenagementMDI
 
         private void WorkFlowMenagement_FormClosing(object sender, FormClosingEventArgs e)
         {
-            LoginWindow login = new LoginWindow();
-            login.Show();
+            Application.Exit();
         }
 
         private void uploadParkingToolStripMenuItem_Click(object sender, EventArgs e)
@@ -330,5 +342,105 @@ namespace WorkFlowMenagementMDI
             tmp.MdiParent = this;
             tmp.Show();
         }
+
+        private void managePermissionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(ManagePermissions))
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+            ManagePermissions permiss = new ManagePermissions(this);
+            permiss.MdiParent = this;
+            permiss.Show();
+
+            permiss.WindowState = FormWindowState.Normal;
+        }
+
+        private void WorkFlowMenagement_Load(object sender, EventArgs e)
+        {
+
+            foreach (Control c in this.Controls)
+            {
+                if (c is MenuStrip)
+                {
+                    MenuStrip menuStrip = c as MenuStrip;
+                    ShowToolStipItems(menuStrip.Items);
+                }
+            }
+
+        }
+
+        private void ShowToolStipItems(ToolStripItemCollection toolStripItems)
+        {
+            string[] arr = new string[4];
+            List<string> controlAr = new List<string>();
+
+            int user = Settings.Default.UserID;
+
+            string queryStringDisable = @"SELECT distinct UW.UserID, CTRW.INVISIBLE, CTRW.DISABLED, CW.CONRTOL_NAME
+            FROM USERS_WFMS as UW INNER JOIN USER_TO_ROLE_WFMS as UTRW ON UW.UserID = UTRW.FK_USER_ID INNER JOIN
+            ROLES_WFMS as RW ON UTRW.FK_ROLE_ID = RW.ROLE_ID INNER JOIN CONTROLS_TO_ROLES_WFMS as CTRW ON RW.ROLE_ID = CTRW.FK_ROLE_ID INNER JOIN
+            CONTROLS_WFMS as CW ON CTRW.FK_CONTROL_NAME = CW.CONRTOL_NAME where UserID = " + user + "  and CTRW.DISABLED = 0";
+
+            DataTable dt = null;
+            DataSet ds = db.SelectUserRolesToControls(queryStringDisable);
+            dt = ds.Tables[0];
+
+            foreach (DataRow row in ds.Tables["usercontrolsInRoles"].Rows)
+            {
+                controlAr.Add((row["CONRTOL_NAME"]).ToString());
+            }
+
+            foreach (ToolStripMenuItem mi in toolStripItems)
+            {
+                oldMenuToolTips.Add(mi.Name, mi.ToolTipText);
+                mi.ToolTipText = mi.Name;
+
+                if (mi.DropDownItems.Count > 0) { ShowToolStipItems(mi.DropDownItems); }
+                if (lastUser.ToLower() == "admin")
+                {
+                    mi.Enabled = true;
+                }
+                else
+                {
+                    foreach (string ite in controlAr)
+                    {
+                        if (mi.Name == ite)
+                        {
+                            mi.Enabled = true;
+                        }
+                        //else { mi.Enabled = false; }
+                    }
+                }
+            }
+        }
+
+        private void manageRolesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(ManageRoles))
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+            ManageRoles rols = new ManageRoles();
+            rols.MdiParent = this;
+            rols.Show();
+            rols.WindowState = FormWindowState.Normal;
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginWindow login = new LoginWindow();
+            login.Show();
+        }
+
     }
 }

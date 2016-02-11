@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_Controller));
             this.DgvAdmin = new System.Windows.Forms.DataGridView();
             this.BtnCreateNew = new System.Windows.Forms.Button();
@@ -41,6 +42,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.TWFuelDetails = new System.Windows.Forms.TreeView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DgvAdmin)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -203,6 +205,12 @@
             this.TWFuelDetails.DoubleClick += new System.EventHandler(this.TWFuelDetails_DoubleClick);
             this.TWFuelDetails.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TWFuelDetails_KeyDown);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "hbobb.ico");
+            // 
             // Admin_Controller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,5 +252,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TreeView TWFuelDetails;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

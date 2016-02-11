@@ -36,7 +36,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.RBEdit = new System.Windows.Forms.RadioButton();
             this.RBCreate = new System.Windows.Forms.RadioButton();
-            this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnAdd = new System.Windows.Forms.Button();
             this.CmbFOfficer = new System.Windows.Forms.ComboBox();
@@ -129,7 +128,6 @@
             // 
             this.groupBox1.Controls.Add(this.RBEdit);
             this.groupBox1.Controls.Add(this.RBCreate);
-            this.groupBox1.Controls.Add(this.BtnDelete);
             this.groupBox1.Controls.Add(this.BtnUpdate);
             this.groupBox1.Controls.Add(this.BtnAdd);
             this.groupBox1.Location = new System.Drawing.Point(649, 3);
@@ -165,27 +163,13 @@
             this.RBCreate.UseVisualStyleBackColor = true;
             this.RBCreate.CheckedChanged += new System.EventHandler(this.RBCreate_CheckedChanged);
             // 
-            // BtnDelete
-            // 
-            this.BtnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnDelete.Image = global::WorkFlowMenagementMDI.Properties.Resources.delete;
-            this.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnDelete.Location = new System.Drawing.Point(176, 37);
-            this.BtnDelete.Name = "BtnDelete";
-            this.BtnDelete.Size = new System.Drawing.Size(75, 39);
-            this.BtnDelete.TabIndex = 15;
-            this.BtnDelete.Text = "Delete";
-            this.BtnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnDelete.UseVisualStyleBackColor = true;
-            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
-            // 
             // BtnUpdate
             // 
             this.BtnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnUpdate.Enabled = false;
             this.BtnUpdate.Image = global::WorkFlowMenagementMDI.Properties.Resources.saveIMG;
             this.BtnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnUpdate.Location = new System.Drawing.Point(95, 37);
+            this.BtnUpdate.Location = new System.Drawing.Point(160, 34);
             this.BtnUpdate.Name = "BtnUpdate";
             this.BtnUpdate.Size = new System.Drawing.Size(75, 39);
             this.BtnUpdate.TabIndex = 14;
@@ -200,7 +184,7 @@
             this.BtnAdd.Enabled = false;
             this.BtnAdd.Image = global::WorkFlowMenagementMDI.Properties.Resources.plus_sign_icon_gray;
             this.BtnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnAdd.Location = new System.Drawing.Point(14, 37);
+            this.BtnAdd.Location = new System.Drawing.Point(46, 34);
             this.BtnAdd.Name = "BtnAdd";
             this.BtnAdd.Size = new System.Drawing.Size(75, 39);
             this.BtnAdd.TabIndex = 13;
@@ -489,7 +473,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button BtnDelete;
         private System.Windows.Forms.Button BtnUpdate;
         private System.Windows.Forms.Button BtnAdd;
         private System.Windows.Forms.ComboBox CmbFOfficer;

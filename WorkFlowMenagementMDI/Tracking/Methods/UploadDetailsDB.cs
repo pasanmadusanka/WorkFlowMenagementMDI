@@ -5,19 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data;
-using WorkFlowMenagementMDI.Database; 
+using WorkFlowMenagementMDI.Database;
+using WorkFlowMenagementMDI.Tracking.Views.Upload;
 
 namespace WorkFlowMenagementMDI.Tracking.Methods
 {
     public class UploadDetailsDB
     {
-        public SqlConnection conn;
+        private SqlConnection conn;
+        public UploadExcelParkingDetails upload;
         public UploadDetailsDB()
         {
             DBAccess db = new DBAccess();
             conn = db.conn;
         }
-        public string GetIndexParkingDetails(string query,string readVal)
+        public string GetIndexParkingDetails(string query, string readVal)
         {
             string index = String.Empty;
             try
@@ -65,7 +67,14 @@ namespace WorkFlowMenagementMDI.Tracking.Methods
                 scmd.ExecuteNonQuery();
                 status = true;
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message.ToString(), "InsertByDataGridView", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex)
+            {
+                DialogResult result = MessageBox.Show(ex.Message.ToString(), "Upload FO Parkings", MessageBoxButtons.RetryCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.Cancel)
+                {
+                    this.upload.Close();
+                }
+            }
             finally { conn.Close(); }
             return status;
         }
@@ -103,7 +112,7 @@ namespace WorkFlowMenagementMDI.Tracking.Methods
             dt.Columns.Add("date", typeof(string));
             try
             {
-                if (conn.State.ToString() == "Closed")  { conn.Open(); }
+                if (conn.State.ToString() == "Closed") { conn.Open(); }
                 SqlCommand scmd = conn.CreateCommand();
                 scmd.CommandType = CommandType.Text;
                 scmd.CommandText = @"SELECT DISTINCT Vhi_Park_Date FROM GPS_TRK_VEHICLE_PARKING";
@@ -117,7 +126,7 @@ namespace WorkFlowMenagementMDI.Tracking.Methods
 
         public void DeleteParkTableData()
         {
-            try 
+            try
             {
                 if (conn.State.ToString() == "Closed") { conn.Open(); }
                 SqlCommand scmd = conn.CreateCommand();
@@ -155,12 +164,18 @@ namespace WorkFlowMenagementMDI.Tracking.Methods
                 scmd.ExecuteNonQuery();
                 status = true;
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message.ToString(), "Sales Customer Visit", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex)
+            {
+                DialogResult result=MessageBox.Show(ex.Message.ToString(), "Sales Customer Visit", MessageBoxButtons.RetryCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.Cancel)
+                {
+                    this.upload.Close();
+                }
+            }
             finally { conn.Close(); }
             return status;
         }
 
-       
         public string GetVehicleTrkIdByDevice(string device)
         {
             string trackID = String.Empty;
@@ -170,7 +185,7 @@ namespace WorkFlowMenagementMDI.Tracking.Methods
                 scmd.Connection = conn;
 
                 string selectSql = @" select track.VhiTrackerID,track.VhiDeviceName
-                from GPS_TRACKING_VEHICLE_DEVICE as track where track.VhiDeviceName='"+device+"'";
+                from GPS_TRACKING_VEHICLE_DEVICE as track where track.VhiDeviceName='" + device + "'";
 
                 SqlCommand com = new SqlCommand(selectSql, conn);
                 if (conn.State.ToString() == "Closed") { conn.Open(); }
@@ -206,7 +221,7 @@ namespace WorkFlowMenagementMDI.Tracking.Methods
             }
             catch (Exception ex) { MessageBox.Show(ex.Message.ToString()); }
 
-            finally { conn.Close(); } 
+            finally { conn.Close(); }
             return trackID;
         }
     }

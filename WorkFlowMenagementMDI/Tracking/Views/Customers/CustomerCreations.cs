@@ -6,14 +6,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using WorkFlowMenagementMDI.Tracking.Methods.Customers; 
+using WorkFlowMenagementMDI.Admin.Methods;
+using WorkFlowMenagementMDI.Tracking.Methods.Customers;
 
 namespace WorkFlowMenagementMDI.Tracking.Views.Customers
 {
     public partial class CustomerCreations : Form
     {
         CustomerLocationCreationMethods db = new CustomerLocationCreationMethods();
-
+        WorkFlowManageMethods privilege = new WorkFlowManageMethods();
         public CustomerCreations()
         {
             InitializeComponent();
@@ -27,30 +28,35 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Customers
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            try
+            int outVal = privilege.GetUserAccessable("UTRW_CREATE", 1);
+            if (outVal == 1)
             {
-                DialogResult result = MessageBox.Show("Do you want to save the Record?", "Confirm item saving", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
+                try
                 {
-                    int customerID = Convert.ToInt32(CmbCustID.SelectedValue);
-                    string area = TxtAreaName.Text;
-                    double latitude = Convert.ToDouble(TxtCustLat.Text);
-                    double longitude = Convert.ToDouble(TxtCustLon.Text);
-                    int deviceID = Convert.ToInt32(CmbVhiID.SelectedValue);
-                    string days = CmbDaysOfWeek.Text; int repID = Convert.ToInt32(CmbSalesRep.SelectedValue);
-                    if (db.InsertNewCustomer(customerID, area, deviceID, latitude, longitude, repID, days))
+                    DialogResult result = MessageBox.Show("Do you want to save the Record?", "Confirm item saving", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
                     {
-                        MessageBox.Show("Record Sucessfully Added", "Record Status", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2);
-                        GridViewLoad(); TextBoxClearEvent(); CmbCustID.Focus();
+                        int customerID = Convert.ToInt32(CmbCustID.SelectedValue);
+                        string area = TxtAreaName.Text;
+                        double latitude = Convert.ToDouble(TxtCustLat.Text);
+                        double longitude = Convert.ToDouble(TxtCustLon.Text);
+                        int deviceID = Convert.ToInt32(CmbVhiID.SelectedValue);
+                        string days = CmbDaysOfWeek.Text; int repID = Convert.ToInt32(CmbSalesRep.SelectedValue);
+                        if (db.InsertNewCustomer(customerID, area, deviceID, latitude, longitude, repID, days))
+                        {
+                            MessageBox.Show("Record Sucessfully Added", "Record Status", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2);
+                            GridViewLoad(); TextBoxClearEvent(); CmbCustID.Focus();
+                        }
+                        else
+                            MessageBox.Show("Sorry Somthing is Wrong!", "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
                     }
                     else
-                        MessageBox.Show("Sorry Somthing is Wrong!", "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
+                    { MessageBox.Show("Item Didnt save....!", "Saving details", MessageBoxButtons.OK, MessageBoxIcon.Information); }
                 }
-                else
-                { MessageBox.Show("Item Didnt save....!", "Saving details", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+                catch (Exception ex) { MessageBox.Show(ex.Message, "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2); }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2); }
+            else { MessageBox.Show("You dont have the privelages to Save this....!", "Privelages", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
         }
 
         #region Populating the combo boxes
@@ -90,7 +96,7 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Customers
             LoadSalesRepCombo();
             CmbCustID.Select();
             ToolTip tip = new ToolTip();
-            tip.SetToolTip(BtnExcel,"Export to excel");
+            tip.SetToolTip(BtnExcel, "Export to excel");
             tip.SetToolTip(ChkEnableSearch, "Check to enable search");
         }
 
@@ -140,44 +146,28 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Customers
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            try
+            int outVal = privilege.GetUserAccessable("UTRW_UPDATE", 1);
+            if (outVal == 1)
             {
-                int id = Convert.ToInt32(LblId.Text);
-                string days = CmbDaysOfWeek.Text;
-                int repID = Convert.ToInt32(CmbSalesRep.SelectedValue);
-                if (db.UpdateCustomer(id, Convert.ToInt32(CmbCustID.SelectedValue), TxtAreaName.Text, Convert.ToInt32(CmbVhiID.SelectedValue),
-                    Convert.ToDouble(TxtCustLat.Text), Convert.ToDouble(TxtCustLon.Text), repID, days))
+                try
                 {
-                    MessageBox.Show("Record " + LblId.Text + " Sucessfully Updated!", "Record " + LblId.Text + "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2);
-                    GridViewLoad(); TextBoxClearEvent();
+                    int id = Convert.ToInt32(LblId.Text);
+                    string days = CmbDaysOfWeek.Text;
+                    int repID = Convert.ToInt32(CmbSalesRep.SelectedValue);
+                    if (db.UpdateCustomer(id, Convert.ToInt32(CmbCustID.SelectedValue), TxtAreaName.Text, Convert.ToInt32(CmbVhiID.SelectedValue),
+                        Convert.ToDouble(TxtCustLat.Text), Convert.ToDouble(TxtCustLon.Text), repID, days))
+                    {
+                        MessageBox.Show("Record " + LblId.Text + " Sucessfully Updated!", "Record " + LblId.Text + "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2);
+                        GridViewLoad(); TextBoxClearEvent();
+                    }
+                    else
+                        MessageBox.Show("Sorry Somthing is Wrong!", "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
                 }
-                else
-                    MessageBox.Show("Sorry Somthing is Wrong!", "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
+                catch (Exception ex) { MessageBox.Show(ex.Message + " Error select a row you want to update", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message + " Error select a row you want to update", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            else { MessageBox.Show("You dont have the privelages to update this....!", "Privelages", MessageBoxButtons.OK, MessageBoxIcon.Warning);}
         }
-
-        private void BtnDelete_Click(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    DialogResult result = MessageBox.Show("Do you really want to delete the Record \"" + LblId.Text + "\"?", "Confirm product deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            //    if (result == DialogResult.Yes)
-            //    {
-            //        if (db.DeleteCustomer(Convert.ToInt32(LblId.Text)))
-            //        {
-            //            MessageBox.Show("Record has been Deleted....!", "Record " + LblId.Text + "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
-            //            GridViewLoad(); TextBoxClearEvent();
-            //        }
-            //        else
-            //            MessageBox.Show("Sorry Somthing is Wrong.....!");
-            //    }
-            //    else
-            //        MessageBox.Show("Record " + LblId.Text + " Not Deleted", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
-            //}
-            //catch (Exception ex) { MessageBox.Show("Record Not Deleted " + ex.Message + " Please select the row you want to delete....!", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2); }
-        }
-
+         
         private void CmbCustID_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -425,18 +415,14 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Customers
             xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
             Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[1, 1];
             CR.Select();
-            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);          
+            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
         }//Open Excel and Past it
 
         private void DgvCustomers_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             //DataGridViewCellEventArgs e1=new DataGridViewCellEventArgs(e)
-            if (Properties.Settings.Default.LastUser.ToLower() != "admin")
-            {
-                MessageBox.Show("You are not allow to delete", "Customers tracking details", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                GridViewLoad();
-            }
-            else if (Properties.Settings.Default.LastUser.ToLower() == "admin")
+            int outVal = privilege.GetUserAccessable("UTRW_DELETE", 1);
+            if (outVal == 1)
             {
                 DialogResult usersChoice = MessageBox.Show(@"You are about to delete " + DgvCustomers.SelectedRows.Count
                     + " Row(s).\n\n \r Click Yes to permanently delete these rows. You won’t be able to undo these changes.",
@@ -456,8 +442,8 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Customers
                     { MessageBox.Show("Record has been deleted"); LblId.Text = ""; }
                 }
             }
-        }
-
-
+            else { MessageBox.Show("You dont have the privelages to delete this....!", "Privelages", MessageBoxButtons.OK, MessageBoxIcon.Warning); e.Cancel = true; }
+            
+        } 
     }
 }

@@ -46,6 +46,7 @@
             this.RBFarmer = new System.Windows.Forms.RadioButton();
             this.RBCustomer = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
+            this.LblSeleRb = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvUploads)).BeginInit();
             this.panel3.SuspendLayout();
@@ -57,20 +58,22 @@
             // BtnInsert
             // 
             this.BtnInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnInsert.Location = new System.Drawing.Point(767, 337);
+            this.BtnInsert.Image = global::WorkFlowMenagementMDI.Properties.Resources.upload1;
+            this.BtnInsert.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnInsert.Location = new System.Drawing.Point(782, 337);
             this.BtnInsert.Name = "BtnInsert";
-            this.BtnInsert.Size = new System.Drawing.Size(92, 34);
+            this.BtnInsert.Size = new System.Drawing.Size(77, 34);
             this.BtnInsert.TabIndex = 15;
             this.BtnInsert.Text = "Upload";
+            this.BtnInsert.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnInsert.UseVisualStyleBackColor = true;
             this.BtnInsert.Click += new System.EventHandler(this.BtnInsert_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.groupBox1.Controls.Add(this.rbHeaderYes);
             this.groupBox1.Controls.Add(this.rbHeaderNo);
-            this.groupBox1.Location = new System.Drawing.Point(187, 7);
+            this.groupBox1.Location = new System.Drawing.Point(145, 7);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(93, 33);
             this.groupBox1.TabIndex = 14;
@@ -99,9 +102,8 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(139, 21);
+            this.label1.Location = new System.Drawing.Point(96, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 13;
@@ -179,6 +181,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.LblSeleRb);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.lblFroRadioGroup);
             this.panel1.Controls.Add(this.label1);
@@ -191,7 +194,8 @@
             // 
             // lblFroRadioGroup
             // 
-            this.lblFroRadioGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblFroRadioGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFroRadioGroup.AutoSize = true;
             this.lblFroRadioGroup.Location = new System.Drawing.Point(495, 18);
             this.lblFroRadioGroup.Name = "lblFroRadioGroup";
@@ -201,7 +205,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.RBFarmer);
             this.groupBox2.Controls.Add(this.RBCustomer);
             this.groupBox2.Location = new System.Drawing.Point(685, 7);
@@ -221,6 +226,7 @@
             this.RBFarmer.TabStop = true;
             this.RBFarmer.Text = "Farmer";
             this.RBFarmer.UseVisualStyleBackColor = true;
+            this.RBFarmer.CheckedChanged += new System.EventHandler(this.RBFarmer_CheckedChanged);
             // 
             // RBCustomer
             // 
@@ -230,16 +236,28 @@
             this.RBCustomer.TabIndex = 6;
             this.RBCustomer.Text = "Customer";
             this.RBCustomer.UseVisualStyleBackColor = true;
+            this.RBCustomer.CheckedChanged += new System.EventHandler(this.RBCustomer_CheckedChanged);
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(52, 345);
+            this.label2.Location = new System.Drawing.Point(12, 348);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(10, 13);
             this.label2.TabIndex = 18;
             this.label2.Text = ".";
+            // 
+            // LblSeleRb
+            // 
+            this.LblSeleRb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.LblSeleRb.AutoSize = true;
+            this.LblSeleRb.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblSeleRb.Location = new System.Drawing.Point(243, 16);
+            this.LblSeleRb.Name = "LblSeleRb";
+            this.LblSeleRb.Size = new System.Drawing.Size(222, 19);
+            this.LblSeleRb.TabIndex = 17;
+            this.LblSeleRb.Text = "Field Officer Visitation Selected";
             // 
             // UploadExcelParkingDetails
             // 
@@ -291,6 +309,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton RBFarmer;
         private System.Windows.Forms.RadioButton RBCustomer;
+        private System.Windows.Forms.Label LblSeleRb;
     }
 }
 

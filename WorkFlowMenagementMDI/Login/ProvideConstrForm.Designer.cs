@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProvideConstrForm));
             this.label2 = new System.Windows.Forms.Label();
             this.lblProgress = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -98,7 +99,6 @@
             this.CmbAvalablePc.Name = "CmbAvalablePc";
             this.CmbAvalablePc.Size = new System.Drawing.Size(87, 21);
             this.CmbAvalablePc.TabIndex = 6;
-            this.CmbAvalablePc.DropDown += new System.EventHandler(this.CmbAvalablePc_DropDown);
             // 
             // ProvideConstrForm
             // 
@@ -113,6 +113,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CmbAvalablePc);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(237, 143);
             this.MinimizeBox = false;

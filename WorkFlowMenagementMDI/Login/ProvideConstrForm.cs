@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Sql;
 using System.DirectoryServices;
 using System.Drawing;
 using System.Text;
@@ -19,49 +20,25 @@ namespace WorkFlowMenagementMDI.Login
         string dataSource;
 
         private void ProvideConstrForm_Load(object sender, EventArgs e)
-        {
-
+        { 
         }
 
-        private void CmbAvalablePc_DropDown(object sender, EventArgs e)
+        public void GetAvalableServers()
         {
-            if (CmbAvalablePc.Text == null && CmbAvalablePc.Text == "")
+            DataTable table = System.Data.Sql.SqlDataSourceEnumerator.Instance.GetDataSources();
+            foreach (DataRow server in table.Rows)
             {
-                DirectoryEntry root = new DirectoryEntry("WinNT:");
-                foreach (DirectoryEntry computers in root.Children)
-                {
-                    foreach (DirectoryEntry computer in computers.Children)
-                    {
-                        if (computer.Name != "Schema")
-                        {
-                            CmbAvalablePc.Items.Add(computer.Name);
-                        }
-                    }
-                }
+                CmbAvalablePc.Items.Add(server[table.Columns["ServerName"]].ToString());
             }
         }
+
+
 
         private void btnSearch_Click(object sender, EventArgs e)
-        {
-            CmbAvalablePc.Text = System.Environment.MachineName.ToString();
-
-            GetItems();
+        { 
+            GetAvalableServers();
         }
-        public void GetItems()
-        {
-            DirectoryEntry root = new DirectoryEntry("WinNT:");
-            foreach (DirectoryEntry computers in root.Children)
-            {
-                foreach (DirectoryEntry computer in computers.Children)
-                {
-                    if (computer.Name != "Schema")
-                    {
-                        CmbAvalablePc.Items.Add(computer.Name);
-                    }
-                }
-            }
-
-        }
+        
         private void SavePcbtn_Click(object sender, EventArgs e)
         {
             if (CmbAvalablePc.Text != null && CmbAvalablePc.Text != "")

@@ -25,8 +25,8 @@ namespace WorkFlowMenagementMDI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=HO51; Initial Catalog=NelnaDB; User id=HO51\\Administrator; Password=;" +
-            "")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SERVER;Initial Catalog=NelnaDB;Integrated Security=True\r\nSecurity=Tru" +
+            "e")]
         public string NewConStr {
             get {
                 return ((string)(this["NewConStr"]));

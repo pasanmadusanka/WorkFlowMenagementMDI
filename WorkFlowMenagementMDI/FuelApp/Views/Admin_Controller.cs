@@ -1,7 +1,4 @@
-﻿//using FuelApp.Methods;
-//using FuelApp.Properties;
-//using FuelApp.Views.StockMovement;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,6 +29,7 @@ namespace WorkFlowMenagementMDI.FuelApp.Views
         {
             TWFuelDetails.Nodes.Clear();
             DataTable dt = tree.GetRootDateTree();
+            TWFuelDetails.ImageList=imageList1;
             foreach (DataRow dr in dt.Rows)
             { 
                 parentNode = TWFuelDetails.Nodes.Add(dr["datId"].ToString(),dr["datName"].ToString());

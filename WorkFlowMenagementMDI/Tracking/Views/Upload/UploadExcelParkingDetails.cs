@@ -207,5 +207,15 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Upload
             label2.Text = Convert.ToDateTime(dateDR[0]).ToString("dd/MM/yyyy"); 
             ToolTipDetails();
         }
+
+        private void RBFarmer_CheckedChanged(object sender, EventArgs e)
+        {
+            LblSeleRb.Text = "Field Officer Visitation Selected";
+        }
+
+        private void RBCustomer_CheckedChanged(object sender, EventArgs e)
+        {
+            LblSeleRb.Text = "Sales Representative Visitation Selected";
+        }
     }
 }

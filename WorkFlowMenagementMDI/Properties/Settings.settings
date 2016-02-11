@@ -3,7 +3,8 @@
   <Profiles />
   <Settings>
     <Setting Name="NewConStr" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Data Source=HO51; Initial Catalog=NelnaDB; User id=HO51\Administrator; Password=;</Value>
+      <Value Profile="(Default)">Data Source=SERVER;Initial Catalog=NelnaDB;Integrated Security=True
+Security=True</Value>
     </Setting>
     <Setting Name="LastUser" Type="System.String" Scope="User">
       <Value Profile="(Default)">Admin</Value>

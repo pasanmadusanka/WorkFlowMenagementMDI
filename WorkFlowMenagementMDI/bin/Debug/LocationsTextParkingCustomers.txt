@@ -1,0 +1,25 @@
+{title:'Sharmila Stores-Maradagahamula - 10S055',lat:7.229128, lng: 79.990421,description:'Sharmila Stores-Maradagahamula - 10S055 - Maradagahamula - Arrived @10:49:02'}
+, {title:'Pathirana F Shop-Maradagahamula - 10P020',lat:7.229385, lng: 79.988927,description:'Pathirana F Shop-Maradagahamula - 10P020 - Maradagahamula - Arrived @11:14:35'}
+, {title:'Sharmila Stores-Maradagahamula - 10S055',lat:7.229128, lng: 79.990421,description:'Sharmila Stores-Maradagahamula - 10S055 - Maradagahamula - Arrived @11:15:48'}
+, {title:'P and D Super- Maradagahamula - 10P022',lat:7.229745, lng: 79.98864,description:'P and D Super- Maradagahamula - 10P022 - Maradagahamula - Arrived @11:30:05'}
+, {title:'Pathirana F Shop-Maradagahamula - 10P020',lat:7.229385, lng: 79.988927,description:'Pathirana F Shop-Maradagahamula - 10P020 - Maradagahamula - Arrived @11:57:10'}
+, {title:'Lakmal Stores - 10L001',lat:7.248377, lng: 80.033291,description:'Lakmal Stores - 10L001 - Udugodagedara - Arrived @12:36:27'}
+, {title:'Easy Mart-Diulapitiya - 10E002',lat:7.233844, lng: 80.025139,description:'Easy Mart-Diulapitiya - 10E002 - Diulapitiya - Arrived @12:41:11'}
+, {title:'Daya Hotel-Walpita - 10D026',lat:7.254223, lng: 80.04194,description:'Daya Hotel-Walpita - 10D026 - Walpita - Arrived @12:43:47'}
+, {title:'Walihinda Hotel - Welihinda - 10W014',lat:7.28148, lng: 80.053671,description:'Walihinda Hotel - Welihinda - 10W014 - Welihinda - Arrived @12:55:18'}
+, {title:'Wijaya Stores-Mallawagadara - 10W007',lat:7.288404, lng: 80.028167,description:'Wijaya Stores-Mallawagadara - 10W007 - Mallawagadara - Arrived @13:48:29'}
+, {title:'Kopi Kade - 10K006',lat:7.289378, lng: 80.014983,description:'Kopi Kade - 10K006 - Katukenda - Arrived @14:08:58'}
+, {title:'Menaka Hotel - 10M021',lat:7.289034, lng: 80.019719,description:'Menaka Hotel - 10M021 - Katukenda - Arrived @14:24:00'}
+, {title:'Kopi Kade - 10K006',lat:7.289378, lng: 80.014983,description:'Kopi Kade - 10K006 - Katukenda - Arrived @14:31:10'}
+, {title:'Indika Stores-Thammita - 10I002',lat:7.251377, lng: 80.001845,description:'Indika Stores-Thammita - 10I002 - Thammita - Arrived @14:44:33'}
+, {title:'Dumindu Food-Alawwa - 10D030',lat:7.294207, lng: 80.238766,description:'Dumindu Food-Alawwa - 10D030 - ALAWWA - Arrived @14:47:44'}
+, {title:'P and D Super- Maradagahamula - 10P022',lat:7.229745, lng: 79.98864,description:'P and D Super- Maradagahamula - 10P022 - Maradagahamula - Arrived @15:15:32'}
+, {title:'Pathirana F Shop-Maradagahamula - 10P020',lat:7.229385, lng: 79.988927,description:'Pathirana F Shop-Maradagahamula - 10P020 - Maradagahamula - Arrived @15:51:22'}
+, {title:'Mas Fabric  Park - 30M004',lat:7.273232, lng: 80.215187,description:'Mas Fabric  Park - 30M004 - THULHIRIYA - Arrived @15:56:56'}
+, {title:'Indika Stores-Thammita - 10I002',lat:7.251377, lng: 80.001845,description:'Indika Stores-Thammita - 10I002 - Thammita - Arrived @15:57:50'}
+, {title:'Mas Fabric  Park - 30M004',lat:7.273232, lng: 80.215187,description:'Mas Fabric  Park - 30M004 - THULHIRIYA - Arrived @16:03:36'}
+, {title:'Manjari Stores - 10M016',lat:7.234068, lng: 79.941374,description:'Manjari Stores - 10M016 - Kadawala - Arrived @16:16:13'}
+, {title:'U.R.Traders - 10U010',lat:7.266796, lng: 80.213376,description:'U.R.Traders - 10U010 - Thulhiriya - Arrived @16:22:27'}
+, {title:'Star United Super Market-Katunayaka - 10S071',lat:7.163605, lng: 79.868742,description:'Star United Super Market-Katunayaka - 10S071 - Katunayaka - Arrived @16:53:36'}
+, {title:'Star United Super Market-Katunayaka - 10S071',lat:7.163605, lng: 79.868742,description:'Star United Super Market-Katunayaka - 10S071 - Katunayaka - Arrived @17:08:55'}
+, {title:'Wachintha Bake House - Imbuilgashandiya - 10W023',lat:7.313186, lng: 80.315947,description:'Wachintha Bake House - Imbuilgashandiya - 10W023 - Imbulgashandiya - Arrived @17:40:59'}
