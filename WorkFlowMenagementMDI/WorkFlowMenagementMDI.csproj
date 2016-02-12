@@ -49,6 +49,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>FlowManagement.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -90,7 +93,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Methods\AdminDeleteParkHistoryMethods.cs" />
     <Compile Include="Admin\Methods\WorkFlowManageMethods.cs" />
+    <Compile Include="Admin\Views\AdminDeteteParkingData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Views\AdminDeteteParkingData.Designer.cs">
+      <DependentUpon>AdminDeteteParkingData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Views\ManagePermissions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -466,6 +476,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Admin\Views\AdminDeteteParkingData.resx">
+      <DependentUpon>AdminDeteteParkingData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\Views\ManagePermissions.resx">
       <DependentUpon>ManagePermissions.cs</DependentUpon>
     </EmbeddedResource>
@@ -755,7 +768,11 @@
     <None Include="Resources\upload1.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FlowManagement.ico" />
     <Content Include="Resources\FlowManagement.ico" />
+    <None Include="Resources\LocationsTextHeaderParking.txt" />
+    <None Include="Resources\LocationsTextFooterParkingDriveWay.txt" />
+    <None Include="Resources\LocationsTextParking.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

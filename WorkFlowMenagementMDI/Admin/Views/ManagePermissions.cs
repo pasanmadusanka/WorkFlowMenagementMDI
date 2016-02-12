@@ -46,7 +46,7 @@ namespace WorkFlowMenagementMDI.Admin.Views
 
                     //formToolTip2.SetToolTip(c, c.Name);
 
-                    PageControls.Items.Add(c.Name);
+                    //PageControls.Items.Add(c.Name);
 
                 }
             }
@@ -54,18 +54,22 @@ namespace WorkFlowMenagementMDI.Admin.Views
 
         private void ShowToolStipItems(ToolStripItemCollection toolStripItems)
         {
-            foreach (ToolStripMenuItem mi in toolStripItems)
+            try
             {
-                oldMenuToolTips.Add(mi.Name, mi.ToolTipText);
-                mi.ToolTipText = mi.Name;
-
-                if (mi.DropDownItems.Count > 0)
+                foreach (ToolStripMenuItem mi in toolStripItems)
                 {
-                    ShowToolStipItems(mi.DropDownItems);
-                }
+                    oldMenuToolTips.Add(mi.Name, mi.ToolTipText);
+                    mi.ToolTipText = mi.Name;
 
-                PageControls.Items.Add(mi.Name);
+                    if (mi.DropDownItems.Count > 0)
+                    {
+                        ShowToolStipItems(mi.DropDownItems);
+                    }
+
+                    PageControls.Items.Add(mi.Name);
+                }
             }
+            catch (Exception ex) { MessageBox.Show(ex.Message,"WFMS"); }
         }
 
         private void ManagePermissions_Load(object sender, EventArgs e)
@@ -99,8 +103,7 @@ namespace WorkFlowMenagementMDI.Admin.Views
         }
 
         private void PopulatePermissionTree()
-        {
-
+        { 
             string queryString = @"select CW.CONRTOL_NAME,INVISIBLE,DISABLED,RW.ROLE_NAME
             FROM CONTROLS_TO_ROLES_WFMS as CTRW inner join
             CONTROLS_WFMS as CW on CTRW.FK_CONTROL_NAME=CW.CONRTOL_NAME inner join

@@ -26,7 +26,7 @@ namespace WorkFlowMenagementMDI
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    //Application.Run(new WorkFlowMenagement());
+                    //Application.Run(new AdminDeteteParkingData());
                     string serevr = "SERVER";
                     //string serevr = "SERVER";
                     string newserv = "Data Source=" + serevr + ";Initial Catalog=NelnaDB;Integrated Security=True";

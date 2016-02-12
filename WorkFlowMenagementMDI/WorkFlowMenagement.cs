@@ -345,6 +345,8 @@ namespace WorkFlowMenagementMDI
 
         private void managePermissionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ManagePermissions permiss = new ManagePermissions(this);
+            permiss.WindowState = FormWindowState.Normal;
             foreach (Form form in Application.OpenForms)
             {
                 if (form.GetType() == typeof(ManagePermissions))
@@ -353,11 +355,10 @@ namespace WorkFlowMenagementMDI
                     return;
                 }
             }
-            ManagePermissions permiss = new ManagePermissions(this);
+
             permiss.MdiParent = this;
             permiss.Show();
 
-            permiss.WindowState = FormWindowState.Normal;
         }
 
         private void WorkFlowMenagement_Load(object sender, EventArgs e)
@@ -440,6 +441,12 @@ namespace WorkFlowMenagementMDI
             this.Hide();
             LoginWindow login = new LoginWindow();
             login.Show();
+        }
+
+        private void parkingDataOfTrackingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdminDeteteParkingData deleteData = new AdminDeteteParkingData();
+            deleteData.ShowDialog();
         }
 
     }

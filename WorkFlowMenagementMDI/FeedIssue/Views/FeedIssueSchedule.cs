@@ -23,7 +23,6 @@ namespace WorkFlowMenagementMDI.FeedIssue.Views
         public FeedIssueSchedule()
         {
             InitializeComponent();
-            GetfarmerToCombo();
         }
         public void TipsofDate()
         {
@@ -51,7 +50,7 @@ namespace WorkFlowMenagementMDI.FeedIssue.Views
 
             InitializeComponent();
             EditViewOfFeedSchedule();
-            BtnSave.Text = "Update...";
+            BtnSave.Text = "Update";
             BtnSave.Update();
         }
         public void EditViewOfFeedSchedule()
@@ -123,6 +122,7 @@ namespace WorkFlowMenagementMDI.FeedIssue.Views
         }
         private void FeedIssueSchedule_Load(object sender, EventArgs e)
         {
+            GetfarmerToCombo();
             CustomezeDateTimePicker();
             TipsofDate();
         }

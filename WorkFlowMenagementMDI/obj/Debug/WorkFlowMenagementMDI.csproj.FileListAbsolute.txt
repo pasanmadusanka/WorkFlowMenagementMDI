@@ -185,6 +185,7 @@ D:\Projects\WorkFlowSystem\New folder\WorkFlowMenagementMDI\WorkFlowMenagementMD
 D:\Projects\WorkFlowSystem\New folder\WorkFlowMenagementMDI\WorkFlowMenagementMDI\bin\Debug\WorkFlowMenagementMDI.pdb
 D:\Projects\WorkFlowSystem\New folder\WorkFlowMenagementMDI\WorkFlowMenagementMDI\bin\Debug\DelmoEncriptDLL.dll
 D:\Projects\WorkFlowSystem\New folder\WorkFlowMenagementMDI\WorkFlowMenagementMDI\bin\Debug\GongShell.dll
+D:\Projects\WorkFlowSystem\New folder\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.Admin.Views.AdminDeteteParkingData.resources
 D:\Projects\WorkFlowSystem\New folder\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.Admin.Views.ManagePermissions.resources
 D:\Projects\WorkFlowSystem\New folder\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.Admin.Views.ManageRoles.resources
 D:\Projects\WorkFlowSystem\New folder\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.FeedIssue.ReportView.ReportSelector.resources

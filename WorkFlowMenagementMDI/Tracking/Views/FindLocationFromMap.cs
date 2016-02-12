@@ -17,6 +17,9 @@ namespace WorkFlowMenagementMDI.Tracking.Views
     {
         GetFarmerVisitation db = new GetFarmerVisitation();
         List<string> LocList = new List<string>();
+        string testHeaderLoc = Properties.Resources.LocationsTextHeaderParking;
+        string testFooterLoc = Properties.Resources.LocationsTextFooterParkingDriveWay;
+        string textLocData = Properties.Resources.LocationsTextParking;
 
         public FindLocationFromMap()
         {
@@ -61,7 +64,7 @@ namespace WorkFlowMenagementMDI.Tracking.Views
         }
         private void BtnGetLocations_Click(object sender, EventArgs e)
         {
-            GetDetailsToText();
+            //GetDetailsToText();
         }
 
         public void GetDetailsToText()
@@ -85,13 +88,15 @@ namespace WorkFlowMenagementMDI.Tracking.Views
             String footer = srFooter.ReadToEnd();
             sr.Close();
             BrowserLocation.DocumentText = header + locations + footer;
+            //BrowserLocation.DocumentText = testHeaderLoc + textLocData + testFooterLoc;
         }//Load map to the browser with Driving Rout view;
 
         public void WrightLoactionsToText()
         {
             try
             {
-                File.WriteAllText("LocationsTextParking.txt", String.Empty);
+                File.WriteAllText(textLocData, String.Empty);//Make the file null
+
                 DataTable dt = db.NoOfFarmersVisited(DTPFromDate.Value.Date.ToString("dd/MM/yyyy"), DTPToDate.Value.Date.ToString("dd/MM/yyyy"), Convert.ToInt32(CMBFieldOfficer.SelectedValue));
                 DataRow ro = dt.Rows[0];
                 int farmerCnt = Convert.ToInt32(ro[0]);
@@ -105,7 +110,7 @@ namespace WorkFlowMenagementMDI.Tracking.Views
                     LocList.Add("{title:'" + row[0] + " - " + row[2] + "'," + "lat:" + row[3] + ", lng: " + row[4] + ",description:'" + row[0] + " - " + row[2] + " - " + row[5] + "'}" + Environment.NewLine);
 
                     foreach (string myInt in LocList)
-                    { File.WriteAllText("LocationsTextParking.txt", string.Join(", ", LocList.ToArray())); }
+                    { File.WriteAllText(textLocData, string.Join(", ", LocList.ToArray())); }
                 }
             }
             catch (Exception ex) { MessageBox.Show("WrightLoactionsToText() " + ex.Message); }

@@ -121,6 +121,53 @@ namespace WorkFlowMenagementMDI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ];
+        ///var mapOptions = {
+        ///    zoom: 15,
+        ///    center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
+        ///    mapTypeId: google.maps.MapTypeId.ROADMAP
+        ///  };
+        ///
+        ///  var map = new google.maps.Map(document.getElementById(&apos;dvMap&apos;),
+        ///      mapOptions);
+        ///	  
+        ///var infoWindow = new google.maps.InfoWindow();
+        ///        var lat_lng = new Array();
+        ///        var latlngbounds = new google.maps.LatLngBounds();
+        ///        for (i = 0; i &lt; markers.length; i++) {
+        ///            var data = markers[i]
+        ///            var myLatlng = new  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string LocationsTextFooterParkingDriveWay {
+            get {
+                return ResourceManager.GetString("LocationsTextFooterParkingDriveWay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;script type=&quot;text/javascript&quot; src=&quot;http://maps.googleapis.com/maps/api/js?sensor=false&quot;&gt;&lt;/script&gt;
+        ///&lt;script type=&quot;text/javascript&quot;&gt;
+        ///    function initialize() {
+        ///	
+        ///	
+        ///  var markers = [.
+        /// </summary>
+        internal static string LocationsTextHeaderParking {
+            get {
+                return ResourceManager.GetString("LocationsTextHeaderParking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string LocationsTextParking {
+            get {
+                return ResourceManager.GetString("LocationsTextParking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap mesh_background___1280x720_by_teamsjk_d3irbsx {

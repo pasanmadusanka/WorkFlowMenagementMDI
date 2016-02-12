@@ -114,6 +114,7 @@
             // TxtUserName
             // 
             this.TxtUserName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.TxtUserName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.TxtUserName.Location = new System.Drawing.Point(164, 15);
             this.TxtUserName.Name = "TxtUserName";
             this.TxtUserName.Size = new System.Drawing.Size(156, 20);

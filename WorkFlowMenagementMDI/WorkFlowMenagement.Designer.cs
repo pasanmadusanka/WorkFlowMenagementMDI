@@ -70,6 +70,8 @@
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.managePermissionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.parkingDataOfTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -397,7 +399,7 @@
             this.changeWeeklyStockUpdateDateToolStripMenuItem});
             this.fuelToolStripMenuItem1.Enabled = false;
             this.fuelToolStripMenuItem1.Name = "fuelToolStripMenuItem1";
-            this.fuelToolStripMenuItem1.Size = new System.Drawing.Size(96, 22);
+            this.fuelToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.fuelToolStripMenuItem1.Text = "Fuel";
             // 
             // changeWeeklyStockUpdateDateToolStripMenuItem
@@ -412,7 +414,7 @@
             // 
             this.tmpToolStripMenuItem.Enabled = false;
             this.tmpToolStripMenuItem.Name = "tmpToolStripMenuItem";
-            this.tmpToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.tmpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.tmpToolStripMenuItem.Text = "tmp";
             this.tmpToolStripMenuItem.Click += new System.EventHandler(this.tmpToolStripMenuItem_Click);
             // 
@@ -420,7 +422,8 @@
             // 
             this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.managePermissionsToolStripMenuItem,
-            this.manageRolesToolStripMenuItem});
+            this.manageRolesToolStripMenuItem,
+            this.deleteDataToolStripMenuItem});
             this.adminToolStripMenuItem.Enabled = false;
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
@@ -441,6 +444,21 @@
             this.manageRolesToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.manageRolesToolStripMenuItem.Text = "Manage Roles";
             this.manageRolesToolStripMenuItem.Click += new System.EventHandler(this.manageRolesToolStripMenuItem_Click);
+            // 
+            // deleteDataToolStripMenuItem
+            // 
+            this.deleteDataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.parkingDataOfTrackingToolStripMenuItem});
+            this.deleteDataToolStripMenuItem.Name = "deleteDataToolStripMenuItem";
+            this.deleteDataToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.deleteDataToolStripMenuItem.Text = "Delete Data";
+            // 
+            // parkingDataOfTrackingToolStripMenuItem
+            // 
+            this.parkingDataOfTrackingToolStripMenuItem.Name = "parkingDataOfTrackingToolStripMenuItem";
+            this.parkingDataOfTrackingToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.parkingDataOfTrackingToolStripMenuItem.Text = "Parking Data of Tracking";
+            this.parkingDataOfTrackingToolStripMenuItem.Click += new System.EventHandler(this.parkingDataOfTrackingToolStripMenuItem_Click);
             // 
             // WorkFlowMenagement
             // 
@@ -507,6 +525,8 @@
         private System.Windows.Forms.ToolStripMenuItem customerVisitsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem fSUSchedulesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fuelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem parkingDataOfTrackingToolStripMenuItem;
     }
 }
 

@@ -71,6 +71,7 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Customers
             StreamReader srFooter = new StreamReader("LocationsTextFooterParkingDriveWay.txt");
             String footer = srFooter.ReadToEnd();
             sr.Close();
+            
             BrowserLocation.DocumentText = @"<script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?sensor=false'></script>
 <script type='text/javascript'>" + header + locations + footer + "</script> <div id='dvMap' style='width: 800px; height: 600px'> </div>";
         }//Load map to the browser with Driving Rout view;
