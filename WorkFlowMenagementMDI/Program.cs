@@ -8,6 +8,7 @@ using WorkFlowMenagementMDI.Admin.Views;
 using WorkFlowMenagementMDI.FeedIssue.Views;
 using WorkFlowMenagementMDI.FuelApp.Views;
 using WorkFlowMenagementMDI.Login;
+using WorkFlowMenagementMDI.Tracking.Views.Itinerary;
 
 namespace WorkFlowMenagementMDI
 {
@@ -26,7 +27,7 @@ namespace WorkFlowMenagementMDI
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    //Application.Run(new AdminDeteteParkingData());
+                    //Application.Run(new ItineraryPlaneSeries());
                     string serevr = "SERVER";
                     //string serevr = "SERVER";
                     string newserv = "Data Source=" + serevr + ";Initial Catalog=NelnaDB;Integrated Security=True";

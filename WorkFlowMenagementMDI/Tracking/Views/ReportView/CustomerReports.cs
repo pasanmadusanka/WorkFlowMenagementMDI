@@ -74,7 +74,7 @@ namespace WorkFlowMenagementMDI.Tracking.Views.ReportView
             string pc = System.Environment.MachineName.ToString();
             if (db.WrightVisitsToTemp(DTPFromDate.Value.Date.ToString("dd/MM/yyyy"),
                 DTPToDate.Value.Date.ToString("dd/MM/yyyy"), Convert.ToInt32(CmbDeliveryVehi.SelectedValue),
-                Convert.ToInt32(CMBRep.SelectedValue), Settings.Default.UserID.ToString(), pc))
+                Convert.ToInt32(CMBRep.SelectedValue), Settings.Default.UserID, pc))
             { /*Do nothing*/ }
             else { MessageBox.Show("error"); }
         }

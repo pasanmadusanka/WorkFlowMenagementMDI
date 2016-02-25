@@ -59,7 +59,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(12, 58);
+            this.btnSearch.Location = new System.Drawing.Point(12, 49);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(94, 33);
             this.btnSearch.TabIndex = 9;
@@ -69,7 +69,7 @@
             // 
             // SavePcbtn
             // 
-            this.SavePcbtn.Location = new System.Drawing.Point(115, 58);
+            this.SavePcbtn.Location = new System.Drawing.Point(115, 49);
             this.SavePcbtn.Name = "SavePcbtn";
             this.SavePcbtn.Size = new System.Drawing.Size(94, 33);
             this.SavePcbtn.TabIndex = 8;
@@ -80,7 +80,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 34);
+            this.label1.Location = new System.Drawing.Point(32, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 7;
@@ -92,10 +92,8 @@
             this.CmbAvalablePc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CmbAvalablePc.FormattingEnabled = true;
             this.CmbAvalablePc.Items.AddRange(new object[] {
-            "HO51",
-            "SERVER",
             "(LocalDb)\\v11.0"});
-            this.CmbAvalablePc.Location = new System.Drawing.Point(101, 31);
+            this.CmbAvalablePc.Location = new System.Drawing.Point(101, 22);
             this.CmbAvalablePc.Name = "CmbAvalablePc";
             this.CmbAvalablePc.Size = new System.Drawing.Size(87, 21);
             this.CmbAvalablePc.TabIndex = 6;

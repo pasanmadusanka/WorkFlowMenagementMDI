@@ -15,6 +15,8 @@ namespace WorkFlowMenagementMDI.Tracking.Views
 {
     public partial class FindLocationFromMap : Form
     {
+
+        int lastUserId = Properties.Settings.Default.UserID;
         GetFarmerVisitation db = new GetFarmerVisitation();
         List<string> LocList = new List<string>();
         string testHeaderLoc = Properties.Resources.LocationsTextHeaderParking;
@@ -60,7 +62,7 @@ namespace WorkFlowMenagementMDI.Tracking.Views
         {
             string pc = System.Environment.MachineName.ToString();
             db.WrightVisitsToTemp(DTPFromDate.Value.Date.ToString("dd/MM/yyyy"), DTPToDate.Value.Date.ToString("dd/MM/yyyy"),
-                           Convert.ToInt32(CMBFieldOfficer.SelectedValue), Settings.Default.LastUser, pc);
+                           Convert.ToInt32(CMBFieldOfficer.SelectedValue), lastUserId, pc);
         }
         private void BtnGetLocations_Click(object sender, EventArgs e)
         {

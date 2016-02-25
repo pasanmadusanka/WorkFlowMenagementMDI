@@ -37,6 +37,7 @@ namespace WorkFlowMenagementMDI.Login
         private void btnSearch_Click(object sender, EventArgs e)
         { 
             GetAvalableServers();
+            CmbAvalablePc.DroppedDown = true;
         }
         
         private void SavePcbtn_Click(object sender, EventArgs e)

@@ -12,6 +12,7 @@ namespace WorkFlowMenagementMDI.Tracking.Methods
     class GetFarmerVisitation
     {
         SqlConnection conn;
+        int lastUserId = Properties.Settings.Default.UserID;
         public GetFarmerVisitation()
         {
             DBAccess db = new DBAccess();
@@ -145,14 +146,14 @@ namespace WorkFlowMenagementMDI.Tracking.Methods
                 if (conn.State.ToString() == "Closed") { conn.Open(); }
                 SqlCommand scmd = conn.CreateCommand();
                 scmd.CommandType = CommandType.Text;
-                scmd.CommandText = @"delete  from GPS_CUS_PARK_TBL_TMP";
+                scmd.CommandText = @"delete from GPS_CUS_PARK_TBL_TMP where USERID= " + lastUserId + "";
                 scmd.ExecuteNonQuery();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
             finally { conn.Close(); }
 
         }
-        public bool WrightVisitsToTemp(string fromDate, string toDate, int offID, string user, string pc)
+        public bool WrightVisitsToTemp(string fromDate, string toDate, int offID, int user, string pc)
         {
             bool status = false;
             try
@@ -167,7 +168,7 @@ namespace WorkFlowMenagementMDI.Tracking.Methods
 
 		   SELECT distinct farm.GPS_FRM_lOC_ID as ID, park.Park_Date as [DATE],
 		   farm.GPS_FRM_HDR_MST_ID as [IV2NAME],farm.GPS_FRM_LOC_AR_MST_CODE as [ILoc], substring(park.Start_Time,12,8)as [V4],substring(park.End_Time,12,8)as [V5],
-		   sum(park.Period_Of_Time) as INT2,'" + user + "' as USERID,'" + pc + "' as TERMINAL " +
+		   sum(park.Period_Of_Time) as INT2," + user + " as USERID,'" + pc + "' as TERMINAL " +
         " FROM GPS_FARM_LOCATION_MASTER as farm inner join "+
         " FARMER_HEADER_MASTER as mast on farm.GPS_FRM_HDR_MST_ID = mast.FAR_HDR_MST_FAR_NO inner join "+
         " GPS_FRM_FIELD_OFFICER_TRACKER as track on farm.GPS_FRM_LOC_FO_TRK_ID=track.FRM_FO_LOC_ID inner join "+

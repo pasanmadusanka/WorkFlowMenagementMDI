@@ -176,7 +176,7 @@ namespace WorkFlowMenagementMDI.Tracking.Methods.Customers
             finally { conn.Close(); }
         }
 
-        public bool WrightVisitsToTemp(string fromDate, string toDate, int trackID, int repID,string user,string pc)
+        public bool WrightVisitsToTemp(string fromDate, string toDate, int trackID, int repID,int user,string pc)
         {
             bool status = false;
             try

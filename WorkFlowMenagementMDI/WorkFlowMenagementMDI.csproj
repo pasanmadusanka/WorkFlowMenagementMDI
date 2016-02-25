@@ -352,6 +352,11 @@
     <Compile Include="Tracking\Methods\GetAllFarmers.cs" />
     <Compile Include="Tracking\Methods\GetFarmerVisitation.cs" />
     <Compile Include="Tracking\Methods\GetUser.cs" />
+    <Compile Include="Tracking\Methods\Itinerary\GenarateItineraryPlanMethods.cs" />
+    <Compile Include="Tracking\Methods\Itinerary\ItineraryPlanComparisionMethods.cs" />
+    <Compile Include="Tracking\Methods\Itinerary\ItineraryPlaneManageMethods.cs" />
+    <Compile Include="Tracking\Methods\Itinerary\ItineraryPlanWeeklyReportM.cs" />
+    <Compile Include="Tracking\Methods\Itinerary\NewWIPMethods.cs" />
     <Compile Include="Tracking\Methods\ReportFilterMethods.cs" />
     <Compile Include="Tracking\Methods\SalesCustomers\DeviseDetailsOfVehicleMethod.cs" />
     <Compile Include="Tracking\Methods\ShellNetworkComputers.cs" />
@@ -377,6 +382,32 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FOVisitsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Reports\Itinerary\ItineraryPlanDataSet.cs">
+      <DependentUpon>ItineraryPlanDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tracking\Reports\Itinerary\ItineraryPlanDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ItineraryPlanDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Reports\Itinerary\ItineraryPlanReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ItineraryPlanReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tracking\Reports\Itinerary\WIPDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WIPDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Reports\Itinerary\WIPSeriesCR.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WIPSeriesCR.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Tracking\Reports\OfficerVisitsCR1.cs">
       <AutoGen>True</AutoGen>
@@ -443,6 +474,30 @@
     </Compile>
     <Compile Include="Tracking\Views\FindLocationFromMap.Designer.cs">
       <DependentUpon>FindLocationFromMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Views\Itinerary\AddWIPSeries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\Views\Itinerary\AddWIPSeries.Designer.cs">
+      <DependentUpon>AddWIPSeries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Views\Itinerary\GenarateItineraryPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\Views\Itinerary\GenarateItineraryPlan.Designer.cs">
+      <DependentUpon>GenarateItineraryPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Views\Itinerary\ItineraryPlanComparission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\Views\Itinerary\ItineraryPlanComparission.Designer.cs">
+      <DependentUpon>ItineraryPlanComparission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\Views\Itinerary\ItineraryPlaneSeries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\Views\Itinerary\ItineraryPlaneSeries.Designer.cs">
+      <DependentUpon>ItineraryPlaneSeries.cs</DependentUpon>
     </Compile>
     <Compile Include="Tracking\Views\MainMenu.cs">
       <SubType>Form</SubType>
@@ -575,6 +630,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>GetREportCusAMT1.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Reports\Itinerary\ItineraryPlanReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ItineraryPlanReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Reports\Itinerary\WIPSeriesCR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>WIPSeriesCR.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tracking\Reports\OfficerVisitsCR.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>OfficerVisitsCR1.cs</LastGenOutput>
@@ -608,6 +671,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tracking\Views\FindLocationFromMap.resx">
       <DependentUpon>FindLocationFromMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Views\Itinerary\AddWIPSeries.resx">
+      <DependentUpon>AddWIPSeries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Views\Itinerary\GenarateItineraryPlan.resx">
+      <DependentUpon>GenarateItineraryPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Views\Itinerary\ItineraryPlanComparission.resx">
+      <DependentUpon>ItineraryPlanComparission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Views\Itinerary\ItineraryPlaneSeries.resx">
+      <DependentUpon>ItineraryPlaneSeries.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tracking\Views\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
@@ -721,6 +796,28 @@
     <None Include="Tracking\Reports\FOVisitsDataSet.xss">
       <DependentUpon>FOVisitsDataSet.xsd</DependentUpon>
     </None>
+    <None Include="Tracking\Reports\Itinerary\ItineraryPlanDataSet.xsc">
+      <DependentUpon>ItineraryPlanDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Tracking\Reports\Itinerary\ItineraryPlanDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ItineraryPlanDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Tracking\Reports\Itinerary\ItineraryPlanDataSet.xss">
+      <DependentUpon>ItineraryPlanDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Tracking\Reports\Itinerary\WIPDataSet.xsc">
+      <DependentUpon>WIPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Tracking\Reports\Itinerary\WIPDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>WIPDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Tracking\Reports\Itinerary\WIPDataSet.xss">
+      <DependentUpon>WIPDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
@@ -774,6 +871,7 @@
     <None Include="Resources\LocationsTextFooterParkingDriveWay.txt" />
     <None Include="Resources\LocationsTextParking.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -14,6 +14,7 @@ namespace WorkFlowMenagementMDI.Tracking.Views.ReportView
 {
     public partial class FarmerReport : Form
     {
+        int lastUserId = Properties.Settings.Default.UserID;
         GetFarmerVisitation db = new GetFarmerVisitation();
         public FarmerReport()
         {
@@ -32,7 +33,7 @@ namespace WorkFlowMenagementMDI.Tracking.Views.ReportView
         {
             string pc = System.Environment.MachineName.ToString();
             db.WrightVisitsToTemp(DTPFromDate.Value.Date.ToString("dd/MM/yyyy"), DTPToDate.Value.Date.ToString("dd/MM/yyyy"),
-                           Convert.ToInt32(CMBFieldOfficer.SelectedValue), Settings.Default.LastUser, pc);
+                           Convert.ToInt32(CMBFieldOfficer.SelectedValue), lastUserId, pc);
         }
         private void BtnReportView_Click(object sender, EventArgs e)
         {

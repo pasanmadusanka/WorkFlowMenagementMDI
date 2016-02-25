@@ -41,12 +41,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LblSeleRb = new System.Windows.Forms.Label();
             this.lblFroRadioGroup = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.RBFarmer = new System.Windows.Forms.RadioButton();
             this.RBCustomer = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.LblSeleRb = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvUploads)).BeginInit();
             this.panel3.SuspendLayout();
@@ -128,7 +128,7 @@
             this.DgvUploads.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DgvUploads.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DgvUploads.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvUploads.BackgroundColor = System.Drawing.Color.White;
             this.DgvUploads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvUploads.Location = new System.Drawing.Point(12, 137);
@@ -192,6 +192,17 @@
             this.panel1.Size = new System.Drawing.Size(852, 52);
             this.panel1.TabIndex = 17;
             // 
+            // LblSeleRb
+            // 
+            this.LblSeleRb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.LblSeleRb.AutoSize = true;
+            this.LblSeleRb.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblSeleRb.Location = new System.Drawing.Point(243, 16);
+            this.LblSeleRb.Name = "LblSeleRb";
+            this.LblSeleRb.Size = new System.Drawing.Size(222, 19);
+            this.LblSeleRb.TabIndex = 17;
+            this.LblSeleRb.Text = "Field Officer Visitation Selected";
+            // 
             // lblFroRadioGroup
             // 
             this.lblFroRadioGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -247,17 +258,6 @@
             this.label2.Size = new System.Drawing.Size(10, 13);
             this.label2.TabIndex = 18;
             this.label2.Text = ".";
-            // 
-            // LblSeleRb
-            // 
-            this.LblSeleRb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.LblSeleRb.AutoSize = true;
-            this.LblSeleRb.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblSeleRb.Location = new System.Drawing.Point(243, 16);
-            this.LblSeleRb.Name = "LblSeleRb";
-            this.LblSeleRb.Size = new System.Drawing.Size(222, 19);
-            this.LblSeleRb.TabIndex = 17;
-            this.LblSeleRb.Text = "Field Officer Visitation Selected";
             // 
             // UploadExcelParkingDetails
             // 

@@ -24,6 +24,7 @@ using WorkFlowMenagementMDI.FeedIssue.ReportView;
 using WorkFlowMenagementMDI.Admin;
 using WorkFlowMenagementMDI.Admin.Views;
 using WorkFlowMenagementMDI.Admin.Methods;
+using WorkFlowMenagementMDI.Tracking.Views.Itinerary;
 
 namespace WorkFlowMenagementMDI
 {
@@ -220,6 +221,7 @@ namespace WorkFlowMenagementMDI
             Admin_Controller main = new Admin_Controller();
             main.MdiParent = this;
             main.Show();
+            main.WindowState = FormWindowState.Maximized;
         }
 
         private void fuelReportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -447,6 +449,24 @@ namespace WorkFlowMenagementMDI
         {
             AdminDeteteParkingData deleteData = new AdminDeteteParkingData();
             deleteData.ShowDialog();
+        }
+
+        private void Tracking_Itinerary_Plan_Click(object sender, EventArgs e)
+        {
+            
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(ItineraryPlaneSeries))
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+            ItineraryPlaneSeries wip = new ItineraryPlaneSeries();
+            wip.MdiParent = this;
+            wip.Show();
+            wip.WindowState = FormWindowState.Maximized;
+            
         }
 
     }

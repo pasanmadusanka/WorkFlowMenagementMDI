@@ -225,7 +225,7 @@
 	<table name="AppSearch">
 		<col key="yes" def="s72">Property</col>
 		<col key="yes" def="s72">Signature_</col>
-		<row><td>DOTNETVERSION35</td><td>DotNet35</td></row>
+		<row><td>DOTNETVERSION35SP1</td><td>DotNet35SP1</td></row>
 	</table>
 
 	<table name="BBControl">
@@ -341,7 +341,7 @@
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
 		<row><td>NewComponent1</td><td>{4EF6ECBF-AD5A-4907-BE23-6C56C4884941}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>WorkFlowMenagementMDI.exe</td><td>{758BE653-2099-40EB-B1BE-24AB03272AC1}</td><td>INSTALLDIR</td><td>2</td><td/><td>workflowmenagementmdi.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>WorkFlowMenagementMDI.exe</td><td>{94558F77-145C-4FC9-8F6F-316AB5808245}</td><td>INSTALLDIR</td><td>2</td><td/><td>workflowmenagementmdi.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1878,7 +1878,7 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
-		<row><td>workflowmenagementmdi.exe</td><td>WorkFlowMenagementMDI.exe</td><td>WORKFL~1.EXE|WorkFlowMenagementMDI.exe</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Projects\WorkFlowSystem\New folder\WorkFlowMenagementMDI\WorkFlowMenagementMDI\bin\Debug\WorkFlowMenagementMDI.exe</td><td>1</td><td/></row>
+		<row><td>workflowmenagementmdi.exe</td><td>WorkFlowMenagementMDI.exe</td><td>WORKFL~1.EXE|WorkFlowMenagementMDI.exe</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\bin\Debug\WorkFlowMenagementMDI.exe</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2025,7 +2025,7 @@
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
 		<row><td>NewComponent1</td><td/><td/><td>_86EB61D9_06D7_40B6_B687_6CD6B547B60D_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>WorkFlowMenagementMDI.exe</td><td/><td/><td>_0169201D_0591_44AD_8A2E_F3F51FAA6BA8_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>WorkFlowMenagementMDI.exe</td><td/><td/><td>_B4C92CFE_0EF8_4607_BBE4_E25813F62946_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -2646,6 +2646,7 @@
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>1755603082</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>1755603082</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION35</td><td>1033</td><td>Microsoft .NET Framework 3.5 needs to be installed for this installation to continue.</td><td>0</td><td/><td>1755615370</td></row>
+		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION35SP1</td><td>1033</td><td>Microsoft .NET Framework 3.5 SP1 needs to be installed for this installation to continue.</td><td>0</td><td/><td>-920370482</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_MSOFFICE2007</td><td>1033</td><td>Microsoft Office 2007 or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>1495588716</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_OS</td><td>1033</td><td>The operating system is not adequate for running [ProductName].</td><td>0</td><td/><td>1755603082</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_PROCESSOR</td><td>1033</td><td>The processor is not adequate for running [ProductName].</td><td>0</td><td/><td>1755603082</td></row>
@@ -3460,6 +3461,7 @@
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>1033</td><td>LAUNCH~1.EXE|Launch WorkFlowMenagementMDI.exe</td><td>0</td><td/><td>1889836811</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>1033</td><td>LAUNCH~1.EXE|Launch WorkFlowMenagementMDI.exe</td><td>0</td><td/><td>690249771</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME4</td><td>1033</td><td>WorkFlowMenagementMDI</td><td>0</td><td/><td>1495586060</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME5</td><td>1033</td><td>LAUNCH~1.EXE|Launch WorkFlowMenagementMDI.exe</td><td>0</td><td/><td>-920341746</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>1033</td><td>From the list of servers below, select the database server you would like to target.</td><td>0</td><td/><td>1755603082</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>1033</td><td>From the list of catalog names below, select the database catalog you would like to target.</td><td>0</td><td/><td>1755603082</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>1033</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>1755603082</td></row>
@@ -3754,6 +3756,7 @@
 		<row><td>ID_STRING4</td><td>1033</td><td>LAUNCH~1.EXE|Launch WorkFlowMenagementMDI.exe</td><td>0</td><td/><td>1889804075</td></row>
 		<row><td>ID_STRING5</td><td>1033</td><td>LAUNCH~1.EXE|Launch WorkFlowMenagementMDI.exe</td><td>0</td><td/><td>690257963</td></row>
 		<row><td>ID_STRING6</td><td>1033</td><td>LAUNCH~1.EXE|Launch WorkFlowMenagementMDI.exe</td><td>0</td><td/><td>1495539272</td></row>
+		<row><td>ID_STRING7</td><td>1033</td><td>LAUNCH~1.EXE|Launch WorkFlowMenagementMDI.exe</td><td>0</td><td/><td>-920329458</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>1755603082</td></row>
 	</table>
 
@@ -3867,10 +3870,12 @@
 		<row><td>WorkFlowMenagement_0EBCC5ECED204991B0D5CAD15EA888E2.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 		<row><td>WorkFlowMenagement_0EFF7FE8940844E7891A2D53170D94C6.exe</td><td/><td>C:\Users\Administrator\Downloads\FlowManagement.ico</td><td>0</td></row>
 		<row><td>WorkFlowMenagement_2027172F51854EF1BA8A4D3C4B609DDE.exe</td><td/><td>C:\Users\Administrator\Downloads\FlowManagement.ico</td><td>0</td></row>
+		<row><td>WorkFlowMenagement_2569BF2769874E20A4774C3FB00B4C77.exe</td><td/><td>D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\bin\Debug\WorkFlowMenagementMDI.exe</td><td>0</td></row>
 		<row><td>WorkFlowMenagement_674AEAE2B111430C9F5DEC6E4848B8B2.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 		<row><td>WorkFlowMenagement_84AF731589EE4E7482B54541D7499C9A.exe</td><td/><td>C:\Users\Administrator\Downloads\FlowManagement.ico</td><td>0</td></row>
 		<row><td>WorkFlowMenagement_D7AB0A59A292487BAF6006F43DB80B63.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 		<row><td>WorkFlowMenagement_DCED507FDBDC4250B3C9319FD14F4F7D.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
+		<row><td>WorkFlowMenagement_E48ADDF461134F66A4713037C03108F5.exe</td><td/><td>D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\bin\Debug\WorkFlowMenagementMDI.exe</td><td>0</td></row>
 	</table>
 
 	<table name="IniFile">
@@ -4061,7 +4066,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 	<table name="LaunchCondition">
 		<col key="yes" def="s255">Condition</col>
 		<col def="l255">Description</col>
-		<row><td>DOTNETVERSION35&lt;&gt;""</td><td>##IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION35##</td></row>
+		<row><td>DOTNETVERSION35SP1&gt;="#1"</td><td>##IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION35SP1##</td></row>
 	</table>
 
 	<table name="ListBox">
@@ -4378,7 +4383,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>ProductCode</td><td>{4908156B-E331-4878-8E2C-4779DCE2998E}</td><td/></row>
 		<row><td>ProductName</td><td>WorkFlowManagementSetup</td><td/></row>
-		<row><td>ProductVersion</td><td>1.00.0000</td><td/></row>
+		<row><td>ProductVersion</td><td>1.00.0001</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4390,7 +4395,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>RestartManagerOption</td><td>CloseRestart</td><td/></row>
 		<row><td>SERIALNUMBER</td><td/><td/></row>
 		<row><td>SERIALNUMVALSUCCESSRETVAL</td><td>1</td><td/></row>
-		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;DOTNETVERSION35</td><td/></row>
+		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;DOTNETVERSION35SP1</td><td/></row>
 		<row><td>SelectedSetupType</td><td>##IDS__DisplayName_Typical##</td><td/></row>
 		<row><td>SetupType</td><td>Typical</td><td/></row>
 		<row><td>UpgradeCode</td><td>{D1B9DA7C-0760-4D23-AA13-D7E72108E44F}</td><td/></row>
@@ -4435,7 +4440,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s255">Key</col>
 		<col def="S255">Name</col>
 		<col def="I2">Type</col>
-		<row><td>DotNet35</td><td>2</td><td>SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.5</td><td>Version</td><td>2</td></row>
+		<row><td>DotNet35SP1</td><td>2</td><td>SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.5</td><td>SP</td><td>2</td></row>
 	</table>
 
 	<table name="Registry">
@@ -4542,8 +4547,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
 		<row><td>UNINST_Uninstall_WorkFlowManagementSetup</td><td>workfl_1_workflowmanagementsetup</td><td>UNINST|Uninstall WorkFlowManagementSetup</td><td>NewComponent1</td><td>[SystemFolder]msiexec.exe</td><td>/x {4908156B-E331-4878-8E2C-4779DCE2998E}</td><td/><td/><td>UNINST_Uninstall_W_E67AE387CE6A427DAC890F6A38F56BD8.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>WorkFlowMenagementMDI.exe</td><td>workfl_1_workflowmanagementsetup</td><td>##IDS_SHORTCUT_DISPLAY_NAME4##</td><td>WorkFlowMenagementMDI.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>WorkFlowMenagement_2027172F51854EF1BA8A4D3C4B609DDE.exe</td><td>0</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>WorkFlowMenagementMDI.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME4##</td><td>WorkFlowMenagementMDI.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>WorkFlowMenagement_84AF731589EE4E7482B54541D7499C9A.exe</td><td>0</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>WorkFlowMenagementMDI.exe</td><td>workfl_1_workflowmanagementsetup</td><td>##IDS_SHORTCUT_DISPLAY_NAME5##</td><td>WorkFlowMenagementMDI.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>WorkFlowMenagement_2569BF2769874E20A4774C3FB00B4C77.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>WorkFlowMenagementMDI.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME5##</td><td>WorkFlowMenagementMDI.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>WorkFlowMenagement_E48ADDF461134F66A4713037C03108F5.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">
