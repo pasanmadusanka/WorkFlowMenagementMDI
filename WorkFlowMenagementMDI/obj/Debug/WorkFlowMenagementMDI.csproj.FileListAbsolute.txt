@@ -231,6 +231,7 @@ D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\b
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\bin\Debug\WorkFlowMenagementMDI.pdb
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\bin\Debug\DelmoEncriptDLL.dll
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\bin\Debug\GongShell.dll
+D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.csprojResolveAssemblyReference.cache
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.Admin.Views.AdminDeteteParkingData.resources
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.Admin.Views.ManagePermissions.resources
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.Admin.Views.ManageRoles.resources
@@ -275,4 +276,3 @@ D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\o
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.csproj.GenerateResource.Cache
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.exe
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.pdb
-D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.csprojResolveAssemblyReference.cache

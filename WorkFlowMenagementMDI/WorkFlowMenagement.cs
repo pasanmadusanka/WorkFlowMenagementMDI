@@ -384,10 +384,10 @@ namespace WorkFlowMenagementMDI
 
             int user = Settings.Default.UserID;
 
-            string queryStringDisable = @"SELECT distinct UW.UserID, CTRW.INVISIBLE, CTRW.DISABLED, CW.CONRTOL_NAME
+            string queryStringDisable = @"SELECT distinct UW.SecqHeaderID, CTRW.INVISIBLE, CTRW.DISABLED, CW.CONRTOL_NAME
             FROM USERS_WFMS as UW INNER JOIN USER_TO_ROLE_WFMS as UTRW ON UW.UserID = UTRW.FK_USER_ID INNER JOIN
             ROLES_WFMS as RW ON UTRW.FK_ROLE_ID = RW.ROLE_ID INNER JOIN CONTROLS_TO_ROLES_WFMS as CTRW ON RW.ROLE_ID = CTRW.FK_ROLE_ID INNER JOIN
-            CONTROLS_WFMS as CW ON CTRW.FK_CONTROL_NAME = CW.CONRTOL_NAME where UserID = " + user + "  and CTRW.DISABLED = 0";
+            CONTROLS_WFMS as CW ON CTRW.FK_CONTROL_NAME = CW.CONRTOL_NAME where SecqHeaderID = " + user + "  and CTRW.DISABLED = 0";
 
             DataTable dt = null;
             DataSet ds = db.SelectUserRolesToControls(queryStringDisable);
