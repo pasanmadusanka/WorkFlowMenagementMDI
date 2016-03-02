@@ -146,7 +146,6 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Itinerary
                 if (setDate >= dtFrom && setDate <= dtTo)
                 {
                 }
-                else { MessageBox.Show("Error Data range should between /n" + dtFrom.ToString("dd/MMMM/yyyy") + " and " + dtTo.ToString("dd/MMMM/yyyy"), "Date Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 else { 
                     MessageBox.Show("Error Data range should between /n" + dtFrom.ToString("dd/MMMM/yyyy") + " and " + dtTo.ToString("dd/MMMM/yyyy"), "Date Error", 
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
