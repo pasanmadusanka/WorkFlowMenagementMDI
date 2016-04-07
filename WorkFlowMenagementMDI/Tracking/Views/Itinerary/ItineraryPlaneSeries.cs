@@ -14,7 +14,8 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Itinerary
 {
     public partial class ItineraryPlaneSeries : Form
     {
-        ItineraryPlaneManageMethods db = new ItineraryPlaneManageMethods();
+        ItineraryPlaneManageMethods db = new ItineraryPlaneManageMethods(); 
+        ToolTip tips = new ToolTip();
         public ItineraryPlaneSeries()
         {
             InitializeComponent();
@@ -62,10 +63,19 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Itinerary
             //}
             //else { MessageBox.Show("you dont have the permissions to delete this", "Privelages", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
         }
+        private void GetToolTips()
+        { 
+            tips.SetToolTip(BtnCreate, "Add New Weekly Itinerary Plan");
+            tips.SetToolTip(BtnEdit, "Change WIP Dates(From/To)");
+            tips.SetToolTip(BtnPrinter, "Select Serias and click to print");
+            tips.SetToolTip(BtnDelete, "Delete an itinerary plan completely");
+            tips.SetToolTip(BtnUploadDetails, "Upload Tracking Data downloaded from tracking.lk");
+            tips.SetToolTip(BtnItinararyCompair, "Compare itinerary results with tracking data");
 
+        }
         private void ItineraryPlaneManage_Load(object sender, EventArgs e)
         {
-            GetSeriesInToGrid();
+            GetSeriesInToGrid(); GetToolTips();
         }
 
         private void BtnCreate_Click(object sender, EventArgs e)
@@ -101,8 +111,8 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Itinerary
 
         private void BtnPrinter_Click(object sender, EventArgs e)
         {
-            ReportViewerFarmer rptView = new ReportViewerFarmer(Convert.ToInt32(lblSeriesID.Text), LblRecord.Text);
-            rptView.Show();
+            WIPReportSelector rptView = new WIPReportSelector(Convert.ToInt32(lblSeriesID.Text), LblRecord.Text);
+            rptView.ShowDialog();
         }
 
         private void DgvWIPDetails_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)

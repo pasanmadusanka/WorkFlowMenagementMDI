@@ -17,6 +17,7 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Customers
     {
         FindLocationsOfCustomersMethods db = new FindLocationsOfCustomersMethods();
         List<string> LocList = new List<string>();
+        string root = "C:/Temp/WFMS";
 
         public void LoadCustinfo()
         {
@@ -29,9 +30,9 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Customers
         }
 
         private void BtnReportView_Click(object sender, EventArgs e)
-        { 
+        {
             ReportViewerFarmer report = new ReportViewerFarmer(DTPFromDate.Value.Date.ToString("dd/MM/yyyy"),
-                DTPToDate.Value.Date.ToString("dd/MM/yyyy"),CMBRep.Text, CmbDeliveryVehi.Text);
+                DTPToDate.Value.Date.ToString("dd/MM/yyyy"), CMBRep.Text, CmbDeliveryVehi.Text);
             report.Show();
         }
 
@@ -39,7 +40,10 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Customers
         {
             try
             {
-                File.WriteAllText("LocationsTextParkingCustomers.txt", String.Empty);
+                if (!Directory.Exists(root)) { Directory.CreateDirectory(root); File.WriteAllText(root + "/LocationsTextParkingCustomers.txt", String.Empty);//Make the file null
+                }
+                else { File.WriteAllText(root + "/LocationsTextParkingCustomers.txt", String.Empty); }//Make the file null
+
                 DataTable dt = db.NoOfCustomerVisited(DTPFromDate.Value.Date.ToString("dd/MM/yyyy"), DTPToDate.Value.Date.ToString("dd/MM/yyyy"), Convert.ToInt32(CMBRep.SelectedValue), Convert.ToInt32(CmbDeliveryVehi.SelectedValue));
                 DataRow ro = dt.Rows[0];
                 int farmerCnt = Convert.ToInt32(ro[0]);
@@ -50,12 +54,12 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Customers
                 {
                     DataTable table = db.VisitationLocations(DTPFromDate.Value.Date.ToString("dd/MM/yyyy"), DTPToDate.Value.Date.ToString("dd/MM/yyyy"), Convert.ToInt32(CMBRep.SelectedValue), Convert.ToInt32(CmbDeliveryVehi.SelectedValue));
                     DataRow row = table.Rows[i];
-                    LocList.Add("{title:'" + row[1] + " - " + row[0] + "'," + "lat:" + row[3] + ", lng: " + row[4] + ",description:'" + row[1] + " - " + row[0] + " - " + row[2] + " - Arrived @"+row[5] +"'}" + Environment.NewLine);
+                    LocList.Add("{title:'" + row[1] + " - " + row[0] + "'," + "lat:" + row[3] + ", lng: " + row[4] + ",description:'" + row[1] + " - " + row[0] + " - " + row[2] + " - Arrived @" + row[5] + "'}" + Environment.NewLine);
 
 
                     foreach (string myInt in LocList)
                     {
-                        File.WriteAllText("LocationsTextParkingCustomers.txt", string.Join(", ", LocList.ToArray()));
+                        File.WriteAllText(root + "/LocationsTextParkingCustomers.txt", string.Join(", ", LocList.ToArray()));
                     }
                 }
             }
@@ -64,16 +68,15 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Customers
 
         public void GetDetailsToText2()
         {
-            StreamReader srheader = new StreamReader("LocationsTextHeaderParking.txt");
+            StreamReader srheader = new StreamReader(root + "/LocationsTextHeaderParking.txt");
             String header = srheader.ReadToEnd();
-            StreamReader sr = new StreamReader("LocationsTextParkingCustomers.txt");
+            StreamReader sr = new StreamReader(root + "/LocationsTextParkingCustomers.txt");
             String locations = sr.ReadToEnd();
-            StreamReader srFooter = new StreamReader("LocationsTextFooterParkingDriveWay.txt");
+            StreamReader srFooter = new StreamReader(root + "/LocationsTextFooterParkingDriveWay.txt");
             String footer = srFooter.ReadToEnd();
             sr.Close();
-            
-            BrowserLocation.DocumentText = @"<script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?sensor=false'></script>
-<script type='text/javascript'>" + header + locations + footer + "</script> <div id='dvMap' style='width: 800px; height: 600px'> </div>";
+
+            BrowserLocation.DocumentText = header + "/n/n" + locations + "/n/n" + footer;
         }//Load map to the browser with Driving Rout view;
 
         private void BtnGetRoad_Click(object sender, EventArgs e)
@@ -92,9 +95,25 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Customers
             DTPFromDate.CustomFormat = "dd/MM/yyyy";
             DTPToDate.Format = DateTimePickerFormat.Custom;
             DTPToDate.CustomFormat = "dd/MM/yyyy";
-            GetRepToCombo(); GetDelivaryVehiToCombo(); LoadCustinfo();
+            GetRepToCombo(); GetDelivaryVehiToCombo(); LoadCustinfo(); CreateLocationFilesOnloading();
         }
-
+        public void CreateLocationFilesOnloading()
+        {
+            StreamReader srheader = new StreamReader("LocationsTextHeaderParking.txt");
+            String header = srheader.ReadToEnd();
+            StreamReader srFooter = new StreamReader("LocationsTextFooterParkingDriveWay.txt");
+            String footer = srFooter.ReadToEnd();
+            if (!Directory.Exists(root + "/LocationsTextHeaderParking.txt"))
+            {
+                Directory.CreateDirectory(root);
+                File.WriteAllText(root + "/LocationsTextHeaderParking.txt", header);
+            }
+            if (!Directory.Exists(root + "/LocationsTextFooterParkingDriveWay.txt"))
+            {
+                Directory.CreateDirectory(root);
+                File.WriteAllText(root + "/LocationsTextFooterParkingDriveWay.txt", footer);
+            }
+        }
         public void GetRepToCombo()
         {
             DataTable dtRep = db.GetSalesRepToCMB();

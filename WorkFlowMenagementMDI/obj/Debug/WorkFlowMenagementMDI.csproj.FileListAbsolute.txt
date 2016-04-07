@@ -232,6 +232,8 @@ D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\b
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\bin\Debug\DelmoEncriptDLL.dll
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\bin\Debug\GongShell.dll
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.csprojResolveAssemblyReference.cache
+D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.Admin.Reports.GetInfoLogSessions.resources
+D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.Admin.Reports.ReportViewerLogSessions.resources
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.Admin.Views.AdminDeteteParkingData.resources
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.Admin.Views.ManagePermissions.resources
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.Admin.Views.ManageRoles.resources
@@ -267,6 +269,7 @@ D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\o
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.Tracking.Views.Itinerary.GenarateItineraryPlan.resources
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.Tracking.Views.Itinerary.ItineraryPlanComparison.resources
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.Tracking.Views.Itinerary.ItineraryPlaneSeries.resources
+D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.Tracking.Views.Itinerary.WIPReportSelector.resources
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.Tracking.Views.MainMenu.resources
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.Tracking.Views.ReportView.CustomerReports.resources
 D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\obj\Debug\WorkFlowMenagementMDI.Tracking.Views.ReportView.FarmerReport.resources

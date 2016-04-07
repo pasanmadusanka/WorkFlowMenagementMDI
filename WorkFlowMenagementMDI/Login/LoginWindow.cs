@@ -13,6 +13,7 @@ namespace WorkFlowMenagementMDI.Login
     public partial class LoginWindow : Form
     {
         LoginMethods dba = new LoginMethods();
+        LoginSessionMonitor sessionMonitor = new LoginSessionMonitor();
         public LoginWindow()
         {
             InitializeComponent();
@@ -32,41 +33,32 @@ namespace WorkFlowMenagementMDI.Login
         {
             ProvideConstrForm constr = new ProvideConstrForm();
             constr.Hide();
-            TxtUserName.Text = Properties.Settings.Default.LastUser; 
-            ToolTip(); 
+            TxtUserName.Text = Properties.Settings.Default.LastUser;
+            ToolTip();
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            string name; 
+            string name;
             string password = TxtPassword.Text;
 
             if (dba.GetEmployeAuth(TxtUserName.Text.Trim(), EncriptLib.SimpleCrypt(password)))
             {
+                sessionMonitor.ExecuteLoginSession_SP(Properties.Settings.Default.UserID);
                 Properties.Settings.Default.LastUser = TxtUserName.Text;
                 Properties.Settings.Default.Save();
 
-                if (TxtUserName.Text.ToLower() == "admin")
-                {
-                    this.Hide();
-                    name = TxtUserName.Text.ToLower();
-                    WorkFlowMenagement main = new WorkFlowMenagement(); 
-                    main.Show(); 
-                    Properties.Settings.Default.Save();
-                }
-                else
-                {
-                    this.Hide();
-                    name = TxtUserName.Text.ToLower();
-                    WorkFlowMenagement main = new WorkFlowMenagement();
-                    main.Show();
-                    Properties.Settings.Default.Save();
-                }
+                this.Hide();
+                name = TxtUserName.Text.ToLower();
+                WorkFlowMenagement main = new WorkFlowMenagement();
+                main.Show();
+                Properties.Settings.Default.Save();
             }
             else
-            { MessageBox.Show("Youe 'UserName' Or 'Password' is incorrect....!",
-        "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
-            TxtPassword.Select(0, TxtPassword.TextLength);
+            {
+                MessageBox.Show("Youe 'UserName' Or 'Password' is incorrect....!",
+                    "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
+                TxtPassword.Select(0, TxtPassword.TextLength);
             }
         }
 

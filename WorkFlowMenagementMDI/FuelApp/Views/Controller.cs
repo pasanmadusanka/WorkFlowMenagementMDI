@@ -15,6 +15,7 @@ namespace WorkFlowMenagementMDI.FuelApp.Views
         int lastUserID = Properties.Settings.Default.UserID;
         private string _id;
 
+        StockMovementProcedure stkMove = new StockMovementProcedure();
         ControllerMethods db = new ControllerMethods();
         GetAvalableStockClass getStock = new GetAvalableStockClass();
         AdminToControllerDataMethod dataFrmMain = new AdminToControllerDataMethod();
@@ -97,6 +98,20 @@ namespace WorkFlowMenagementMDI.FuelApp.Views
             catch { MessageBox.Show("Error with loading form.....!"); }
             GetFinalFuelStock();
         }
+        public void GetFinalFuelStock()//For Table FUEL_TMP_STOCK_MOVEMENT_TB
+        {
+            double finalAvStock = GetFuelStock() - GetSumOfFuel();
+            if (finalAvStock > 5000)
+            {
+                TxtRemaindval.ForeColor = Color.Blue;
+                TxtRemaindval.Text = finalAvStock.ToString();
+            }
+            else if (finalAvStock < 5000)
+            {
+                TxtRemaindval.ForeColor = Color.Red;
+                TxtRemaindval.Text = finalAvStock.ToString();
+            }
+        }
 
         #region Get Avalable Stock for fuel weediyawattha
         public double GetFuelStock()//FromProcedure PRN_GEN_STOCK_BALANCE_INDIVIDUAL
@@ -120,20 +135,7 @@ namespace WorkFlowMenagementMDI.FuelApp.Views
             return fuelSum;
         }//Get Sum
 
-        public void GetFinalFuelStock()//For Table FUEL_TMP_STOCK_MOVEMENT_TB
-        {
-            double finalAvStock = GetFuelStock() - GetSumOfFuel();
-            if (finalAvStock > 5000)
-            {
-                TxtRemaindval.ForeColor = Color.Blue;
-                TxtRemaindval.Text = finalAvStock.ToString();
-            }
-            else if (finalAvStock < 5000)
-            {
-                TxtRemaindval.ForeColor = Color.Red;
-                TxtRemaindval.Text = finalAvStock.ToString();
-            }
-        }
+       
 
         public void InsertToFuelStockMovement()
         {
@@ -326,6 +328,9 @@ namespace WorkFlowMenagementMDI.FuelApp.Views
                                 #region post insert method call
                                 //ReportViewMethord(); 
                                 //InsertToFuelByDateTB();//Stock Movement Method
+
+                                stkMove.GetAvalableStock(Convert.ToDouble(TxtDieselQty.Text), TxtBillNo.Text);
+
                                 GetStartMeter();
                                 TxtEndFuelMeter.Clear();
                                 TxtDieselQty.Clear();

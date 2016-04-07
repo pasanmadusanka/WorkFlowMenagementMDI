@@ -38,5 +38,8 @@ Hot Line : 077 4410500 / 033 2240800</Value>
       <Value Profile="(Default)">Data Source=HO51; Initial Catalog=NelnaDB; User id=HO51\Administrator; Password=;
 Data Source=HO51;Initial Catalog=NelnaDB;Integrated Security=True</Value>
     </Setting>
+    <Setting Name="LogSessionID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -302,8 +302,6 @@ namespace WorkFlowMenagementMDI.FuelApp.Methods
                 sqlCommand.Parameters.Add(new SqlParameter("@athorized", SqlDbType.Int)).Value = 755;
                 sqlCommand.Parameters.Add(new SqlParameter("@user_cod", SqlDbType.Int)).Value = user;
                 sqlCommand.Parameters.Add(new SqlParameter("@termin_name", SqlDbType.VarChar)).Value = System.Environment.MachineName.ToString();
-                sqlCommand.Parameters.Add(new SqlParameter("@sys_time", SqlDbType.VarChar)).Value = DateTime.Now.ToString("hh:mm:ss tt");
-                sqlCommand.Parameters.Add(new SqlParameter("@sys_date", SqlDbType.VarChar)).Value = DateTime.Now.ToString("MM/dd/yyyy");
 
                 sqlCommand.ExecuteNonQuery();
                 status = true;

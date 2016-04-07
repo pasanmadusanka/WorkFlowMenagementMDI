@@ -36,6 +36,8 @@
             this.BtnFarmers = new System.Windows.Forms.Button();
             this.btnFoParking = new System.Windows.Forms.Button();
             this.BtnTrackVehi = new System.Windows.Forms.Button();
+            this.BtnMessage = new System.Windows.Forms.Button();
+            this.BtnStkMove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCustomers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +52,7 @@
             this.DgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvCustomers.Location = new System.Drawing.Point(12, 58);
             this.DgvCustomers.Name = "DgvCustomers";
-            this.DgvCustomers.Size = new System.Drawing.Size(703, 244);
+            this.DgvCustomers.Size = new System.Drawing.Size(898, 244);
             this.DgvCustomers.TabIndex = 1;
             // 
             // BtnRefresh
@@ -79,7 +81,7 @@
             this.BtnParking.Name = "BtnParking";
             this.BtnParking.Size = new System.Drawing.Size(75, 23);
             this.BtnParking.TabIndex = 4;
-            this.BtnParking.Text = "Parking view";
+            this.BtnParking.Text = "Cus Parking";
             this.BtnParking.UseVisualStyleBackColor = true;
             this.BtnParking.Click += new System.EventHandler(this.BtnParking_Click);
             // 
@@ -109,7 +111,7 @@
             this.btnFoParking.Name = "btnFoParking";
             this.btnFoParking.Size = new System.Drawing.Size(115, 23);
             this.btnFoParking.TabIndex = 7;
-            this.btnFoParking.Text = "Customers";
+            this.btnFoParking.Text = "F/O Parkings";
             this.btnFoParking.UseVisualStyleBackColor = true;
             this.btnFoParking.Click += new System.EventHandler(this.btnFoParking_Click);
             // 
@@ -123,11 +125,33 @@
             this.BtnTrackVehi.UseVisualStyleBackColor = true;
             this.BtnTrackVehi.Click += new System.EventHandler(this.BtnTrackVehi_Click);
             // 
+            // BtnMessage
+            // 
+            this.BtnMessage.Location = new System.Drawing.Point(721, 29);
+            this.BtnMessage.Name = "BtnMessage";
+            this.BtnMessage.Size = new System.Drawing.Size(75, 23);
+            this.BtnMessage.TabIndex = 9;
+            this.BtnMessage.Text = "Messages";
+            this.BtnMessage.UseVisualStyleBackColor = true;
+            this.BtnMessage.Click += new System.EventHandler(this.BtnMessage_Click);
+            // 
+            // BtnStkMove
+            // 
+            this.BtnStkMove.Location = new System.Drawing.Point(812, 29);
+            this.BtnStkMove.Name = "BtnStkMove";
+            this.BtnStkMove.Size = new System.Drawing.Size(98, 23);
+            this.BtnStkMove.TabIndex = 10;
+            this.BtnStkMove.Text = "StockMovement";
+            this.BtnStkMove.UseVisualStyleBackColor = true;
+            this.BtnStkMove.Click += new System.EventHandler(this.BtnStkMove_Click);
+            // 
             // CustomerTMPView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(727, 314);
+            this.ClientSize = new System.Drawing.Size(922, 314);
+            this.Controls.Add(this.BtnStkMove);
+            this.Controls.Add(this.BtnMessage);
             this.Controls.Add(this.BtnTrackVehi);
             this.Controls.Add(this.btnFoParking);
             this.Controls.Add(this.BtnFarmers);
@@ -154,5 +178,7 @@
         private System.Windows.Forms.Button BtnFarmers;
         private System.Windows.Forms.Button btnFoParking;
         private System.Windows.Forms.Button BtnTrackVehi;
+        private System.Windows.Forms.Button BtnMessage;
+        private System.Windows.Forms.Button BtnStkMove;
     }
 }

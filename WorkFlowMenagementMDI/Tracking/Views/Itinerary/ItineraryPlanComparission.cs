@@ -16,12 +16,19 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Itinerary
 
         GenarateItineraryPlanMethods db = new GenarateItineraryPlanMethods();
         ItineraryPlanComparisionMethods compairMethods = new ItineraryPlanComparisionMethods();
+        ToolTip tips = new ToolTip();
         int lastUser = Properties.Settings.Default.UserID;
         string fromDate = String.Empty;
         string toDate = String.Empty;
         public ItineraryPlanComparison()
         {
             InitializeComponent();
+        }
+        private void GetToolTips()
+        {
+            tips.SetToolTip(BtnPrinter, "Print itinerary");
+            tips.SetToolTip(CBFailItinerary, "Click to get miss itinerarys"); 
+
         }
         public void GetWIPCodeFromDb()
         {
@@ -43,7 +50,7 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Itinerary
         private void ItineraryPlanComparison_Load(object sender, EventArgs e)
         {
             GetWIPCodeFromDb();
-            GetFONameFromDb();
+            GetFONameFromDb(); GetToolTips();
         }
         public void InsertTrackingData()
         {

@@ -69,7 +69,7 @@ namespace WorkFlowMenagementMDI.FuelApp.Methods
                 ITEM_MASTER as i on main.FIN_ITEM_CODE=i.IT_MST_CODE inner join VEHICLE_MASTER as v on main.FIN_VEHICLE_CODE=v.VHC_MST_CODE inner join        
                 EMPLOYEE_MASTER as e on main.FIN_ISSUE_PERSON_NAME=e.EMP_CODE inner join EMPLOYEE_MASTER as e1 on main.FIN_SECURITY=e1.EMP_CODE inner join        
                 EMPLOYEE_MASTER as e2 on main.FIN_AUTORIZED=e2.EMP_CODE inner join SECURITY_HEADER as s on main.USER_CODE=s.SEC_HDR_CODE        
-                where Cast(FIN_DOC_DATE as datetime) >= '" + Convert.ToDateTime(fromDate).ToString("MM/dd/yyyy") + "' and Cast(FIN_DOC_DATE as datetime) <= '" + Convert.ToDateTime(toDate).ToString("MM/dd/yyyy") + "' ORDER BY LOC_LOC_NAME DESC"))
+                where Cast(FIN_DOC_DATE as datetime) >= '" + Convert.ToDateTime(fromDate).ToString("MM/dd/yyyy") + "' and Cast(FIN_DOC_DATE as datetime) <= '" + Convert.ToDateTime(toDate).ToString("MM/dd/yyyy") + "' ORDER BY FIN_DOC_INDEX DESC"))
                 {
                     using (SqlDataAdapter sda = new SqlDataAdapter())
                     { cmd.Connection = conn; sda.SelectCommand = cmd; sda.Fill(dsCustomers, "DataTable1"); }
@@ -80,7 +80,7 @@ namespace WorkFlowMenagementMDI.FuelApp.Methods
         } 
         #endregion
 
-        public FuelStockDataSet GetFuelStockData()
+        public FuelStockDataSet GetFuelStockData(string fromDate,string toDate)
         {
             FuelStockDataSet stockMove = new FuelStockDataSet();
             try
@@ -88,7 +88,7 @@ namespace WorkFlowMenagementMDI.FuelApp.Methods
                 using (SqlCommand cmd = new SqlCommand(@"SELECT [FIN_DOC_INDEX] ,[FIN_DOC_DATE] ,[FIN_DOC_TIME] ,'TFIN - '+[FIN_REFARANCE] as REFARANCE
                 ,[FIN_OPEN_BAL] ,[FIN_RECIVED] ,FIN_OUT ,[FIN_CLOSED_BALANCE] ,s.SEC_HDR_USR_NAME as [user]
                 ,[TERMINAL_NAME] FROM FUEL_TMP_STK_MOVEMENT_TBL as main inner join SECURITY_HEADER as s on main.USER_CODE=s.SEC_HDR_CODE 
-                order by [FIN_DOC_INDEX] desc"))
+                where [FIN_DOC_DATE] between '" + Convert.ToDateTime(fromDate).ToString("MM/dd/yyyy") + "' and '" + Convert.ToDateTime(toDate).ToString("MM/dd/yyyy") + "'"))
                 {
                     using (SqlDataAdapter sda = new SqlDataAdapter())
                     { cmd.Connection = conn; sda.SelectCommand = cmd; sda.Fill(stockMove, "StockDataTable"); }
@@ -107,10 +107,11 @@ namespace WorkFlowMenagementMDI.FuelApp.Methods
                 SqlCommand scmd = conn.CreateCommand();
                 scmd.Connection = conn;
                 scmd.CommandType = CommandType.Text;
-                scmd.CommandText = @"SELECT [FWS_ID] ,substring(FWS_DATE,4,3) + substring(FWS_DATE,1,3)+substring(FWS_DATE,7,4) as FWS_DATE ,
+                scmd.CommandText = @"SELECT [FWS_ID] ,  convert(VARCHAR, CAST(FWS_DATE AS DATETIME),106) as FWS_DATE , 
 				[FWS_TIME],[FWS_BALANCE],FWS_SYS_BALANCE  ,FWS_BALANCE-FWS_SYS_BALANCE as Stock_Gap,FWS_METER_READ,s.SEC_HDR_USR_NAME as FWS_USER ,[FWS_TERMINAL_NAME]
                 FROM FUEL_TMP_WEEKLY_STOCK as main inner Join SECURITY_HEADER as s on main.[FWS_USER]=s.SEC_HDR_CODE
-                where Cast(FWS_DATE as datetime) >= '" + Convert.ToDateTime(fromDate).ToString("MM/dd/yyyy") + "' and Cast(FWS_DATE as datetime) <='" + Convert.ToDateTime(toDate).ToString("MM/dd/yyyy") + "' order by FWS_ID";
+                where Cast(FWS_DATE as datetime) >= '" + Convert.ToDateTime(fromDate).ToString("MM/dd/yyyy") + "' and Cast(FWS_DATE as datetime) <= '" + Convert.ToDateTime(toDate).ToString("MM/dd/yyyy") + "' "+
+                "order by FWS_ID desc";
                 SqlDataAdapter sdas = new SqlDataAdapter(scmd);
                 sdas.Fill(physicalDS, "PhysicalStockDT");
             }

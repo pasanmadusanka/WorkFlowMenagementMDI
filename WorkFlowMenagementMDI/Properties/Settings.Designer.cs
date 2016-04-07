@@ -146,5 +146,17 @@ namespace WorkFlowMenagementMDI.Properties {
                 this["Setting"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int LogSessionID {
+            get {
+                return ((int)(this["LogSessionID"]));
+            }
+            set {
+                this["LogSessionID"] = value;
+            }
+        }
     }
 }

@@ -49,6 +49,7 @@
             this.farmerLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fieldOfficerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uploadParkingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Tracking_Itinerary_Plan = new System.Windows.Forms.ToolStripMenuItem();
             this.fSUScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newSchaduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewSchedulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +73,7 @@
             this.manageRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parkingDataOfTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Tracking_Itinerary_Plan = new System.Windows.Forms.ToolStripMenuItem();
+            this.sessionsLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -261,6 +262,13 @@
             this.uploadParkingToolStripMenuItem.Text = "Upload Parking";
             this.uploadParkingToolStripMenuItem.Click += new System.EventHandler(this.uploadParkingToolStripMenuItem_Click);
             // 
+            // Tracking_Itinerary_Plan
+            // 
+            this.Tracking_Itinerary_Plan.Name = "Tracking_Itinerary_Plan";
+            this.Tracking_Itinerary_Plan.Size = new System.Drawing.Size(162, 22);
+            this.Tracking_Itinerary_Plan.Text = "Itinerary Plan";
+            this.Tracking_Itinerary_Plan.Click += new System.EventHandler(this.Tracking_Itinerary_Plan_Click);
+            // 
             // fSUScheduleToolStripMenuItem
             // 
             this.fSUScheduleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -401,7 +409,7 @@
             this.changeWeeklyStockUpdateDateToolStripMenuItem});
             this.fuelToolStripMenuItem1.Enabled = false;
             this.fuelToolStripMenuItem1.Name = "fuelToolStripMenuItem1";
-            this.fuelToolStripMenuItem1.Size = new System.Drawing.Size(96, 22);
+            this.fuelToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.fuelToolStripMenuItem1.Text = "Fuel";
             // 
             // changeWeeklyStockUpdateDateToolStripMenuItem
@@ -416,8 +424,8 @@
             // 
             this.tmpToolStripMenuItem.Enabled = false;
             this.tmpToolStripMenuItem.Name = "tmpToolStripMenuItem";
-            this.tmpToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
-            this.tmpToolStripMenuItem.Text = "tmp";
+            this.tmpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tmpToolStripMenuItem.Text = "Data Sets";
             this.tmpToolStripMenuItem.Click += new System.EventHandler(this.tmpToolStripMenuItem_Click);
             // 
             // adminToolStripMenuItem
@@ -425,7 +433,8 @@
             this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.managePermissionsToolStripMenuItem,
             this.manageRolesToolStripMenuItem,
-            this.deleteDataToolStripMenuItem});
+            this.deleteDataToolStripMenuItem,
+            this.sessionsLogToolStripMenuItem});
             this.adminToolStripMenuItem.Enabled = false;
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
@@ -462,12 +471,12 @@
             this.parkingDataOfTrackingToolStripMenuItem.Text = "Parking Data of Tracking";
             this.parkingDataOfTrackingToolStripMenuItem.Click += new System.EventHandler(this.parkingDataOfTrackingToolStripMenuItem_Click);
             // 
-            // Tracking_Itinerary_Plan
+            // sessionsLogToolStripMenuItem
             // 
-            this.Tracking_Itinerary_Plan.Name = "Tracking_Itinerary_Plan";
-            this.Tracking_Itinerary_Plan.Size = new System.Drawing.Size(162, 22);
-            this.Tracking_Itinerary_Plan.Text = "Itinerary Plan";
-            this.Tracking_Itinerary_Plan.Click += new System.EventHandler(this.Tracking_Itinerary_Plan_Click);
+            this.sessionsLogToolStripMenuItem.Name = "sessionsLogToolStripMenuItem";
+            this.sessionsLogToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.sessionsLogToolStripMenuItem.Text = "Sessions Log";
+            this.sessionsLogToolStripMenuItem.Click += new System.EventHandler(this.sessionsLogToolStripMenuItem_Click);
             // 
             // WorkFlowMenagement
             // 
@@ -537,6 +546,7 @@
         private System.Windows.Forms.ToolStripMenuItem deleteDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem parkingDataOfTrackingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Tracking_Itinerary_Plan;
+        private System.Windows.Forms.ToolStripMenuItem sessionsLogToolStripMenuItem;
     }
 }
 

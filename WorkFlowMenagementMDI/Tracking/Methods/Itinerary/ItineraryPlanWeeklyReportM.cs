@@ -19,11 +19,41 @@ namespace WorkFlowMenagementMDI.Tracking.Methods.Itinerary
             DBAccess db = new DBAccess();
             conn = db.conn;
         }
+        public void RemoveDuplicats()
+        {
+            try
+            {
+                if (conn.State.ToString() == "Closed") { conn.Open(); }
+                SqlCommand scmd = conn.CreateCommand();
+                scmd.CommandType = CommandType.Text;
+                scmd.CommandText = @"SET NOCOUNT ON
+                SET ROWCOUNT 1
+                WHILE 1 = 1
+                   BEGIN
+                      DELETE   FROM GPS_CUS_PARK_TBL_TMP
+                      WHERE    id IN (SELECT  id
+                                               FROM    GPS_CUS_PARK_TBL_TMP
+                                               where USERID ="+ lastuser +""+
+                                                " GROUP BY Date,id "+
+                                                " HAVING  COUNT(*) > 1) "+
+                     " IF @@Rowcount = 0 "+
+                     "    BREAK ; "+
+                   " END "+
+                " SET ROWCOUNT 0";
+                scmd.ExecuteNonQuery();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Removing duplicats"); }
+            finally { conn.Close(); }
+        }//Remove duplicate rows
         public ItineraryPlanDataSet GetItinaryPlanActual(int fieldOffId,int wipID)
         {
             ItineraryPlanDataSet visitDS = new ItineraryPlanDataSet();
             try
             {
+                if (fieldOffId == 37)
+                {
+                    RemoveDuplicats();
+                }
                 //RemoveDuplicats();//If comment duplicate will remain
                 if (conn.State.ToString() == "Closed") { conn.Open(); }
                 using (SqlCommand cmd = new SqlCommand(@"select substring(WIPM.ITINERARY_MST_DATE,4,3) + substring(WIPM.ITINERARY_MST_DATE,1,3)+substring(WIPM.ITINERARY_MST_DATE,7,4) as [Date],
@@ -37,7 +67,7 @@ namespace WorkFlowMenagementMDI.Tracking.Methods.Itinerary
                     FIELD_OFFICER_MASTER FOM ON FMFD.FAR_MST_FAM_DET_FIELD_OFFICER = FOM.FLD_OFF_MST_CODE inner join
                     FARMER_LOCATION as FL on FMFD.FAR_MST_FAM_DET_LOCATION_CODE=FL.FAR_LOC_MST_CODE inner join
                     BATCH_CREATE_HEADER as BCH on WIPM.BAT_CRT_NO_FK = BCH.BAT_CRT_NO
-                    where FOM.FLD_OFF_MST_CODE=" + fieldOffId + " and IPST.ITINERARY_ID =" + wipID + " order by FHM.FAR_HDR_MST_CODE"))
+                    where FOM.FLD_OFF_MST_CODE=" + fieldOffId + " and GCPT.USERID=" + lastuser + " and IPST.ITINERARY_ID =" + wipID + " order by FHM.FAR_HDR_MST_CODE"))
                 {
                     using (SqlDataAdapter sda = new SqlDataAdapter())
                     { cmd.Connection = conn; sda.SelectCommand = cmd; sda.Fill(visitDS, "ItinaryPlanDT"); }
@@ -85,7 +115,7 @@ namespace WorkFlowMenagementMDI.Tracking.Methods.Itinerary
             return visitDS;
         }
 
-        public WIPDataSet GetWIPSereas(int wipID)
+        public WIPDataSet GetWIPSereas(int wipID, string query)
         {
             WIPDataSet getWIPSeries = new WIPDataSet();
             try
@@ -100,7 +130,7 @@ namespace WorkFlowMenagementMDI.Tracking.Methods.Itinerary
                 FIELD_OFFICER_MASTER AS FOM ON FMFD.FAR_MST_FAM_DET_FIELD_OFFICER = FOM.FLD_OFF_MST_CODE INNER JOIN
                 FARMER_LOCATION AS FL ON FMFD.FAR_MST_FAM_DET_LOCATION_CODE = FL.FAR_LOC_MST_CODE INNER JOIN
                 BATCH_CREATE_HEADER AS BCH ON WIPM.BAT_CRT_NO_FK = BCH.BAT_CRT_NO
-                WHERE (IPST.ITINERARY_ID = "+wipID+") ORDER BY FOM.FLD_OFF_MST_NAME,ITINERARY_MST_DATE"))
+                WHERE (IPST.ITINERARY_ID = "+wipID+") " +query+ " ORDER BY FOM.FLD_OFF_MST_NAME,ITINERARY_MST_DATE"))
                 {
                     using (SqlDataAdapter sda = new SqlDataAdapter())
                     { cmd.Connection = conn; sda.SelectCommand = cmd; sda.Fill(getWIPSeries, "WIPDT"); }
@@ -119,6 +149,7 @@ namespace WorkFlowMenagementMDI.Tracking.Methods.Itinerary
             dt.Columns.Add("fromDat", typeof(string));
             dt.Columns.Add("toDat", typeof(string));
             dt.Columns.Add("fieldOff", typeof(string));
+            dt.Columns.Add("wipCode", typeof(string));
 
             try
             {
@@ -126,12 +157,12 @@ namespace WorkFlowMenagementMDI.Tracking.Methods.Itinerary
                 { conn.Open(); }
                 SqlCommand scmd = conn.CreateCommand();
                 scmd.CommandType = CommandType.Text;
-                scmd.CommandText = @"select fom.FLD_OFF_MST_NAME,convert(VARCHAR, CAST(IPST.DATE_FROM AS DATETIME),106) as DATE_FROM,convert(VARCHAR, CAST(IPST.DATE_TO AS DATETIME),106) as DATE_TO
-                from FIELD_OFFICER_MASTER FOM, ITINERARY_PLAN_SERIES_TBL IPST
+                scmd.CommandText = @"select fom.FLD_OFF_MST_NAME,convert(VARCHAR, CAST(IPST.DATE_FROM AS DATETIME),106) as DATE_FROM,convert(VARCHAR, CAST(IPST.DATE_TO AS DATETIME),106) as DATE_TO,IPST.WIP_CODE
+                from FIELD_OFFICER_MASTER as FOM, ITINERARY_PLAN_SERIES_TBL as IPST
                 where fom.FLD_OFF_MST_CODE=" + fieldOff + " and IPST.ITINERARY_ID=" + wipId + "";
                 SqlDataReader sdr = scmd.ExecuteReader();
                 while (sdr.Read())
-                { dt.Rows.Add(sdr["DATE_FROM"], sdr["DATE_TO"], sdr["FLD_OFF_MST_NAME"]); }
+                { dt.Rows.Add(sdr["DATE_FROM"], sdr["DATE_TO"], sdr["FLD_OFF_MST_NAME"], sdr["WIP_CODE"]); }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
             finally { conn.Close(); }

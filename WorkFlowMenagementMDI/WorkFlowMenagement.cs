@@ -25,6 +25,7 @@ using WorkFlowMenagementMDI.Admin;
 using WorkFlowMenagementMDI.Admin.Views;
 using WorkFlowMenagementMDI.Admin.Methods;
 using WorkFlowMenagementMDI.Tracking.Views.Itinerary;
+using WorkFlowMenagementMDI.Admin.Reports;
 
 namespace WorkFlowMenagementMDI
 {
@@ -239,8 +240,8 @@ namespace WorkFlowMenagementMDI
 
         private void fuelStockMovementToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (lastUser == "admin")
-            {
+            //if (lastUser == "admin")
+            //{
                 foreach (Form form in Application.OpenForms)
                 {
                     if (form.GetType() == typeof(StockMovementForm))
@@ -251,9 +252,10 @@ namespace WorkFlowMenagementMDI
                 }
                 StockMovementForm report = new StockMovementForm();
                 report.MdiParent = this;
-                report.Show();
-            }
-            else { fuelStockMovementToolStripMenuItem.Enabled = false; }
+                report.Show(); 
+                report.WindowState = FormWindowState.Normal;
+            //}
+            //else { fuelStockMovementToolStripMenuItem.Enabled = false; }
         }
 
         private void sMSControllerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -295,18 +297,21 @@ namespace WorkFlowMenagementMDI
         private void fuelStockMovementReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string id = "stockMovement";
-            StockMovementReportView report = new StockMovementReportView(id);
-            report.Show();
+            DateSelection reptView = new DateSelection(id);
+            reptView.ShowDialog();
         }
 
         private void changeWeeklyStockUpdateDateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PhysicalStockAddOnOff weeklyStoc = new PhysicalStockAddOnOff();
-            weeklyStoc.Show();
+            weeklyStoc.ShowDialog();
         }
 
         private void WorkFlowMenagement_FormClosing(object sender, FormClosingEventArgs e)
         {
+            LoginSessionMonitor sessionMonitor=new LoginSessionMonitor();
+            int sessionId=Properties.Settings.Default.LogSessionID;
+            sessionMonitor.ExecuteLogOffSession_SP(sessionId);
             Application.Exit();
         }
 
@@ -467,6 +472,21 @@ namespace WorkFlowMenagementMDI
             wip.Show();
             wip.WindowState = FormWindowState.Maximized;
             
+        }
+
+        private void sessionsLogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(GetInfoLogSessions))
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+            GetInfoLogSessions wip = new GetInfoLogSessions();
+            wip.MdiParent = this;
+            wip.Show(); 
         }
 
     }

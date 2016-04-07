@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GenarateItineraryPlan));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnReturn = new System.Windows.Forms.Button();
@@ -50,6 +50,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.DgvGenerateItinaryDeleteEdit = new System.Windows.Forms.DataGridView();
+            this.SubWIPID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dg_WIP_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dg_ITINERARY_MST_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dg_FAR_LOC_MST_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dg_FAR_HDR_MST_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dg_FAR_HDR_MST_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dg_BAT_CRT_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dg_BAT_CRT_NO_CHICKS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dg_FLD_OFF_MST_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dg_Pb_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DgvItineraryPlan = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,7 +75,6 @@
             this.fo_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dg_Itinary_Mst_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dg_P_B = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DgvGenerateItinaryDeleteEdit = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.CmbPB = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -73,21 +83,11 @@
             this.CmbFarmerBatch = new System.Windows.Forms.ComboBox();
             this.BtnAdd = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.SubWIPID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_WIP_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dg_ITINERARY_MST_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dg_FAR_LOC_MST_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dg_FAR_HDR_MST_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dg_FAR_HDR_MST_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dg_BAT_CRT_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dg_BAT_CRT_NO_CHICKS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dg_FLD_OFF_MST_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dg_Pb_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvItineraryPlan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvGenerateItinaryDeleteEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvItineraryPlan)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -162,7 +162,7 @@
             // lblCap
             // 
             this.lblCap.AutoSize = true;
-            this.lblCap.Location = new System.Drawing.Point(367, 59);
+            this.lblCap.Location = new System.Drawing.Point(319, 59);
             this.lblCap.Name = "lblCap";
             this.lblCap.Size = new System.Drawing.Size(35, 13);
             this.lblCap.TabIndex = 19;
@@ -172,7 +172,7 @@
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(367, 37);
+            this.lblDate.Location = new System.Drawing.Point(319, 37);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(35, 13);
             this.lblDate.TabIndex = 18;
@@ -182,7 +182,7 @@
             // lblLoc
             // 
             this.lblLoc.AutoSize = true;
-            this.lblLoc.Location = new System.Drawing.Point(367, 16);
+            this.lblLoc.Location = new System.Drawing.Point(319, 16);
             this.lblLoc.Name = "lblLoc";
             this.lblLoc.Size = new System.Drawing.Size(35, 13);
             this.lblLoc.TabIndex = 17;
@@ -282,6 +282,107 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(842, 246);
             this.panel4.TabIndex = 6;
+            // 
+            // DgvGenerateItinaryDeleteEdit
+            // 
+            this.DgvGenerateItinaryDeleteEdit.AllowUserToAddRows = false;
+            this.DgvGenerateItinaryDeleteEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DgvGenerateItinaryDeleteEdit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgvGenerateItinaryDeleteEdit.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvGenerateItinaryDeleteEdit.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DgvGenerateItinaryDeleteEdit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvGenerateItinaryDeleteEdit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SubWIPID,
+            this.dg_WIP_CODE,
+            this.Dg_ITINERARY_MST_DATE,
+            this.Dg_FAR_LOC_MST_NAME,
+            this.Dg_FAR_HDR_MST_CODE,
+            this.Dg_FAR_HDR_MST_NAME,
+            this.Dg_BAT_CRT_CODE,
+            this.Dg_BAT_CRT_NO_CHICKS,
+            this.Dg_FLD_OFF_MST_NAME,
+            this.Dg_Pb_Status});
+            this.DgvGenerateItinaryDeleteEdit.Location = new System.Drawing.Point(3, 3);
+            this.DgvGenerateItinaryDeleteEdit.Name = "DgvGenerateItinaryDeleteEdit";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DgvGenerateItinaryDeleteEdit.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.DgvGenerateItinaryDeleteEdit.Size = new System.Drawing.Size(834, 238);
+            this.DgvGenerateItinaryDeleteEdit.TabIndex = 2;
+            this.DgvGenerateItinaryDeleteEdit.Visible = false;
+            this.DgvGenerateItinaryDeleteEdit.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvGenerateItinaryDeleteEdit_RowHeaderMouseClick);
+            this.DgvGenerateItinaryDeleteEdit.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvGenerateItinaryDeleteEdit_RowHeaderMouseDoubleClick);
+            this.DgvGenerateItinaryDeleteEdit.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.DgvGenerateItinaryDeleteEdit_UserDeletingRow);
+            // 
+            // SubWIPID
+            // 
+            this.SubWIPID.DataPropertyName = "ITINERARY_MST_ID";
+            this.SubWIPID.HeaderText = "ItinaryID";
+            this.SubWIPID.Name = "SubWIPID";
+            this.SubWIPID.Visible = false;
+            // 
+            // dg_WIP_CODE
+            // 
+            this.dg_WIP_CODE.DataPropertyName = "WIP_CODE";
+            this.dg_WIP_CODE.HeaderText = "WIP CODE";
+            this.dg_WIP_CODE.Name = "dg_WIP_CODE";
+            // 
+            // Dg_ITINERARY_MST_DATE
+            // 
+            this.Dg_ITINERARY_MST_DATE.DataPropertyName = "ITINERARY_MST_DATE";
+            this.Dg_ITINERARY_MST_DATE.HeaderText = "Date";
+            this.Dg_ITINERARY_MST_DATE.Name = "Dg_ITINERARY_MST_DATE";
+            // 
+            // Dg_FAR_LOC_MST_NAME
+            // 
+            this.Dg_FAR_LOC_MST_NAME.DataPropertyName = "FAR_LOC_MST_NAME";
+            this.Dg_FAR_LOC_MST_NAME.HeaderText = "Location";
+            this.Dg_FAR_LOC_MST_NAME.Name = "Dg_FAR_LOC_MST_NAME";
+            // 
+            // Dg_FAR_HDR_MST_CODE
+            // 
+            this.Dg_FAR_HDR_MST_CODE.DataPropertyName = "FAR_HDR_MST_CODE";
+            this.Dg_FAR_HDR_MST_CODE.HeaderText = "CODE";
+            this.Dg_FAR_HDR_MST_CODE.Name = "Dg_FAR_HDR_MST_CODE";
+            // 
+            // Dg_FAR_HDR_MST_NAME
+            // 
+            this.Dg_FAR_HDR_MST_NAME.DataPropertyName = "FAR_HDR_MST_NAME";
+            this.Dg_FAR_HDR_MST_NAME.HeaderText = "Farmer";
+            this.Dg_FAR_HDR_MST_NAME.Name = "Dg_FAR_HDR_MST_NAME";
+            // 
+            // Dg_BAT_CRT_CODE
+            // 
+            this.Dg_BAT_CRT_CODE.DataPropertyName = "BAT_CRT_CODE";
+            this.Dg_BAT_CRT_CODE.HeaderText = "Batch Code";
+            this.Dg_BAT_CRT_CODE.Name = "Dg_BAT_CRT_CODE";
+            // 
+            // Dg_BAT_CRT_NO_CHICKS
+            // 
+            this.Dg_BAT_CRT_NO_CHICKS.DataPropertyName = "BAT_CRT_NO_CHICKS";
+            this.Dg_BAT_CRT_NO_CHICKS.HeaderText = "NO. CHICKS";
+            this.Dg_BAT_CRT_NO_CHICKS.Name = "Dg_BAT_CRT_NO_CHICKS";
+            // 
+            // Dg_FLD_OFF_MST_NAME
+            // 
+            this.Dg_FLD_OFF_MST_NAME.DataPropertyName = "FLD_OFF_MST_NAME";
+            this.Dg_FLD_OFF_MST_NAME.HeaderText = "FLD OFFicer";
+            this.Dg_FLD_OFF_MST_NAME.Name = "Dg_FLD_OFF_MST_NAME";
+            // 
+            // Dg_Pb_Status
+            // 
+            this.Dg_Pb_Status.DataPropertyName = "P_B_Status";
+            this.Dg_Pb_Status.HeaderText = "P/B Status";
+            this.Dg_Pb_Status.Name = "Dg_Pb_Status";
+            this.Dg_Pb_Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // DgvItineraryPlan
             // 
@@ -400,45 +501,6 @@
             this.Dg_P_B.Name = "Dg_P_B";
             this.Dg_P_B.Visible = false;
             // 
-            // DgvGenerateItinaryDeleteEdit
-            // 
-            this.DgvGenerateItinaryDeleteEdit.AllowUserToAddRows = false;
-            this.DgvGenerateItinaryDeleteEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DgvGenerateItinaryDeleteEdit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DgvGenerateItinaryDeleteEdit.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvGenerateItinaryDeleteEdit.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.DgvGenerateItinaryDeleteEdit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvGenerateItinaryDeleteEdit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SubWIPID,
-            this.dg_WIP_CODE,
-            this.Dg_ITINERARY_MST_DATE,
-            this.Dg_FAR_LOC_MST_NAME,
-            this.Dg_FAR_HDR_MST_CODE,
-            this.Dg_FAR_HDR_MST_NAME,
-            this.Dg_BAT_CRT_CODE,
-            this.Dg_BAT_CRT_NO_CHICKS,
-            this.Dg_FLD_OFF_MST_NAME,
-            this.Dg_Pb_Status});
-            this.DgvGenerateItinaryDeleteEdit.Location = new System.Drawing.Point(3, 3);
-            this.DgvGenerateItinaryDeleteEdit.Name = "DgvGenerateItinaryDeleteEdit";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DgvGenerateItinaryDeleteEdit.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.DgvGenerateItinaryDeleteEdit.Size = new System.Drawing.Size(834, 238);
-            this.DgvGenerateItinaryDeleteEdit.TabIndex = 2;
-            this.DgvGenerateItinaryDeleteEdit.Visible = false;
-            this.DgvGenerateItinaryDeleteEdit.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvGenerateItinaryDeleteEdit_RowHeaderMouseClick);
-            this.DgvGenerateItinaryDeleteEdit.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvGenerateItinaryDeleteEdit_RowHeaderMouseDoubleClick);
-            this.DgvGenerateItinaryDeleteEdit.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.DgvGenerateItinaryDeleteEdit_UserDeletingRow);
-            // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -533,68 +595,6 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Farmer Code :";
             // 
-            // SubWIPID
-            // 
-            this.SubWIPID.DataPropertyName = "ITINERARY_MST_ID";
-            this.SubWIPID.HeaderText = "ItinaryID";
-            this.SubWIPID.Name = "SubWIPID";
-            this.SubWIPID.Visible = false;
-            // 
-            // dg_WIP_CODE
-            // 
-            this.dg_WIP_CODE.DataPropertyName = "WIP_CODE";
-            this.dg_WIP_CODE.HeaderText = "WIP CODE";
-            this.dg_WIP_CODE.Name = "dg_WIP_CODE";
-            // 
-            // Dg_ITINERARY_MST_DATE
-            // 
-            this.Dg_ITINERARY_MST_DATE.DataPropertyName = "ITINERARY_MST_DATE";
-            this.Dg_ITINERARY_MST_DATE.HeaderText = "Date";
-            this.Dg_ITINERARY_MST_DATE.Name = "Dg_ITINERARY_MST_DATE";
-            // 
-            // Dg_FAR_LOC_MST_NAME
-            // 
-            this.Dg_FAR_LOC_MST_NAME.DataPropertyName = "FAR_LOC_MST_NAME";
-            this.Dg_FAR_LOC_MST_NAME.HeaderText = "Location";
-            this.Dg_FAR_LOC_MST_NAME.Name = "Dg_FAR_LOC_MST_NAME";
-            // 
-            // Dg_FAR_HDR_MST_CODE
-            // 
-            this.Dg_FAR_HDR_MST_CODE.DataPropertyName = "FAR_HDR_MST_CODE";
-            this.Dg_FAR_HDR_MST_CODE.HeaderText = "CODE";
-            this.Dg_FAR_HDR_MST_CODE.Name = "Dg_FAR_HDR_MST_CODE";
-            // 
-            // Dg_FAR_HDR_MST_NAME
-            // 
-            this.Dg_FAR_HDR_MST_NAME.DataPropertyName = "FAR_HDR_MST_NAME";
-            this.Dg_FAR_HDR_MST_NAME.HeaderText = "Farmer";
-            this.Dg_FAR_HDR_MST_NAME.Name = "Dg_FAR_HDR_MST_NAME";
-            // 
-            // Dg_BAT_CRT_CODE
-            // 
-            this.Dg_BAT_CRT_CODE.DataPropertyName = "BAT_CRT_CODE";
-            this.Dg_BAT_CRT_CODE.HeaderText = "Batch Code";
-            this.Dg_BAT_CRT_CODE.Name = "Dg_BAT_CRT_CODE";
-            // 
-            // Dg_BAT_CRT_NO_CHICKS
-            // 
-            this.Dg_BAT_CRT_NO_CHICKS.DataPropertyName = "BAT_CRT_NO_CHICKS";
-            this.Dg_BAT_CRT_NO_CHICKS.HeaderText = "NO. CHICKS";
-            this.Dg_BAT_CRT_NO_CHICKS.Name = "Dg_BAT_CRT_NO_CHICKS";
-            // 
-            // Dg_FLD_OFF_MST_NAME
-            // 
-            this.Dg_FLD_OFF_MST_NAME.DataPropertyName = "FLD_OFF_MST_NAME";
-            this.Dg_FLD_OFF_MST_NAME.HeaderText = "FLD OFFicer";
-            this.Dg_FLD_OFF_MST_NAME.Name = "Dg_FLD_OFF_MST_NAME";
-            // 
-            // Dg_Pb_Status
-            // 
-            this.Dg_Pb_Status.DataPropertyName = "P_B_Status";
-            this.Dg_Pb_Status.HeaderText = "P/B Status";
-            this.Dg_Pb_Status.Name = "Dg_Pb_Status";
-            this.Dg_Pb_Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
             // GenarateItineraryPlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -617,8 +617,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DgvItineraryPlan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvGenerateItinaryDeleteEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvItineraryPlan)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);

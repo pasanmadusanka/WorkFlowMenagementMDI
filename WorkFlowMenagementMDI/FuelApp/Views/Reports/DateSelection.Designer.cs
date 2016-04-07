@@ -33,11 +33,11 @@ namespace WorkFlowMenagementMDI.FuelApp.Views.Reports
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.DTPToDate = new System.Windows.Forms.DateTimePicker();
+            this.BtnSubmit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.DTPFromDate = new System.Windows.Forms.DateTimePicker();
             this.lblHeader = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.BtnSubmit = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -47,7 +47,7 @@ namespace WorkFlowMenagementMDI.FuelApp.Views.Reports
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Location = new System.Drawing.Point(-3, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 0;
@@ -63,24 +63,40 @@ namespace WorkFlowMenagementMDI.FuelApp.Views.Reports
             this.panel1.Controls.Add(this.DTPFromDate);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(9, 54);
+            this.panel1.MaximumSize = new System.Drawing.Size(300, 67);
+            this.panel1.MinimumSize = new System.Drawing.Size(300, 67);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(275, 67);
+            this.panel1.Size = new System.Drawing.Size(300, 67);
             this.panel1.TabIndex = 3;
             // 
             // DTPToDate
             // 
-            this.DTPToDate.CustomFormat = "dd/MM/yyyy";
+            this.DTPToDate.CustomFormat = "dd/MMMM/yyyy";
             this.DTPToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DTPToDate.Location = new System.Drawing.Point(75, 29);
+            this.DTPToDate.Location = new System.Drawing.Point(59, 31);
             this.DTPToDate.Name = "DTPToDate";
-            this.DTPToDate.Size = new System.Drawing.Size(113, 20);
+            this.DTPToDate.Size = new System.Drawing.Size(142, 20);
             this.DTPToDate.TabIndex = 3;
             this.DTPToDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DTPToDate_KeyDown);
+            // 
+            // BtnSubmit
+            // 
+            this.BtnSubmit.BackColor = System.Drawing.Color.White;
+            this.BtnSubmit.Image = global::WorkFlowMenagementMDI.Properties.Resources.print;
+            this.BtnSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSubmit.Location = new System.Drawing.Point(219, 16);
+            this.BtnSubmit.Name = "BtnSubmit";
+            this.BtnSubmit.Size = new System.Drawing.Size(74, 33);
+            this.BtnSubmit.TabIndex = 4;
+            this.BtnSubmit.Text = "Print";
+            this.BtnSubmit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnSubmit.UseVisualStyleBackColor = false;
+            this.BtnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 35);
+            this.label3.Location = new System.Drawing.Point(7, 35);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 2;
@@ -88,11 +104,11 @@ namespace WorkFlowMenagementMDI.FuelApp.Views.Reports
             // 
             // DTPFromDate
             // 
-            this.DTPFromDate.CustomFormat = "dd/MM/yyyy";
+            this.DTPFromDate.CustomFormat = "dd/MMMM/yyyy";
             this.DTPFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DTPFromDate.Location = new System.Drawing.Point(75, 3);
+            this.DTPFromDate.Location = new System.Drawing.Point(59, 5);
             this.DTPFromDate.Name = "DTPFromDate";
-            this.DTPFromDate.Size = new System.Drawing.Size(113, 20);
+            this.DTPFromDate.Size = new System.Drawing.Size(142, 20);
             this.DTPFromDate.TabIndex = 1;
             this.DTPFromDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DTPFromDate_KeyDown);
             // 
@@ -117,20 +133,6 @@ namespace WorkFlowMenagementMDI.FuelApp.Views.Reports
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // BtnSubmit
-            // 
-            this.BtnSubmit.BackColor = System.Drawing.Color.White;
-            this.BtnSubmit.Image = global::WorkFlowMenagementMDI.Properties.Resources.print;
-            this.BtnSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSubmit.Location = new System.Drawing.Point(194, 16);
-            this.BtnSubmit.Name = "BtnSubmit";
-            this.BtnSubmit.Size = new System.Drawing.Size(74, 33);
-            this.BtnSubmit.TabIndex = 4;
-            this.BtnSubmit.Text = "Print";
-            this.BtnSubmit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnSubmit.UseVisualStyleBackColor = false;
-            this.BtnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
@@ -139,7 +141,7 @@ namespace WorkFlowMenagementMDI.FuelApp.Views.Reports
             this.panel2.Controls.Add(this.lblHeader);
             this.panel2.Location = new System.Drawing.Point(9, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(273, 46);
+            this.panel2.Size = new System.Drawing.Size(300, 46);
             this.panel2.TabIndex = 6;
             // 
             // DateSelection
@@ -147,19 +149,17 @@ namespace WorkFlowMenagementMDI.FuelApp.Views.Reports
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(294, 125);
+            this.ClientSize = new System.Drawing.Size(321, 125);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(310, 164);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(310, 164);
             this.Name = "DateSelection";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Report Date Selection";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.DateSelection_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

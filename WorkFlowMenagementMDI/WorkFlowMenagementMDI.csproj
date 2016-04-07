@@ -95,6 +95,34 @@
   <ItemGroup>
     <Compile Include="Admin\Methods\AdminDeleteParkHistoryMethods.cs" />
     <Compile Include="Admin\Methods\WorkFlowManageMethods.cs" />
+    <Compile Include="Admin\Reports\GetInfoLogSessions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Reports\GetInfoLogSessions.Designer.cs">
+      <DependentUpon>GetInfoLogSessions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Reports\GetLoginSessionDetails.cs" />
+    <Compile Include="Admin\Reports\LogSessions.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogSessions.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Admin\Reports\ReportViewerLogSessions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Reports\ReportViewerLogSessions.Designer.cs">
+      <DependentUpon>ReportViewerLogSessions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Reports\SessionLogDS.cs">
+      <DependentUpon>SessionLogDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Admin\Reports\SessionLogDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SessionLogDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Views\AdminDeteteParkingData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +227,7 @@
     <Compile Include="FuelApp\Methods\ReportMethods.cs" />
     <Compile Include="FuelApp\Methods\ScreenCapture.cs" />
     <Compile Include="FuelApp\Methods\SMS_DbAccess.cs" />
+    <Compile Include="FuelApp\Methods\StockMovementProcedure.cs" />
     <Compile Include="FuelApp\Methods\TreeViweMethods.cs" />
     <Compile Include="FuelApp\Views\Admin_Controller.cs">
       <SubType>Form</SubType>
@@ -330,6 +359,7 @@
       <DependentUpon>StockMovementReportView.cs</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\UserInfo.cs" />
+    <Compile Include="Login\LoginSessionMonitor.cs" />
     <Compile Include="Login\LoginWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -499,6 +529,12 @@
     <Compile Include="Tracking\Views\Itinerary\ItineraryPlaneSeries.Designer.cs">
       <DependentUpon>ItineraryPlaneSeries.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tracking\Views\Itinerary\WIPReportSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\Views\Itinerary\WIPReportSelector.Designer.cs">
+      <DependentUpon>WIPReportSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tracking\Views\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -531,6 +567,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Admin\Reports\GetInfoLogSessions.resx">
+      <DependentUpon>GetInfoLogSessions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Reports\LogSessions.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LogSessions.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Reports\ReportViewerLogSessions.resx">
+      <DependentUpon>ReportViewerLogSessions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\Views\AdminDeteteParkingData.resx">
       <DependentUpon>AdminDeteteParkingData.cs</DependentUpon>
     </EmbeddedResource>
@@ -684,6 +730,9 @@
     <EmbeddedResource Include="Tracking\Views\Itinerary\ItineraryPlaneSeries.resx">
       <DependentUpon>ItineraryPlaneSeries.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\Views\Itinerary\WIPReportSelector.resx">
+      <DependentUpon>WIPReportSelector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tracking\Views\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -709,6 +758,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Admin\Reports\SessionLogDS.xsc">
+      <DependentUpon>SessionLogDS.xsd</DependentUpon>
+    </None>
+    <None Include="Admin\Reports\SessionLogDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SessionLogDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Admin\Reports\SessionLogDS.xss">
+      <DependentUpon>SessionLogDS.xsd</DependentUpon>
+    </None>
     <None Include="app.config" />
     <None Include="FeedIssue\ReportView\DSFeedIssueWeekPlan.xsc">
       <DependentUpon>DSFeedIssueWeekPlan.xsd</DependentUpon>

@@ -31,7 +31,7 @@ namespace WorkFlowMenagementMDI.Tracking.Methods.Customers
                 scmd.Connection = conn;
                 scmd.CommandType = CommandType.Text;
                 scmd.CommandText = @"SELECT LOC_LOC_CODE, LOC_LOC_SH_CODE + ' - ' + LOC_LOC_NAME AS LOC_LOC_NAME
-                FROM LOCATION WHERE LOC_LOC_GRP_CODE = 1 AND LOC_LOC_SH_CODE + ' - ' + LOC_LOC_NAME IS NOT NULL";
+                FROM LOCATION WHERE LOC_LOC_GRP_CODE = 1 AND LOC_LOC_SH_CODE + ' - ' + LOC_LOC_NAME IS NOT NULL order by LOC_LOC_SH_CODE";
                 SqlDataReader sdr = scmd.ExecuteReader();
                 while (sdr.Read())
                 { dt.Rows.Add(sdr["LOC_LOC_CODE"], sdr["LOC_LOC_NAME"]); }

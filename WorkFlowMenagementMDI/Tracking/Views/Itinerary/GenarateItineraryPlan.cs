@@ -14,6 +14,7 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Itinerary
     public partial class GenarateItineraryPlan : Form
     {
         GenarateItineraryPlanMethods db = new GenarateItineraryPlanMethods();
+        ToolTip tips = new ToolTip();
         private ItineraryPlaneSeries _itinerarySeries;
         private int _wipID;
         List<DateTime> allDates = new List<DateTime>();
@@ -41,6 +42,18 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Itinerary
             BtnReturn.Enabled = false;
             DgvGenerateItinaryDeleteEdit.Visible = true;
             GetItenaryDataSet(id);
+        }
+
+        private void GetToolTips()
+        {
+            tips.SetToolTip(BtnAdd, "Add Current Itinerary");
+            tips.SetToolTip(BtnCreate, "Insert Itinerarys");
+            tips.SetToolTip(BtnEdit, "Edit an Itinerary");
+            tips.SetToolTip(BtnReturn, "Clear Table Result");
+            tips.SetToolTip(BtnDelete, "Delete an itinerary");
+            tips.SetToolTip(BtnNewWIP, "Create New WIP-***** Series");
+            tips.SetToolTip(CmbPB, "Pre-Brooding status");
+
         }
 
         public void GetItenaryDataSet(int id)
@@ -146,8 +159,9 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Itinerary
                 if (setDate >= dtFrom && setDate <= dtTo)
                 {
                 }
-                else { 
-                    MessageBox.Show("Error Data range should between /n" + dtFrom.ToString("dd/MMMM/yyyy") + " and " + dtTo.ToString("dd/MMMM/yyyy"), "Date Error", 
+                else
+                {
+                    MessageBox.Show("Error Data range should between /n" + dtFrom.ToString("dd/MMMM/yyyy") + " and " + dtTo.ToString("dd/MMMM/yyyy"), "Date Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     DtpPlanDate.Value = dtFrom;
                 }
@@ -177,7 +191,7 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Itinerary
 
         private void GenarateItineraryPlan_Load(object sender, EventArgs e)
         {
-            GetFONameFromDb();
+            GetFONameFromDb(); GetToolTips();
         }
 
         private void BtnCreate_Click(object sender, EventArgs e)
@@ -196,7 +210,7 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Itinerary
             }
         }
         private void TextClearEvent()
-        { 
+        {
             CmbFarmerBatch.SelectedItem = null;
             CmbFarmerNCode.SelectedItem = null; CmbFarmerNCode.Text = "";
         }
@@ -246,7 +260,7 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Itinerary
                 DialogResult result = MessageBox.Show("Do you want to update the itinerary series...?", "Confirm data uploading", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    string planedDate = DtpPlanDate.Value.ToString("MM/dd/yyyy"); 
+                    string planedDate = DtpPlanDate.Value.ToString("MM/dd/yyyy");
 
                     string pbStatus = String.Empty;
                     pbStatus = CmbPB.Text.ToLower() == "yes" ? "1" : "0";
@@ -346,7 +360,7 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Itinerary
         private void BtnReturn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you want to clear the results added?", "Confirm data Clearing", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            
+
             for (int i = 0; i < DgvItineraryPlan.Rows.Count; i++)
             {
                 if (DgvItineraryPlan.Rows[i].DefaultCellStyle.BackColor == Color.LimeGreen)
@@ -373,7 +387,7 @@ namespace WorkFlowMenagementMDI.Tracking.Views.Itinerary
 
         private void DgvGenerateItinaryDeleteEdit_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            
+
         }
 
         //Insert

@@ -40,6 +40,12 @@ namespace WorkFlowMenagementMDI.FuelApp.Views.Reports
                 FormReportView report = new FormReportView(_id, DTPFromDate.Value.Date.ToString("dd/MM/yyyy"), DTPToDate.Value.Date.ToString("dd/MM/yyyy"));
                 report.Show();
             }
+            else if (_id == "stockMovement")
+            {
+                this.Hide();
+                StockMovementReportView report = new StockMovementReportView(_id, DTPFromDate.Value.Date.ToString("dd/MM/yyyy"), DTPToDate.Value.Date.ToString("dd/MM/yyyy"));
+                report.Show();
+            }
         }
 
         private void DateSelection_Load(object sender, EventArgs e)
@@ -51,6 +57,10 @@ namespace WorkFlowMenagementMDI.FuelApp.Views.Reports
             else if (_id == "PhycisalLoad")
             {
                 lblHeader.Text = "Physical Stock Report";
+            }
+            else if (_id == "stockMovement")
+            {
+                lblHeader.Text = "Stock Movement Report";
             }
         }
 

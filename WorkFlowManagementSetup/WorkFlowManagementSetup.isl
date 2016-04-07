@@ -341,7 +341,7 @@
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
 		<row><td>NewComponent1</td><td>{4EF6ECBF-AD5A-4907-BE23-6C56C4884941}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>WorkFlowMenagementMDI.exe</td><td>{94558F77-145C-4FC9-8F6F-316AB5808245}</td><td>INSTALLDIR</td><td>2</td><td/><td>workflowmenagementmdi.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>WorkFlowMenagementMDI.exe</td><td>{E2A48428-D933-4859-BCB8-200385329515}</td><td>INSTALLDIR</td><td>2</td><td/><td>workflowmenagementmdi.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -2025,7 +2025,7 @@
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
 		<row><td>NewComponent1</td><td/><td/><td>_86EB61D9_06D7_40B6_B687_6CD6B547B60D_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>WorkFlowMenagementMDI.exe</td><td/><td/><td>_B4C92CFE_0EF8_4607_BBE4_E25813F62946_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>WorkFlowMenagementMDI.exe</td><td/><td/><td>_F2B2D4B4_B75F_4A24_9C2E_004A43C2C226_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -3462,6 +3462,7 @@
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>1033</td><td>LAUNCH~1.EXE|Launch WorkFlowMenagementMDI.exe</td><td>0</td><td/><td>690249771</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME4</td><td>1033</td><td>WorkFlowMenagementMDI</td><td>0</td><td/><td>1495586060</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME5</td><td>1033</td><td>LAUNCH~1.EXE|Launch WorkFlowMenagementMDI.exe</td><td>0</td><td/><td>-920341746</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME6</td><td>1033</td><td>Work Flow Menagement.exe</td><td>0</td><td/><td>304378026</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>1033</td><td>From the list of servers below, select the database server you would like to target.</td><td>0</td><td/><td>1755603082</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>1033</td><td>From the list of catalog names below, select the database catalog you would like to target.</td><td>0</td><td/><td>1755603082</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>1033</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>1755603082</td></row>
@@ -3757,6 +3758,7 @@
 		<row><td>ID_STRING5</td><td>1033</td><td>LAUNCH~1.EXE|Launch WorkFlowMenagementMDI.exe</td><td>0</td><td/><td>690257963</td></row>
 		<row><td>ID_STRING6</td><td>1033</td><td>LAUNCH~1.EXE|Launch WorkFlowMenagementMDI.exe</td><td>0</td><td/><td>1495539272</td></row>
 		<row><td>ID_STRING7</td><td>1033</td><td>LAUNCH~1.EXE|Launch WorkFlowMenagementMDI.exe</td><td>0</td><td/><td>-920329458</td></row>
+		<row><td>ID_STRING8</td><td>1033</td><td>LAUNCH~1.EXE|Launch WorkFlowMenagementMDI.exe</td><td>0</td><td/><td>304365738</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>1755603082</td></row>
 	</table>
 
@@ -3866,6 +3868,7 @@
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
 		<row><td>UNINST_Uninstall_W_E67AE387CE6A427DAC890F6A38F56BD8.exe</td><td/><td>C:\Program Files (x86)\InstallShield\2013LE\Redist\Language Independent\OS Independent\uninstall.ico</td><td>0</td></row>
+		<row><td>WorkFlowMenagement_0301957E6B2249BE9D63701E24D67A69.exe</td><td/><td>D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\bin\Debug\WorkFlowMenagementMDI.exe</td><td>0</td></row>
 		<row><td>WorkFlowMenagement_0647D9DACF8A499293C4BF4A105D9B71.exe</td><td/><td>C:\Users\Administrator\Downloads\FlowManagement.ico</td><td>0</td></row>
 		<row><td>WorkFlowMenagement_0EBCC5ECED204991B0D5CAD15EA888E2.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 		<row><td>WorkFlowMenagement_0EFF7FE8940844E7891A2D53170D94C6.exe</td><td/><td>C:\Users\Administrator\Downloads\FlowManagement.ico</td><td>0</td></row>
@@ -3876,6 +3879,7 @@
 		<row><td>WorkFlowMenagement_D7AB0A59A292487BAF6006F43DB80B63.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 		<row><td>WorkFlowMenagement_DCED507FDBDC4250B3C9319FD14F4F7D.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 		<row><td>WorkFlowMenagement_E48ADDF461134F66A4713037C03108F5.exe</td><td/><td>D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\bin\Debug\WorkFlowMenagementMDI.exe</td><td>0</td></row>
+		<row><td>WorkFlowMenagement_EB682D863FF742639DA288973CBD4A82.exe</td><td/><td>D:\Projects\WorkFlowSystem\WFMS V5\WorkFlowMenagementMDI\WorkFlowMenagementMDI\bin\Debug\WorkFlowMenagementMDI.exe</td><td>0</td></row>
 	</table>
 
 	<table name="IniFile">
@@ -4547,8 +4551,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
 		<row><td>UNINST_Uninstall_WorkFlowManagementSetup</td><td>workfl_1_workflowmanagementsetup</td><td>UNINST|Uninstall WorkFlowManagementSetup</td><td>NewComponent1</td><td>[SystemFolder]msiexec.exe</td><td>/x {4908156B-E331-4878-8E2C-4779DCE2998E}</td><td/><td/><td>UNINST_Uninstall_W_E67AE387CE6A427DAC890F6A38F56BD8.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>WorkFlowMenagementMDI.exe</td><td>workfl_1_workflowmanagementsetup</td><td>##IDS_SHORTCUT_DISPLAY_NAME5##</td><td>WorkFlowMenagementMDI.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>WorkFlowMenagement_2569BF2769874E20A4774C3FB00B4C77.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>WorkFlowMenagementMDI.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME5##</td><td>WorkFlowMenagementMDI.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>WorkFlowMenagement_E48ADDF461134F66A4713037C03108F5.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>WorkFlowMenagementMDI.exe</td><td>workfl_1_workflowmanagementsetup</td><td>##IDS_SHORTCUT_DISPLAY_NAME6##</td><td>WorkFlowMenagementMDI.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>WorkFlowMenagement_0301957E6B2249BE9D63701E24D67A69.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>WorkFlowMenagementMDI.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME6##</td><td>WorkFlowMenagementMDI.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>WorkFlowMenagement_EB682D863FF742639DA288973CBD4A82.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">

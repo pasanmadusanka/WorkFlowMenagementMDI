@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using WorkFlowMenagementMDI.FuelApp.Methods;
+using WorkFlowMenagementMDI.FuelApp.Views.Reports;
 
 namespace WorkFlowMenagementMDI.FuelApp.Views.StockMovement
 {
@@ -79,8 +80,11 @@ namespace WorkFlowMenagementMDI.FuelApp.Views.StockMovement
         private void BtnPrintReport_Click(object sender, EventArgs e)
         {
             string id = "stockMovement";
-            StockMovementReportView report = new StockMovementReportView(id);
-            report.ShowDialog();
+            //StockMovementReportView report = new StockMovementReportView(id);
+            //report.ShowDialog();
+            DateSelection reptView = new DateSelection(id);
+            reptView.ShowDialog();
+
         }//Views\StockMovement\FuelStkReport.rpt
 
         private void DTPToDate_ValueChanged(object sender, EventArgs e)

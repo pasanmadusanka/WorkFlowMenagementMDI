@@ -155,5 +155,44 @@ FROM GPS_TRACKING_VEHICLE_DEVICE", conn);
             { conn.Close(); }
             return ds;
         }
+
+        public DataSet GetSendMessages()
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                if (conn.State.ToString() == "Closed")
+                { conn.Open(); }
+                SqlCommand sqlcmd = new SqlCommand(@"SELECT [SMS_CODE_NO] ,[SMS_CATEGORY],[SMS_MOBILE_NO],[SMS_DISCRIPTION]
+      ,[SMS_GENERATE_DATE] ,[SMS_STATUS] ,[SMS_DELIVERY_DATE_TIME] FROM [NelnaDB].[dbo].[SMS_SENDING_HEADER]
+        order by cast(SMS_CODE_NO as int) desc", conn);
+
+                SqlDataAdapter da = new SqlDataAdapter(sqlcmd);
+                da.Fill(ds, "trkvhi");
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            finally
+            { conn.Close(); }
+            return ds;
+        }
+
+        public DataSet GetStkMove()
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                if (conn.State.ToString() == "Closed")
+                { conn.Open(); }
+                SqlCommand sqlcmd = new SqlCommand(@"SELECT FIN_DOC_INDEX, FIN_DOC_DATE, FIN_DOC_TIME, FIN_REFARANCE, FIN_OPEN_BAL, FIN_RECIVED, FIN_OUT, FIN_CLOSED_BALANCE, USER_CODE, TERMINAL_NAME
+                FROM FUEL_TMP_STK_MOVEMENT_TBL", conn);
+
+                SqlDataAdapter da = new SqlDataAdapter(sqlcmd);
+                da.Fill(ds, "trkvhi");
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            finally
+            { conn.Close(); }
+            return ds;
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace WorkFlowMenagementMDI.Tracking.Reports
     {
         ReportFilterMethods db = new ReportFilterMethods();
         ItineraryPlanWeeklyReportM itinerary = new ItineraryPlanWeeklyReportM();
-        private string _fromDate, _toDate, _officer, _repName, _trackName, _itinaryType,_wipCode;
+        private string _fromDate, _toDate, _officer, _repName, _trackName, _itinaryType, _wipCode, _query;
         private int _officerID, _wipID;//,_repID,_trackID
         public ReportViewerFarmer(string itinaryType, int officerID, int wipID)
         {
@@ -33,11 +33,12 @@ namespace WorkFlowMenagementMDI.Tracking.Reports
         {
             InitializeComponent();
         }
-        public ReportViewerFarmer(int wipID,string wipCode)
+        public ReportViewerFarmer(int wipID,string wipCode,string query)
         {
             InitializeComponent();
             this._wipID = wipID;
             this._wipCode = wipCode;
+            this._query = query;
             LoadReportWIPSeries();
         }
 
@@ -206,10 +207,11 @@ namespace WorkFlowMenagementMDI.Tracking.Reports
             {
             DataTable dt = itinerary.GetDataToReport(_wipID, _officerID);
             DataRow dr = dt.Rows[0];
-            string wipFromD, wipToD, wipOfficer;
+            string wipFromD, wipToD, wipOfficer,wipCode;
             wipFromD = dr["fromDat"].ToString();
             wipToD = dr["toDat"].ToString();
             wipOfficer = dr["fieldOff"].ToString();
+            wipCode = dr["wipCode"].ToString();
 
             ItineraryPlanDataSet VisitDataSet = new ItineraryPlanDataSet();
 
@@ -246,6 +248,8 @@ namespace WorkFlowMenagementMDI.Tracking.Reports
                 fromD.Text = wipFromD;
                 TextObject toDay = (TextObject)crystalReport.ReportDefinition.Sections["Section1"].ReportObjects["CrToDatTxt"];
                 toDay.Text = wipToD;
+                TextObject getWIP = (TextObject)crystalReport.ReportDefinition.Sections["Section1"].ReportObjects["WIPNoTxt"];
+                getWIP.Text = wipCode;
                 TextObject headerTxt = (TextObject)crystalReport.ReportDefinition.Sections["Section1"].ReportObjects["VisitHeader"];
                 if (_itinaryType == "itinary") { headerTxt.Text = wipOfficer + " Itinerary Actual Visits"; }
                 else if (_itinaryType == "missItinary") { headerTxt.Text = wipOfficer + " Itinerary Missed Visits"; }
@@ -262,7 +266,7 @@ namespace WorkFlowMenagementMDI.Tracking.Reports
             {
                 WIPDataSet wipSeriesDataSet = new WIPDataSet();
 
-                wipSeriesDataSet = itinerary.GetWIPSereas(_wipID);
+                wipSeriesDataSet = itinerary.GetWIPSereas(_wipID,_query);
 
                 crystalReport.SetDataSource(wipSeriesDataSet);
                 this.CRViewerGeo.ReportSource = crystalReport;
