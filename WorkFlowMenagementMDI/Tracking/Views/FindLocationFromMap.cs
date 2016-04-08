@@ -101,7 +101,7 @@ namespace WorkFlowMenagementMDI.Tracking.Views
             StreamReader srFooter = new StreamReader(root + "/LocationsTextFooterParkingDriveWay.txt");
             String footer = srFooter.ReadToEnd();
             sr.Close();
-            BrowserLocation.DocumentText = header + "/n/n" + locations + "/n/n" + footer; 
+            BrowserLocation.DocumentText = header + "\r\n" + locations + "\r\n" + footer; 
         }//Load map to the browser with Driving Rout view;
 
         public void WrightLoactionsToText()
